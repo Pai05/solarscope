@@ -7,6 +7,7 @@ from backend.geometry import (
     OBSTRUCTION,
     ROOF,
     area_m2,
+    crop_to_box,
     gsd_from_calibration,
     gsd_from_web_mercator,
     layout_panels,
@@ -85,6 +86,13 @@ def test_obstruction_inside_roof_does_not_create_setback():
     m[100:110, 100:110] = OBSTRUCTION
     u = usable_area_mask(m, 0.1, setback_m=1.0, obstruction_buffer_m=0.0)
     assert u[99, 105]
+
+
+def test_crop_to_box_splits_touching_roofs():
+    m = roof(100, 200)  # two buildings sharing a wall: one connected region
+    out = crop_to_box(m, (150, 100, 0, 0))  # corners in any order
+    assert out[:, :150].all() and not out[:, 150:].any()
+    assert crop_to_box(m, None) is m
 
 
 def test_select_roof_keeps_clicked_building():

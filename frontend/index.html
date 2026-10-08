@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SolarScope</title>
   <meta name="description" content="Rooftop solar potential from aerial images of cluttered Indian rooftops.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%E2%98%80%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -83,8 +84,9 @@
           <button class="tool active" data-tool="1">Roof</button>
           <button class="tool" data-tool="2">Obstruction</button>
           <button class="tool" data-tool="0">Erase</button>
-          <button class="tool" data-tool="point" title="Click the roof you want to analyse">Pick my roof</button>
+          <button class="tool" data-tool="point" title="Drag a box around your roof, or click it">Pick my roof</button>
         </div>
+        <p class="muted small">Pick my roof: drag a box around your building (or click it).</p>
         <label>Brush size <span id="brushVal"></span>
           <input type="range" id="brush" min="2" max="60" value="10">
         </label>

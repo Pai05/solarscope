@@ -81,7 +81,7 @@ def build_report(req: ReportRequest) -> dict:
     if mask.max(initial=0) > geometry.OBSTRUCTION:
         raise HTTPException(400, "mask values must be 0, 1 or 2.")
 
-    mask = geometry.select_roof(mask, req.roof_point)
+    mask = geometry.select_roof(geometry.crop_to_box(mask, req.roof_box), req.roof_point)
     usable = geometry.usable_area_mask(mask, req.gsd_m, req.setback_m, req.obstruction_buffer_m)
     layout = geometry.layout_panels(usable, req.gsd_m, req.panel_w_m, req.panel_h_m)
     capacity_kw = layout.count * req.panel_wp / 1000

@@ -22,6 +22,8 @@ const state = {
   brush: 10,
   undo: [],
   roofPoint: null,
+  roofBox: null,      // [x0, y0, x1, y1] area to analyse
+  boxStart: null,
   calib: null,        // {a, b} while calibrating
   calibrating: false,
   painting: false,
@@ -91,7 +93,7 @@ async function loadImage(blob, meta = {}) {
 
   Object.assign(state, {
     w, h, resize: k, mask: new Uint8Array(w * h), overlay: octx.createImageData(w, h),
-    undo: [], roofPoint: null, panels: [], calib: null, calibrating: false,
+    undo: [], roofPoint: null, roofBox: null, panels: [], calib: null, calibrating: false,
   });
   state.imgBlob = await new Promise((res) => imgCv.toBlob(res, "image/png"));
 
@@ -205,6 +207,14 @@ function render() {
       octx.strokeRect(x + lw / 2, y + lw / 2, w - lw, h - lw);
     }
   }
+  if (state.roofBox) {
+    const [x0, y0, x1, y1] = state.roofBox;
+    octx.setLineDash([lw * 6, lw * 4]);
+    octx.strokeStyle = "#2563eb";
+    octx.lineWidth = lw * 2.5;
+    octx.strokeRect(Math.min(x0, x1), Math.min(y0, y1), Math.abs(x1 - x0), Math.abs(y1 - y0));
+    octx.setLineDash([]);
+  }
   if (state.roofPoint) {
     const [x, y] = state.roofPoint;
     octx.beginPath();
@@ -281,10 +291,10 @@ ovCv.addEventListener("pointerdown", (e) => {
     return;
   }
   if (state.tool === "point") {
-    state.roofPoint = [Math.round(p.x), Math.round(p.y)];
-    markStale();
-    render();
-    setStatus("Roof selected. Only this building will be analysed.");
+    state.boxStart = p;
+    state.roofBox = null;
+    state.roofPoint = null;
+    state.painting = true;
     return;
   }
   pushUndo();
@@ -299,6 +309,7 @@ ovCv.addEventListener("pointermove", (e) => {
   if (!state.painting) return;
   const p = pos(e);
   if (state.calibrating) state.calib.b = p;
+  else if (state.boxStart) state.roofBox = [state.boxStart.x, state.boxStart.y, p.x, p.y].map(Math.round);
   else strokeTo(p);
   scheduleRender();
 });
@@ -307,6 +318,20 @@ function endStroke() {
   if (!state.painting) return;
   state.painting = false;
   state.last = null;
+  if (state.boxStart) {
+    const a = state.boxStart;
+    state.boxStart = null;
+    markStale();
+    const b = state.roofBox;
+    if (!b || Math.abs(b[2] - b[0]) < 8 || Math.abs(b[3] - b[1]) < 8) {
+      state.roofBox = null;
+      state.roofPoint = [Math.round(a.x), Math.round(a.y)];
+      setStatus("Roof picked: only the connected roof under the dot is analysed. Roofs merged with neighbours? Drag a box instead.");
+    } else {
+      setStatus("Area selected: only roof inside the box is analysed.");
+    }
+    render();
+  }
   if (state.calibrating) {
     state.calibrating = false;
     $("#calibBox").hidden = false;
@@ -331,6 +356,7 @@ $("#undoBtn").addEventListener("click", () => {
 });
 $("#clearPointBtn").addEventListener("click", () => {
   state.roofPoint = null;
+  state.roofBox = null;
   markStale();
   render();
   setStatus("Analysing every roof in the image.");
@@ -374,6 +400,7 @@ $("#reportBtn").addEventListener("click", (e) => busy(e.currentTarget, "Laying o
     lat: num("#lat"),
     lon: num("#lon"),
     roof_point: state.roofPoint,
+    roof_box: state.roofBox,
     setback_m: num("#setback") ?? state.defaults?.setback_m,
     obstruction_buffer_m: num("#buffer") ?? state.defaults?.obstruction_buffer_m,
     panel_w_m: num("#panelW") ?? state.defaults?.panel_w_m,

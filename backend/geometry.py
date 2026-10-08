@@ -36,6 +36,19 @@ def area_m2(pixel_count: int, gsd_m: float) -> float:
 
 # --- masks -----------------------------------------------------------------------------------
 
+def crop_to_box(mask: np.ndarray, box: tuple[int, int, int, int] | None) -> np.ndarray:
+    """Set everything outside box (x0, y0, x1, y1) to background. Used when neighbouring
+    roofs touch and cannot be separated by connectivity."""
+    if box is None:
+        return mask
+    h, w = mask.shape
+    x0, x1 = sorted((max(0, min(w, box[0])), max(0, min(w, box[2]))))
+    y0, y1 = sorted((max(0, min(h, box[1])), max(0, min(h, box[3]))))
+    out = np.zeros_like(mask)
+    out[y0:y1, x0:x1] = mask[y0:y1, x0:x1]
+    return out
+
+
 def select_roof(mask: np.ndarray, point_xy: tuple[int, int] | None) -> np.ndarray:
     """Keep only the building whose roof contains point (x, y); everything else becomes background.
     No point, or a point off any roof: mask returned unchanged."""

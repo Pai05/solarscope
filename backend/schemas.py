@@ -22,6 +22,7 @@ class ReportRequest(BaseModel):
     lat: float | None = Field(default=None, ge=-90, le=90)
     lon: float | None = Field(default=None, ge=-180, le=180)
     roof_point: tuple[int, int] | None = Field(default=None, description="(x, y) on the roof to analyse")
+    roof_box: tuple[int, int, int, int] | None = Field(default=None, description="(x0, y0, x1, y1) area to analyse")
     setback_m: float = Field(default=PANEL_DEFAULTS["setback_m"], ge=0, le=5)
     obstruction_buffer_m: float = Field(default=PANEL_DEFAULTS["obstruction_buffer_m"], ge=0, le=3)
     panel_w_m: float = Field(default=PANEL_DEFAULTS["panel_w_m"], gt=0.3, le=4)
