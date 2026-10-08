@@ -51,6 +51,15 @@ exported as COCO and converted with `training/coco_to_masks.py`. Released with t
 | rasterio / GDAL | Reading OpenAerialMap GeoTIFFs | BSD-3-Clause / MIT |
 | pytest, httpx | Tests | MIT, BSD-3-Clause |
 
+## Official sources for economic inputs
+
+| Input | Source |
+|---|---|
+| Grid emission factor | Central Electricity Authority, CO2 Baseline Database for the Indian Power Sector, User Guide v22.0 (Aug 2026) |
+| Domestic tariff | APCPDCL Retail Supply Tariff FY 2025-26 (ARR brief note); APERC continuation for FY 2026-27 |
+| Subsidy | PM Surya Ghar: Muft Bijli Yojana, Union Cabinet approval, 29 Feb 2024 |
+| Benchmark cost | MNRE PM Surya Ghar guidelines (general category states) |
+
 ## Economic inputs
 
 Listed with their sources in `backend/solar_calc.py` and in the app's "Assumptions and sources" table.

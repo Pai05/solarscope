@@ -26,7 +26,7 @@ app = FastAPI(title="SolarScope")
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 segmenter = Segmenter()
 
-PANEL_SOURCE = "PLACEHOLDER - check against a real module datasheet"
+PANEL_SOURCE = "Waaree 540 Wp mono PERC, 2272 x 1133 mm (retailer listings) - confirm with manufacturer datasheet"
 LAYOUT_SOURCE = "configurable layout rule (not a regulation)"
 
 

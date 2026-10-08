@@ -24,33 +24,38 @@ class Assumption:
     verified: bool = False
 
 
-# --- PLACEHOLDERS: none of these are verified yet. See README "Assumptions to verify". ---
+# Checked 2026-10-08. Anything with verified=False is still a placeholder. See README "Assumptions and sources".
+_PMSG = ("PM Surya Ghar CFA (Cabinet approval 29 Feb 2024, pmindia.gov.in): Rs 30,000 for 1 kW, "
+         "60,000 for 2 kW, 78,000 for 3 kW or more")
 DEFAULT_ASSUMPTIONS: dict[str, Assumption] = {
     # Fallback only; normally replaced by NASA POWER ALLSKY_SFC_SW_DWN for the site's lat/lon.
     "ghi_kwh_m2_day": Assumption(
-        5.0, "kWh/m2/day", "PLACEHOLDER - replace with NASA POWER (power.larc.nasa.gov) for site"
+        5.0, "kWh/m2/day", "PLACEHOLDER fallback - NASA POWER is used when latitude/longitude are given"
     ),
     "performance_ratio": Assumption(
-        0.75, "fraction", "PLACEHOLDER - typical rooftop PV range, cite a source before use"
+        0.75, "fraction", "PLACEHOLDER - typical rooftop PV range, no single official source"
     ),
+    # Conservative: solar first offsets the most expensive units, so homes above 225 units/month save 8.75.
     "tariff_inr_per_kwh": Assumption(
-        7.0, "INR/kWh", "PLACEHOLDER - check state DISCOM residential tariff order"
+        6.0, "INR/kWh",
+        "APCPDCL (Vijayawada) LT-I Domestic, 126-225 units slab, FY 2025-26 tariff (ARR brief note); "
+        "226-400 units: 8.75. APERC kept FY 2025-26 tariffs for FY 2026-27", verified=True,
     ),
     "installed_cost_inr_per_kw": Assumption(
-        60000.0, "INR/kWp", "PLACEHOLDER - check MNRE / PM Surya Ghar benchmark cost"
+        50000.0, "INR/kWp",
+        "MNRE PM Surya Ghar benchmark, general category states: 50,000/kW up to 2 kW, 45,000/kW beyond "
+        "(Feb 2024 guidelines, as reported by pv magazine India); market quotes vary", verified=True,
     ),
-    # PM Surya Ghar central financial assistance: tiered per-kW with an overall cap.
-    "subsidy_tier1_inr_per_kw": Assumption(
-        30000.0, "INR/kW (first tier1_kw)", "PLACEHOLDER - verify at pmsuryaghar.gov.in"
-    ),
-    "subsidy_tier1_kw": Assumption(2.0, "kW", "PLACEHOLDER - verify at pmsuryaghar.gov.in"),
-    "subsidy_tier2_inr_per_kw": Assumption(
-        18000.0, "INR/kW (next tier2_kw)", "PLACEHOLDER - verify at pmsuryaghar.gov.in"
-    ),
-    "subsidy_tier2_kw": Assumption(1.0, "kW", "PLACEHOLDER - verify at pmsuryaghar.gov.in"),
-    "subsidy_cap_inr": Assumption(78000.0, "INR", "PLACEHOLDER - verify at pmsuryaghar.gov.in"),
+    # PM Surya Ghar central financial assistance: 60% of 2 kW benchmark, 40% of the 3rd kW, no CFA beyond 3 kW.
+    "subsidy_tier1_inr_per_kw": Assumption(30000.0, "INR/kW (first tier1_kw)", _PMSG, verified=True),
+    "subsidy_tier1_kw": Assumption(2.0, "kW", _PMSG, verified=True),
+    "subsidy_tier2_inr_per_kw": Assumption(18000.0, "INR/kW (next tier2_kw)", _PMSG + " (78,000 - 60,000)", verified=True),
+    "subsidy_tier2_kw": Assumption(1.0, "kW", _PMSG, verified=True),
+    "subsidy_cap_inr": Assumption(78000.0, "INR", _PMSG, verified=True),
     "grid_emission_kg_per_kwh": Assumption(
-        0.71, "kgCO2/kWh", "PLACEHOLDER - verify latest CEA CO2 Baseline Database"
+        0.675, "kgCO2/kWh",
+        "CEA CO2 Baseline Database v22.0 (Aug 2026), Table 4: weighted average, Indian grid, FY 2025-26, "
+        "incl. cross-border transfers", verified=True,
     ),
 }
 

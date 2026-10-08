@@ -9,6 +9,7 @@ from PIL import Image
 from backend import app as app_module
 from backend import irradiance
 from backend.app import app
+from backend.schemas import PANEL_DEFAULTS
 
 client = TestClient(app)
 
@@ -58,7 +59,7 @@ def test_report_on_square_roof():
     assert rep["areas_m2"]["obstructions"] == pytest.approx(4.0)
     assert rep["areas_m2"]["usable_after_setback"] < rep["areas_m2"]["roof_free"]
     assert rep["panel_count"] > 0
-    assert rep["capacity_kw"] == pytest.approx(rep["panel_count"] * 0.55)
+    assert rep["capacity_kw"] == pytest.approx(rep["panel_count"] * PANEL_DEFAULTS["panel_wp"] / 1000)
     assert rep["irradiance_source"] == "nasa_power"
     assert rep["assumptions"]["ghi_kwh_m2_day"]["source"] == "test irradiance"
     # Panels must not overlap the tank.

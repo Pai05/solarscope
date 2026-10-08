@@ -4,11 +4,12 @@ from pydantic import BaseModel, Field
 
 MAX_SIDE = 2048
 
-# Layout defaults. Panel size and wattage are PLACEHOLDERS until checked against a real datasheet.
+# Layout defaults. Panel: a common 540 Wp mono PERC 144 half-cell module (Waaree 540 Wp, 2272 x 1133 mm per
+# retailer listings); still to be confirmed against the manufacturer's datasheet.
 PANEL_DEFAULTS = {
-    "panel_w_m": 2.0,
-    "panel_h_m": 1.1,
-    "panel_wp": 550.0,
+    "panel_w_m": 2.272,
+    "panel_h_m": 1.133,
+    "panel_wp": 540.0,
     "setback_m": 0.5,
     "obstruction_buffer_m": 0.3,
 }

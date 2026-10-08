@@ -19,7 +19,7 @@ Built for Environmental Hacks (WeMakeDevs x AWS), track: Waste and Energy (Rooft
 4. **Geometry** (`backend/geometry.py`): edge setback and obstruction buffer by Euclidean distance transform;
    greedy panel packing in both orientations and several row offsets, keeping the best.
 5. **Economics** (`backend/solar_calc.py`): irradiance from NASA POWER for the site → yield → savings,
-   tiered PM Surya Ghar style subsidy with cap → payback → CO₂.
+   tiered PM Surya Ghar subsidy with cap → payback → CO₂.
 
 ## Where AWS fits
 
@@ -78,20 +78,20 @@ Put a trained `solarscope.onnx` (+ `.json`) in `models/` to enable detection; wi
 2. `python training/coco_to_masks.py --coco <unzipped export> --preview` → `training/labels/` (check `training/labels_preview/`), commit and push.
 3. Open `training/train_colab.ipynb` in Colab (T4 GPU), run all, download `solarscope.onnx` and `solarscope.json`.
 
-## Assumptions to verify
+## Assumptions and sources
 
-All economic inputs live in `backend/solar_calc.py` (`DEFAULT_ASSUMPTIONS`). Each is shown in the report with its
-source and a verified flag. **Values marked unverified are placeholders.**
+All economic inputs live in `backend/solar_calc.py` (`DEFAULT_ASSUMPTIONS`) and are shown in the app's report
+with their source and a verified flag. Checked on 2026-10-08.
 
-| Key | Placeholder | Source to check |
-|---|---|---|
-| `ghi_kwh_m2_day` | 5.0 kWh/m²/day (fallback only) | NASA POWER per site (used automatically when lat/lon given) |
-| `performance_ratio` | 0.75 | Cite a published PR reference |
-| `tariff_inr_per_kwh` | 7.0 | State DISCOM residential tariff order |
-| `installed_cost_inr_per_kw` | 60,000 | MNRE / PM Surya Ghar benchmark cost |
-| `subsidy_tier1_*`, `subsidy_tier2_*`, `subsidy_cap_inr` | 30,000/kW × 2 kW, 18,000/kW × 1 kW, cap 78,000 | pmsuryaghar.gov.in (current guidelines) |
-| `grid_emission_kg_per_kwh` | 0.71 | CEA CO₂ Baseline Database (latest version) |
-| Panel 2.0 × 1.1 m, 550 Wp | layout default | A real module datasheet |
+| Input | Value | Source | Status |
+|---|---|---|---|
+| Solar irradiance | per site (e.g. 5.12 kWh/m²/day, Vijayawada) | [NASA POWER](https://power.larc.nasa.gov) climatology, `ALLSKY_SFC_SW_DWN` annual mean | ✅ live |
+| Tariff | ₹6.00/kWh (₹8.75 above 225 units/month) | [APCPDCL](https://apcpdcl.in/arrfilings/252026/ARR-Brief-Note.pdf) LT-I Domestic slabs FY 2025-26; APERC kept them for [FY 2026-27](https://mercomindia.com/andhra-pradesh-retains-existing-power-tariffs-for-fy-2027) | ✅ (conservative slab) |
+| Installed cost | ₹50,000/kWp | MNRE PM Surya Ghar benchmark, general category states, [pv magazine India](https://www.pv-magazine-india.com/2024/04/17/mnre-releases-draft-guidelines-for-residential-rooftop-solar-subsidy-scheme/) | ✅ (benchmark, not a quote) |
+| Subsidy | ₹30,000/kW for 2 kW + ₹18,000 for the 3rd kW, cap ₹78,000 | [PM Surya Ghar Cabinet approval](https://www.pmindia.gov.in/?p=16395970) (₹30k / 60k / 78k for 1 / 2 / 3+ kW) | ✅ |
+| Grid emission factor | 0.675 kgCO₂/kWh | [CEA CO₂ Baseline Database v22.0](https://cea.nic.in/wp-content/uploads/baseline/2026/09/User_Guide__Version_22.0.pdf) (Aug 2026), Table 4, FY 2025-26 | ✅ |
+| Panel | 2.272 × 1.133 m, 540 Wp | Waaree 540 Wp mono PERC, retailer listings | ⚠️ confirm with datasheet |
+| Performance ratio | 0.75 | typical rooftop value | ⚠️ placeholder |
 
 Simplifications: flush/low-tilt mounting (no inter-row shading spacing), no degradation or tariff escalation,
 simple payback.
