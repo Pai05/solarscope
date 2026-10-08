@@ -1,1 +1,2 @@
-# Runtime dependencies for the server (FastAPI, onnxruntime, ...) are added in later phases.
+fastapi>=0.115
+uvicorn[standard]>=0.30

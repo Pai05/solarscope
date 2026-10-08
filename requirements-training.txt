@@ -1,0 +1,4 @@
+# Local tile preparation only (not needed on the server).
+rasterio>=1.4
+numpy>=1.26
+pillow>=10
