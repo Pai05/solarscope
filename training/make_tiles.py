@@ -104,7 +104,7 @@ def make_tiles(row: dict, out_dir: Path, target_gsd: float, tile: int, max_tiles
 def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--sources", default=str(ROOT / "sources.csv"))
-    p.add_argument("--out", default=str(ROOT / "data" / "tiles"))
+    p.add_argument("--out", default=str(ROOT / "tiles"))
     p.add_argument("--only", nargs="*", help="source names to process")
     p.add_argument("--preview", action="store_true")
     p.add_argument("--gsd", type=float, default=0.1, help="target metres per pixel")
