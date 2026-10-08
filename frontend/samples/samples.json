@@ -1,0 +1,35 @@
+[
+ {
+  "file": "vjwd_015_003.png",
+  "title": "Dense block, Vijayawada",
+  "gsd_m": 0.1,
+  "lat": 16.534429,
+  "lon": 80.636127,
+  "license": "CC-BY 4.0",
+  "provider": "Bhuvan",
+  "source_title": "VJWD_FLOODS (Vijayawada; India)",
+  "source_url": "https://oin-hotosm-temp.s3.us-east-1.amazonaws.com/6808835dcd738b2388b1efaf/0/6808835dcd738b2388b1efb0.tif"
+ },
+ {
+  "file": "vjwd_035_007.png",
+  "title": "Roof with existing panels, Vijayawada",
+  "gsd_m": 0.1,
+  "lat": 16.53251,
+  "lon": 80.645722,
+  "license": "CC-BY 4.0",
+  "provider": "Bhuvan",
+  "source_title": "VJWD_FLOODS (Vijayawada; India)",
+  "source_url": "https://oin-hotosm-temp.s3.us-east-1.amazonaws.com/6808835dcd738b2388b1efaf/0/6808835dcd738b2388b1efb0.tif"
+ },
+ {
+  "file": "vjwd_028_015.png",
+  "title": "Residential street, Vijayawada",
+  "gsd_m": 0.1,
+  "lat": 16.528672,
+  "lon": 80.642364,
+  "license": "CC-BY 4.0",
+  "provider": "Bhuvan",
+  "source_title": "VJWD_FLOODS (Vijayawada; India)",
+  "source_url": "https://oin-hotosm-temp.s3.us-east-1.amazonaws.com/6808835dcd738b2388b1efaf/0/6808835dcd738b2388b1efb0.tif"
+ }
+]
