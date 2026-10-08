@@ -9,7 +9,7 @@ Why EC2 and not Lightsail: Lightsail instances cannot attach an IAM role, so S3 
 Billing -> Budgets -> Create budget -> "Zero spend" or a monthly cost budget of e.g. USD 10, with email alert.
 
 ## 1. S3 bucket for weights
-S3 -> Create bucket -> name e.g. `solarscope-<yourname>` in region `ap-south-1` (Mumbai). Keep "Block all public access" ON.
+S3 -> Create bucket -> name e.g. `solarscope-envi-hackathon` in region `ap-south-1` (Mumbai). Keep "Block all public access" ON.
 
 ## 2. IAM role for the instance
 IAM -> Roles -> Create role -> Trusted entity: **AWS service, EC2** -> no managed policy -> name `solarscope-ec2-role`.
@@ -19,8 +19,8 @@ Then on the role: Add permissions -> Create inline policy -> JSON (replace the b
 {
   "Version": "2012-10-17",
   "Statement": [
-    { "Effect": "Allow", "Action": ["s3:ListBucket"], "Resource": "arn:aws:s3:::solarscope-<yourname>" },
-    { "Effect": "Allow", "Action": ["s3:GetObject"], "Resource": "arn:aws:s3:::solarscope-<yourname>/*" }
+    { "Effect": "Allow", "Action": ["s3:ListBucket"], "Resource": "arn:aws:s3:::solarscope-envi-hackathon" },
+    { "Effect": "Allow", "Action": ["s3:GetObject"], "Resource": "arn:aws:s3:::solarscope-envi-hackathon/*" }
   ]
 }
 ```
@@ -64,3 +64,14 @@ curl -fsSL https://raw.githubusercontent.com/Pai05/solarscope/main/infra/setup.s
 ```bash
 sudo journalctl -u solarscope -f
 ```
+
+## Model weights (after training)
+1. S3 console -> bucket `solarscope-envi-hackathon` -> Create folder `models` -> upload `solarscope.onnx` and `solarscope.json`.
+2. On the server:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Pai05/solarscope/main/infra/setup.sh | sudo MODEL_S3_PREFIX=s3://solarscope-envi-hackathon/models bash
+```
+
+3. `http://<public-ip>/health` -> `{"status":"ok","model_loaded":true}`. The prefix is remembered in `/etc/solarscope.conf`,
+   so later updates only need the plain `curl ... | sudo bash`.
