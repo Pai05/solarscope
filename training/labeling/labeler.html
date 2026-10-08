@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SolarScope Labeller</title>
+<style>
+  :root { --bg:#16181d; --panel:#1f232b; --line:#323844; --text:#e6e8ec; --muted:#9aa3b2;
+          --roof:#3b9cff; --obs:#ff5a4f; --done:#3ccf7a; --null:#b48cff; --todo:#596273; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:14px/1.4 system-ui,Segoe UI,sans-serif;
+         display:grid; grid-template-columns:220px 1fr 300px; height:100vh; overflow:hidden; }
+  aside, section { padding:12px; overflow:auto; }
+  aside { background:var(--panel); border-right:1px solid var(--line); }
+  #side { background:var(--panel); border-left:1px solid var(--line); border-right:0; }
+  h2 { font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin:14px 0 6px; }
+  #list div { padding:3px 6px; border-radius:4px; cursor:pointer; display:flex; gap:6px; align-items:center;
+              font-family:ui-monospace,Consolas,monospace; font-size:12px; }
+  #list div:hover { background:#2a2f39; }
+  #list div.cur { background:#34404f; }
+  .dot { width:8px; height:8px; border-radius:50%; flex:none; background:var(--todo); }
+  .dot.done { background:var(--done); } .dot.null { background:var(--null); } .dot.wip { background:#e0b341; }
+  main { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; overflow:auto; }
+  canvas { background:#000; cursor:crosshair; image-rendering:pixelated; }
+  .bar { display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
+  button { background:#2a2f39; color:var(--text); border:1px solid var(--line); border-radius:5px;
+           padding:5px 9px; cursor:pointer; font:inherit; }
+  button:hover { border-color:#5b6576; }
+  button.on { outline:2px solid #fff; }
+  button.roof { border-color:var(--roof); } button.obs { border-color:var(--obs); }
+  button.primary { background:#245c3c; border-color:var(--done); }
+  kbd { background:#2a2f39; border:1px solid var(--line); border-radius:3px; padding:0 4px; font-size:12px; }
+  table { border-collapse:collapse; width:100%; font-size:12px; }
+  td { border-top:1px solid var(--line); padding:3px 2px; vertical-align:top; }
+  #status { color:var(--muted); min-height:1.4em; }
+  #shapes div { display:flex; justify-content:space-between; padding:2px 4px; border-radius:3px; cursor:pointer; font-size:12px; }
+  #shapes div.sel { background:#34404f; }
+  label { color:var(--muted); font-size:12px; }
+</style>
+</head>
+<body>
+<aside>
+  <div id="progress"></div>
+  <h2>Tiles</h2>
+  <div id="list"></div>
+</aside>
+
+<main>
+  <div class="bar">
+    <strong id="title"></strong>
+    <span id="tstatus" style="color:var(--muted)"></span>
+  </div>
+  <canvas id="cv" width="768" height="768"></canvas>
+  <div class="bar">
+    <button id="bRoof" class="roof">1 · roof</button>
+    <button id="bObs" class="obs">2 · obstruction</button>
+    <span style="width:12px"></span>
+    <button id="tPoly">P · polygon</button>
+    <button id="tSmart">S · smart</button>
+    <button id="tEdit">V · select/edit</button>
+    <label>smart tolerance <input id="tol" type="range" min="4" max="50" value="18"> <span id="tolv">18</span></label>
+  </div>
+  <div class="bar">
+    <button id="bPrev">← prev</button>
+    <button id="bNull">N · mark null</button>
+    <button id="bDone" class="primary">D · done &amp; next</button>
+    <button id="bNext">next →</button>
+    <span style="width:12px"></span>
+    <button id="bExport">Export COCO</button>
+  </div>
+  <div id="status"></div>
+</main>
+
+<section id="side">
+  <h2>Shapes on this tile</h2>
+  <div id="shapes"></div>
+  <h2>Keys</h2>
+  <table>
+    <tr><td>click</td><td>add point (polygon)</td></tr>
+    <tr><td>smart: drag box</td><td>outline the roof inside the box (best for concrete)</td></tr>
+    <tr><td>smart: click</td><td>flood-fill similar colour (best for sheet roofs)</td></tr>
+    <tr><td><kbd>Enter</kbd> / click 1st pt</td><td>close polygon</td></tr>
+    <tr><td><kbd>Backspace</kbd></td><td>remove last point</td></tr>
+    <tr><td><kbd>Esc</kbd></td><td>cancel drawing / deselect</td></tr>
+    <tr><td><kbd>Del</kbd></td><td>delete selected shape</td></tr>
+    <tr><td>drag vertex</td><td>move it (edit tool)</td></tr>
+    <tr><td>dbl-click edge</td><td>insert vertex (edit tool)</td></tr>
+    <tr><td>right-click vertex</td><td>delete vertex (edit tool)</td></tr>
+    <tr><td><kbd>Ctrl+Z</kbd></td><td>undo</td></tr>
+    <tr><td><kbd>H</kbd> (hold)</td><td>hide labels</td></tr>
+    <tr><td><kbd>←</kbd> <kbd>→</kbd></td><td>prev / next tile</td></tr>
+  </table>
+  <h2>Rules</h2>
+  <table>
+    <tr><td>Flat concrete roof incl. parapet</td><td>roof</td></tr>
+    <tr><td>Metal / asbestos sheet roof</td><td>roof</td></tr>
+    <tr><td>Shadow or blue tarp on a roof</td><td>roof</td></tr>
+    <tr><td>Water tank on roof</td><td>obstruction</td></tr>
+    <tr><td>Stairwell / small terrace room</td><td>obstruction</td></tr>
+    <tr><td>AC unit, dish (if visible)</td><td>obstruction</td></tr>
+    <tr><td>Existing solar panels</td><td>obstruction</td></tr>
+    <tr><td>Potted plants, clutter piles</td><td>obstruction</td></tr>
+    <tr><td>Clothesline, thin pipes, wires</td><td>ignore (roof)</td></tr>
+    <tr><td>Roof partly hidden by tree</td><td>visible part only</td></tr>
+    <tr><td>Ground tank/car, road, tree, water</td><td>nothing</td></tr>
+    <tr><td>Only water/road/rail/trees</td><td>mark null</td></tr>
+  </table>
+  <p style="color:var(--muted);font-size:12px">Include partial roofs cut by the tile edge. Draw roofs, then obstructions on top; obstructions always win in the mask.</p>
+</section>
+
+<script>
+const S = 3;                       // display scale: 256px tile -> 768px canvas
+const cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+const COLORS = { roof: '#3b9cff', obstruction: '#ff5a4f' };
+let tiles = [], labels = {}, idx = 0, img = new Image();
+let shapes = [], status = 'todo', cls = 'roof', tool = 'poly';
+let draft = [], mouse = null, selected = -1, dragging = null, boxStart = null, hide = false, undo = [];
+
+const $ = id => document.getElementById(id);
+const say = m => { $('status').textContent = m; };
+
+async function init() {
+  const r = await fetch('/api/state').then(r => r.json());
+  tiles = r.tiles; labels = r.labels;
+  const first = tiles.findIndex(t => !labels[t] || !['done', 'null'].includes(labels[t].status));
+  open(first < 0 ? 0 : first);
+}
+
+function open(i) {
+  idx = (i + tiles.length) % tiles.length;
+  const name = tiles[idx], e = labels[name] || {};
+  shapes = JSON.parse(JSON.stringify(e.shapes || []));
+  status = e.status || 'todo';
+  draft = []; selected = -1; undo = [];
+  img = new Image(); img.onload = draw; img.src = '/tiles/' + encodeURIComponent(name);
+  renderSide();
+}
+
+function renderSide() {
+  const name = tiles[idx];
+  $('title').textContent = `${name}  (${idx + 1}/${tiles.length})`;
+  $('tstatus').textContent = status;
+  const n = s => tiles.filter(t => labels[t] && labels[t].status === s).length;
+  $('progress').innerHTML = `<b>${n('done') + n('null')}</b> / ${tiles.length} finished<br>` +
+    `<span style="color:var(--muted)">${n('done')} labelled · ${n('null')} null</span>`;
+  $('list').innerHTML = tiles.map((t, i) => {
+    const s = labels[t] ? labels[t].status : 'todo';
+    const c = s === 'done' ? 'done' : s === 'null' ? 'null' : (labels[t] && labels[t].shapes.length ? 'wip' : '');
+    return `<div class="${i === idx ? 'cur' : ''}" data-i="${i}"><span class="dot ${c}"></span>${t}</div>`;
+  }).join('');
+  $('list').querySelector('.cur')?.scrollIntoView({ block: 'nearest' });
+  $('shapes').innerHTML = shapes.map((s, i) =>
+    `<div class="${i === selected ? 'sel' : ''}" data-i="${i}"><span style="color:${COLORS[s.label]}">${s.label}</span>` +
+    `<span style="color:var(--muted)">${s.points.length} pts</span></div>`).join('') ||
+    '<span style="color:var(--muted)">none yet</span>';
+  $('bRoof').classList.toggle('on', cls === 'roof');
+  $('bObs').classList.toggle('on', cls === 'obstruction');
+  $('tPoly').classList.toggle('on', tool === 'poly');
+  $('tSmart').classList.toggle('on', tool === 'smart');
+  $('tEdit').classList.toggle('on', tool === 'edit');
+}
+
+function draw() {
+  ctx.imageSmoothingEnabled = false;
+  ctx.drawImage(img, 0, 0, cv.width, cv.height);
+  if (!hide) {
+    // roofs under obstructions, same order the mask converter uses
+    const order = [...shapes.keys()].sort((a, b) =>
+      (shapes[a].label === 'obstruction') - (shapes[b].label === 'obstruction'));
+    for (const i of order) poly(shapes[i].points, COLORS[shapes[i].label], i === selected, true);
+    if (draft.length) {
+      const pts = mouse ? [...draft, mouse] : draft;
+      poly(pts, COLORS[cls], true, false);
+    }
+  }
+  if (status === 'null') {
+    ctx.fillStyle = 'rgba(180,140,255,.25)'; ctx.fillRect(0, 0, cv.width, cv.height);
+    ctx.fillStyle = '#fff'; ctx.font = 'bold 28px system-ui'; ctx.fillText('NULL (no roof)', 20, 44);
+  }
+}
+
+function poly(pts, color, showVerts, closed) {
+  if (!pts.length) return;
+  ctx.beginPath();
+  pts.forEach(([x, y], k) => k ? ctx.lineTo(x * S, y * S) : ctx.moveTo(x * S, y * S));
+  if (closed) { ctx.closePath(); ctx.fillStyle = color + '55'; ctx.fill(); }
+  ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.stroke();
+  if (showVerts) for (const [x, y] of pts) {
+    ctx.fillStyle = '#fff'; ctx.fillRect(x * S - 3, y * S - 3, 6, 6);
+    ctx.strokeStyle = color; ctx.strokeRect(x * S - 3, y * S - 3, 6, 6);
+  }
+}
+
+const pos = ev => {
+  const r = cv.getBoundingClientRect();
+  const x = (ev.clientX - r.left) * cv.width / r.width / S, y = (ev.clientY - r.top) * cv.height / r.height / S;
+  return [Math.max(0, Math.min(256, +x.toFixed(1))), Math.max(0, Math.min(256, +y.toFixed(1)))];
+};
+const near = (a, b, px = 7) => Math.hypot((a[0] - b[0]) * S, (a[1] - b[1]) * S) < px;
+
+function inside([x, y], pts) {
+  let c = false;
+  for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) {
+    const [xi, yi] = pts[i], [xj, yj] = pts[j];
+    if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) c = !c;
+  }
+  return c;
+}
+
+function snapshot() { undo.push(JSON.stringify(shapes)); if (undo.length > 100) undo.shift(); }
+
+let saveTimer = null;
+function changed() {
+  if (status === 'null' && shapes.length) status = 'todo';
+  draw(); renderSide();
+  clearTimeout(saveTimer); saveTimer = setTimeout(save, 300);
+}
+async function save() {
+  clearTimeout(saveTimer);
+  const name = tiles[idx];
+  labels[name] = { status, shapes: JSON.parse(JSON.stringify(shapes)) };
+  const r = await fetch('/api/save', { method: 'POST', body: JSON.stringify({ tile: name, status, shapes }) });
+  if (!r.ok) say('save failed: ' + (await r.text()));
+  renderSide();
+}
+
+function finishDraft() {
+  if (draft.length < 3) { say('a polygon needs at least 3 points'); return; }
+  snapshot(); shapes.push({ label: cls, points: draft }); draft = []; selected = -1; changed();
+}
+
+cv.addEventListener('mousemove', ev => {
+  mouse = pos(ev);
+  if (dragging) { shapes[dragging.s].points[dragging.v] = mouse; draw(); return; }
+  if (boxStart) {
+    draw(); ctx.strokeStyle = '#ffd400'; ctx.setLineDash([5, 4]);
+    ctx.strokeRect(boxStart[0] * S, boxStart[1] * S, (mouse[0] - boxStart[0]) * S, (mouse[1] - boxStart[1]) * S);
+    ctx.setLineDash([]); return;
+  }
+  if (draft.length) draw();
+});
+cv.addEventListener('mousedown', async ev => {
+  if (ev.button !== 0) return;
+  const p = pos(ev);
+  if (tool === 'poly') {
+    if (draft.length >= 3 && near(p, draft[0])) return finishDraft();
+    draft.push(p); draw();
+  } else if (tool === 'smart') {
+    boxStart = p;
+  } else {
+    if (selected >= 0) {
+      const v = shapes[selected].points.findIndex(q => near(p, q));
+      if (v >= 0) { snapshot(); dragging = { s: selected, v }; return; }
+    }
+    // pick topmost shape: obstructions first, then smaller areas
+    const hits = shapes.map((s, i) => i).filter(i => inside(p, shapes[i].points));
+    hits.sort((a, b) => (shapes[b].label === 'obstruction') - (shapes[a].label === 'obstruction') || area(shapes[a].points) - area(shapes[b].points));
+    selected = hits.length ? hits[0] : -1; draw(); renderSide();
+  }
+});
+window.addEventListener('mouseup', async () => {
+  if (dragging) { dragging = null; changed(); }
+  if (!boxStart) return;
+  const a = boxStart.map(v => Math.min(255, Math.floor(v))), b = (mouse || boxStart).map(v => Math.min(255, Math.floor(v)));
+  boxStart = null;
+  const isBox = Math.abs(a[0] - b[0]) * S > 12 && Math.abs(a[1] - b[1]) * S > 12;
+  const q = isBox ? `x=${a[0]}&y=${a[1]}&x1=${b[0]}&y1=${b[1]}` : `x=${a[0]}&y=${a[1]}&tol=${$('tol').value}`;
+  say(isBox ? 'segmenting box…' : 'finding region…');
+  const r = await fetch(`/api/smart?tile=${encodeURIComponent(tiles[idx])}&${q}`).then(r => r.json());
+  if (!r.points || r.points.length < 3) { say('no region found — try a tighter box, another tolerance, or the polygon tool'); draw(); return; }
+  snapshot(); shapes.push({ label: cls, points: r.points }); selected = shapes.length - 1;
+  say(`smart ${cls}: ${r.points.length} pts — press V to fix vertices, Ctrl+Z to discard`); changed();
+});
+cv.addEventListener('dblclick', ev => {
+  if (tool !== 'edit' || selected < 0) return;
+  const p = pos(ev), pts = shapes[selected].points;
+  let best = -1, bd = 1e9;
+  for (let i = 0; i < pts.length; i++) {
+    const d = segDist(p, pts[i], pts[(i + 1) % pts.length]);
+    if (d < bd) { bd = d; best = i; }
+  }
+  if (bd * S < 10) { snapshot(); pts.splice(best + 1, 0, p); changed(); }
+});
+cv.addEventListener('contextmenu', ev => {
+  ev.preventDefault();
+  if (tool !== 'edit' || selected < 0) return;
+  const pts = shapes[selected].points, v = pts.findIndex(q => near(pos(ev), q));
+  if (v >= 0 && pts.length > 3) { snapshot(); pts.splice(v, 1); changed(); }
+});
+
+function area(pts) { let a = 0; pts.forEach(([x, y], i) => { const [u, w] = pts[(i + 1) % pts.length]; a += x * w - u * y; }); return Math.abs(a / 2); }
+function segDist([px, py], [ax, ay], [bx, by]) {
+  const dx = bx - ax, dy = by - ay, t = Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / (dx * dx + dy * dy || 1)));
+  return Math.hypot(px - ax - t * dx, py - ay - t * dy);
+}
+
+function setCls(c) {
+  cls = c;
+  if (selected >= 0 && tool === 'edit') { snapshot(); shapes[selected].label = c; changed(); }
+  renderSide(); draw();
+}
+function setTool(t) { tool = t; draft = []; if (t !== 'edit') selected = -1; renderSide(); draw(); }
+async function go(d) { await save(); open(idx + d); }
+async function markDone() {
+  if (!shapes.length) { say('no shapes — use "mark null" for tiles with no roof'); return; }
+  status = 'done'; await save(); open(idx + 1);
+}
+async function markNull() {
+  // clears any draft shapes: a null tile means "no roof anywhere"
+  shapes = []; status = 'null'; await save(); open(idx + 1);
+}
+
+$('bRoof').onclick = () => setCls('roof');
+$('bObs').onclick = () => setCls('obstruction');
+$('tPoly').onclick = () => setTool('poly');
+$('tSmart').onclick = () => setTool('smart');
+$('tEdit').onclick = () => setTool('edit');
+$('bPrev').onclick = () => go(-1);
+$('bNext').onclick = () => go(1);
+$('bDone').onclick = markDone;
+$('bNull').onclick = markNull;
+$('tol').oninput = () => { $('tolv').textContent = $('tol').value; };
+$('bExport').onclick = async () => {
+  await save();
+  const r = await fetch('/api/export', { method: 'POST' }).then(r => r.json());
+  say(r.ok ? 'exported to ' + r.path : 'export failed');
+};
+$('list').onclick = ev => { const d = ev.target.closest('[data-i]'); if (d) save().then(() => open(+d.dataset.i)); };
+$('shapes').onclick = ev => { const d = ev.target.closest('[data-i]'); if (d) { tool = 'edit'; selected = +d.dataset.i; renderSide(); draw(); } };
+
+window.addEventListener('keydown', ev => {
+  if (ev.target.tagName === 'INPUT') return;
+  const k = ev.key;
+  if ((ev.ctrlKey || ev.metaKey) && k.toLowerCase() === 'z') {
+    if (undo.length) { shapes = JSON.parse(undo.pop()); selected = -1; changed(); }
+    ev.preventDefault(); return;
+  }
+  if (k === '1') setCls('roof');
+  else if (k === '2') setCls('obstruction');
+  else if (k === 'p' || k === 'P') setTool('poly');
+  else if (k === 's' || k === 'S') setTool('smart');
+  else if (k === 'v' || k === 'V') setTool('edit');
+  else if (k === 'Enter') { if (draft.length) finishDraft(); }
+  else if (k === 'Backspace') { if (draft.length) { draft.pop(); draw(); } ev.preventDefault(); }
+  else if (k === 'Escape') { draft = []; selected = -1; draw(); renderSide(); }
+  else if (k === 'Delete') { if (selected >= 0) { snapshot(); shapes.splice(selected, 1); selected = -1; changed(); } }
+  else if (k === 'h' || k === 'H') { hide = true; draw(); }
+  else if (k === 'ArrowRight') go(1);
+  else if (k === 'ArrowLeft') go(-1);
+  else if (k === 'd' || k === 'D') markDone();
+  else if (k === 'n' || k === 'N') markNull();
+});
+window.addEventListener('keyup', ev => { if (ev.key === 'h' || ev.key === 'H') { hide = false; draw(); } });
+window.addEventListener('beforeunload', () => {
+  navigator.sendBeacon('/api/save', JSON.stringify({ tile: tiles[idx], status, shapes }));
+});
+
+init();
+</script>
+</body>
+</html>

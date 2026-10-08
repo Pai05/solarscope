@@ -28,3 +28,6 @@ training/runs/
 Thumbs.db
 .vscode/
 .idea/
+
+# Label overlay previews (regenerate with coco_to_masks.py --preview)
+training/labels_preview/
