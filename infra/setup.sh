@@ -1,12 +1,19 @@
 #!/usr/bin/env bash
 # One-shot install of SolarScope on a fresh Ubuntu 24.04 EC2 instance.
-# Re-running is safe: it pulls the latest code and restarts the service.
+# Re-running is safe: it pulls the latest code, re-downloads the model and restarts the service.
 #   curl -fsSL https://raw.githubusercontent.com/Pai05/solarscope/main/infra/setup.sh | sudo bash
+# With model weights from S3 (remembered for later runs):
+#   curl -fsSL .../infra/setup.sh | sudo MODEL_S3_PREFIX=s3://<bucket>/models bash
 set -euo pipefail
 
 REPO_URL="${REPO_URL:-https://github.com/Pai05/solarscope.git}"
 APP_DIR=/opt/solarscope
 APP_USER=solarscope
+CONF=/etc/solarscope.conf
+
+[ -f "$CONF" ] && . "$CONF"
+MODEL_S3_PREFIX="${MODEL_S3_PREFIX:-}"
+[ -n "$MODEL_S3_PREFIX" ] && echo "MODEL_S3_PREFIX=$MODEL_S3_PREFIX" > "$CONF"
 
 echo "== packages"
 apt-get update -y
@@ -36,6 +43,17 @@ else
   git clone "$REPO_URL" "$APP_DIR"
 fi
 chown -R "$APP_USER:$APP_USER" "$APP_DIR"
+
+echo "== model weights"
+if [ -n "$MODEL_S3_PREFIX" ]; then
+  # Runs as root with the instance role; no access keys on disk.
+  mkdir -p "$APP_DIR/models"
+  aws s3 cp "${MODEL_S3_PREFIX%/}/solarscope.onnx" "$APP_DIR/models/solarscope.onnx"
+  aws s3 cp "${MODEL_S3_PREFIX%/}/solarscope.json" "$APP_DIR/models/solarscope.json" || true
+  chown -R "$APP_USER:$APP_USER" "$APP_DIR/models"
+else
+  echo "MODEL_S3_PREFIX not set: running without a model (manual painting still works)"
+fi
 
 echo "== python venv"
 sudo -u "$APP_USER" python3 -m venv "$APP_DIR/.venv"
