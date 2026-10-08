@@ -33,18 +33,28 @@ Deploy guide: [`infra/DEPLOY.md`](infra/DEPLOY.md).
 
 ## Model results
 
-_Filled in after training: per-class IoU on the held-out tiles, see `models/solarscope.json` and
-`models/val_preview.png`._
+U-Net (ResNet-34, ImageNet encoder) trained for 40 epochs (10 min on a laptop CPU) on 65 hand-labelled
+256 px tiles (273 roof and 89 obstruction polygons, 11 background-only tiles); evaluated on 13 held-out tiles.
 
-| Class | IoU |
+| Class | IoU (held-out) |
 |---|---|
-| Background | TBD |
-| Roof | TBD |
-| Obstruction | TBD |
+| Background | 0.71 |
+| Roof | 0.58 |
+| Obstruction | 0.24 |
+| **Mean** | **0.51** |
 
-**Honest limits:** at 0.1 m/px a water tank is ~10 px wide and clearly visible; AC units (~6-9 px) and thin
-pipes are harder. The training set is small (tens of tiles, two cities). The brush is there because the
-model will make mistakes.
+![validation: image | ground truth | prediction](docs/val_preview.png)
+
+*Columns: image, hand label, prediction (green roof, red obstruction). Split in `docs/split.json`.*
+
+**Reading the numbers honestly:**
+- Roof IoU is pulled down partly by our own labels: several validation tiles have real roofs we did not
+  label, which the model does find (rows 2, 3, 6, 8 above) and which count as errors.
+- Obstruction IoU is low. The model finds large water tanks, stair rooms and existing solar arrays,
+  but misses small white tanks and AC units (~6-9 px at 0.1 m/px). That is why the app has a correction brush.
+- Small data: 78 tiles from two cities. Touching roofs of neighbouring buildings merge into one region.
+
+![demo samples: image | prediction with panel layout](docs/samples_prediction.jpg)
 
 ## Ground-truth check
 

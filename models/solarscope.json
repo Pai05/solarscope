@@ -1,0 +1,22 @@
+{
+ "arch": "U-Net resnet34",
+ "classes": [
+  "background",
+  "roof",
+  "obstruction"
+ ],
+ "gsd_m": 0.1,
+ "metrics": {
+  "miou": 0.5105,
+  "iou_background": 0.7069,
+  "iou_roof": 0.5847,
+  "iou_obstruction": 0.2399
+ },
+ "n_train": 65,
+ "n_val": 13,
+ "epochs": 40,
+ "encoder_weights": "imagenet",
+ "trained_at": "2026-10-08T12:30:35+00:00",
+ "train_minutes": 10.2,
+ "data": "OpenAerialMap CC-BY 4.0 (Vijayawada/Bhuvan, Dhaka/CSC), hand-labelled"
+}

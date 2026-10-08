@@ -31,3 +31,4 @@ Thumbs.db
 
 # Label overlay previews (regenerate with coco_to_masks.py --preview)
 training/labels_preview/
+models_cpu/
