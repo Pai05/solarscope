@@ -141,11 +141,20 @@ async function startAR(mode) {
   let lastHit = null, lastHitT = -1e9;
   const stats = { frames: 0, hitFrames: 0, selects: 0, presses: 0, placed: 0, tracked: 0, emulated: 0, rawResults: 0 };
 
-  let hitSource;
+  let hitSource, pointSource = null;
+  let hitKind = "";  // "plane" | "point" for the current / last good hit
   try {
     const viewerSpace = await session.requestReferenceSpace("viewer");
-    hitSource = await session.requestHitTestSource({ space: viewerSpace });
+    hitSource = await session.requestHitTestSource({ space: viewerSpace });  // default: planes
     diag("hit-test source ok");
+    // Fallback for phones / floors where ARCore never forms a plane: hits on tracked feature points
+    // (real textured spots on the surface). Used only in frames without a plane hit.
+    try {
+      pointSource = await session.requestHitTestSource({ space: viewerSpace, entityTypes: ["point"] });
+      diag("feature-point hit-test source ok");
+    } catch (e) {
+      diag(`feature-point hit-test unavailable: ${e.name} ${e.message}`);
+    }
   } catch (e) {
     diag(`hit-test source failed: ${e.name} ${e.message}`);
     $("#arMsg").textContent = `Surface detection could not start (${e.message}). Update "Google Play Services for AR" and Chrome.`;
@@ -336,7 +345,7 @@ async function startAR(mode) {
     }
     addPoint(current);
     stats.placed++;
-    diag(`placed point ${current.points.length} (${current.kind})`);
+    diag(`placed point ${current.points.length} (${current.kind}) via ${hitKind}`);
     navigator.vibrate?.(30);
     const n = current.points.length;
     if (mode === "length") {
@@ -363,9 +372,16 @@ async function startAR(mode) {
       stats.tracked++;
       if (viewerPose.emulatedPosition) stats.emulated++;
     }
-    const results = frame.getHitTestResults(hitSource);
+    let results = frame.getHitTestResults(hitSource);
+    let kind = "plane";
+    if (!results.length && pointSource) {  // fallback only when no plane is hit this frame
+      results = frame.getHitTestResults(pointSource);
+      kind = "point";
+      if (results.length) stats.pointHits = (stats.pointHits || 0) + 1;
+    }
     if (results.length) stats.rawResults++;
     const pose = results.length ? results[0].getPose(ref) : null;
+    if (pose) hitKind = kind;
     if (pose) {
       stats.hitFrames++;
       hit = results[0];
@@ -382,14 +398,15 @@ async function startAR(mode) {
     }
     while (recent.length && now - recent[0].t > STEADY_MS + HOLD_MS) recent.shift();
     const usable = now - lastHitT <= HOLD_MS;
-    track.textContent = hit ? "● Floor found: ready to place"
-      : usable ? "● Floor found (hold steady)" : "○ Searching for the floor… move slowly";
+    const kindLabel = hitKind === "plane" ? "floor plane (best)" : "feature point (less precise)";
+    track.textContent = hit ? `● Surface found: ${kindLabel}`
+      : usable ? `● Surface found (hold steady): ${kindLabel}` : "○ Searching for the floor… move slowly";
     track.classList.toggle("ok", usable);
     $("#arPlace").disabled = !current;  // never disabled by tracking flicker; placePoint explains if no surface
     if (now - lastReport > (now - t0 < 30000 ? 3000 : 10000)) {
       lastReport = now;
       diag(`frames ${stats.frames}, tracked ${stats.tracked} (emulated ${stats.emulated}), hit results ${stats.rawResults}, `
-        + `floor hits ${stats.hitFrames}, presses ${stats.presses}, taps ${stats.selects}, placed ${stats.placed}`);
+        + `surface hits ${stats.hitFrames} (feature-point ${stats.pointHits || 0}), presses ${stats.presses}, taps ${stats.selects}, placed ${stats.placed}`);
       if (stats.frames > 150 && !stats.tracked) {
         track.textContent = "○ Phone is not tracking: check ARCore / camera";
       }
@@ -410,6 +427,7 @@ async function startAR(mode) {
     diag(`session end: ${JSON.stringify(stats)}`);
     renderer.setAnimationLoop(null);
     hitSource.cancel?.();
+    pointSource?.cancel?.();
     renderer.dispose();
     renderer.domElement.remove();
     overlay.hidden = true;
