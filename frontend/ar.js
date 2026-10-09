@@ -1,16 +1,22 @@
-// AR wall measurement (WebXR immersive-ar + hit-test), used to calibrate the image scale.
-// Works in Chrome on ARCore Android phones over HTTPS. Elsewhere the button explains why and the
-// user types a length measured another way (tape, iPhone Measure app).
+// AR measuring with WebXR (immersive-ar + hit-test + dom-overlay, optional anchors), three.js r160.
+// Works in Chrome on ARCore Android phones over HTTPS (or an origin Chrome is told to treat as secure).
 //
-// Flow: tap the ground at the wall corners (several taps for long walls = segments), "Save length",
-// repeat ~3 times, "Use median" -> the median fills the calibration box and starts calibration.
+// Two modes:
+//   length (image page, #arBtn): tap the ends of one wall (extra taps = segments), save, repeat ~3x,
+//          "Use median" -> fills the calibration box of the image page.
+//   area   (scan page, #arScanBtn): tap every corner of the roof / house footprint, "Close shape",
+//          optionally "Add obstruction" and tap around each tank or stair room, "Finish" ->
+//          the shapes go to the floor plan (plan.js) which lays out panels.
+// Points are taken on detected surfaces (floor / ground). Coordinates returned in metres as [x, z]:
+// a top-down view with x to the right and z towards the user.
 
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
 
 const $ = (s) => document.querySelector(s);
-const SPREAD_WARN = 0.03;  // warn when repeats differ by more than 3% of the median
+const SPREAD_WARN = 0.03;  // warn when repeated lengths differ by more than 3% of the median
+const COLORS = { length: 0xf59e0b, roof: 0x22c55e, obstruction: 0xef4444 };
 
-// ---------- pure helpers (also used by tests) ----------
+// ---------- pure helpers (exported for tests) ----------
 
 export function polylineLength(points) {
   let total = 0;
@@ -27,6 +33,27 @@ export function summarize(values) {
   return { median, halfRange, relSpread: median > 0 ? halfRange / median : 0, n: s.length };
 }
 
+// Shoelace area of a polygon given as [[x, z], ...] (metres) -> m2.
+export function polygonArea(pts) {
+  let a = 0;
+  for (let i = 0; i < pts.length; i++) {
+    const [x1, z1] = pts[i], [x2, z2] = pts[(i + 1) % pts.length];
+    a += x1 * z2 - x2 * z1;
+  }
+  return Math.abs(a) / 2;
+}
+
+export function polygonPerimeter(pts) {
+  let p = 0;
+  for (let i = 0; i < pts.length; i++) {
+    const [x1, z1] = pts[i], [x2, z2] = pts[(i + 1) % pts.length];
+    p += Math.hypot(x2 - x1, z2 - z1);
+  }
+  return p;
+}
+
+const flat = (v) => [v.x, v.z];  // horizontal projection
+
 // ---------- availability ----------
 
 async function availability() {
@@ -40,18 +67,16 @@ async function availability() {
 }
 
 const REASONS = {
-  insecure: "AR measuring needs the secure https:// address of this site.",
-  unsupported: "AR measuring needs Chrome on an Android phone with ARCore. Otherwise measure the wall with a tape "
-    + "(or the iPhone Measure app) and type the length in the calibration box.",
+  insecure: "AR needs a secure (https://) address for this site.",
+  unsupported: "AR needs Chrome on an Android phone with ARCore (Google Play Services for AR).",
 };
 
 // ---------- AR session ----------
 
-let session = null;
-
-async function startAR() {
+async function startAR(mode) {
   const overlay = $("#arOverlay");
   overlay.hidden = false;  // dom-overlay root must be displayed when the session starts
+  let session;
   try {
     session = await navigator.xr.requestSession("immersive-ar", {
       requiredFeatures: ["hit-test", "dom-overlay"],
@@ -60,7 +85,7 @@ async function startAR() {
     });
   } catch (e) {
     overlay.hidden = true;
-    window.SolarScopeStatus?.(`Could not start AR: ${e.message}`, "error");
+    window.setStatus?.(`Could not start AR: ${e.message}`, "error");
     return;
   }
 
@@ -75,8 +100,6 @@ async function startAR() {
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera();
-  scene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 2));
-
   const reticle = new THREE.Mesh(
     new THREE.RingGeometry(0.06, 0.08, 32).rotateX(-Math.PI / 2),
     new THREE.MeshBasicMaterial({ color: 0xffffff }),
@@ -84,87 +107,174 @@ async function startAR() {
   reticle.matrixAutoUpdate = false;
   reticle.visible = false;
   scene.add(reticle);
-
   const dotGeo = new THREE.SphereGeometry(0.03, 16, 12);
-  const dotMat = new THREE.MeshBasicMaterial({ color: 0xf59e0b });
-  const lineMat = new THREE.LineBasicMaterial({ color: 0xf59e0b });
-  const line = new THREE.Line(new THREE.BufferGeometry(), lineMat);
-  scene.add(line);
-
-  const points = [];   // {pos: Vector3, anchor?: XRAnchor, mesh}
-  const lengths = [];  // saved measurements (m)
-  let hit = null;
   const reticlePos = new THREE.Vector3();
+  let hit = null;
 
   const viewerSpace = await session.requestReferenceSpace("viewer");
   const hitSource = await session.requestHitTestSource({ space: viewerSpace });
 
-  const msg = $("#arMsg"), live = $("#arLive"), list = $("#arList");
+  // A shape is an open or closed polyline of anchored points.
+  function newShape(kind) {
+    const color = COLORS[kind];
+    const line = new THREE.Line(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({ color }));
+    scene.add(line);
+    return { kind, points: [], closed: false, line, dotMat: new THREE.MeshBasicMaterial({ color }) };
+  }
+  function addPoint(shape) {
+    const p = { pos: reticlePos.clone(), mesh: new THREE.Mesh(dotGeo, shape.dotMat) };
+    p.mesh.position.copy(p.pos);
+    scene.add(p.mesh);
+    shape.points.push(p);
+    hit.createAnchor?.()?.then((a) => { p.anchor = a; }).catch(() => {});  // pin against drift
+  }
+  function popPoint(shape) {
+    const p = shape.points.pop();
+    if (p) { scene.remove(p.mesh); p.anchor?.delete?.(); }
+  }
+  function drawShape(shape, withReticle) {
+    const pts = shape.points.map((p) => p.pos);
+    if (withReticle && reticle.visible && !shape.closed && pts.length) pts.push(reticlePos.clone());
+    if (shape.closed && pts.length) pts.push(pts[0]);
+    shape.line.geometry.setFromPoints(pts);
+  }
+  function removeShape(shape) {
+    while (shape.points.length) popPoint(shape);
+    scene.remove(shape.line);
+  }
+
+  const msg = $("#arMsg"), live = $("#arLive"), list = $("#arList"), buttons = $("#arButtons");
   msg.textContent = "Move the phone slowly over the ground until the white ring appears.";
+  const btn = (id, label, cls = "") => `<button id="${id}" class="${cls}">${label}</button>`;
+  const end = (callback) => {
+    session.end().catch(() => {});
+    callback?.();
+  };
 
-  function redrawLine() {
-    const pts = points.map((p) => p.pos);
-    if (reticle.visible && points.length) pts.push(reticlePos.clone());
-    line.geometry.setFromPoints(pts);
-  }
+  let current;          // shape being drawn
+  const closed = [];    // area mode: closed shapes (first is the roof)
+  const lengths = [];   // length mode: saved lengths
 
-  function updateUI() {
-    const done = polylineLength(points.map((p) => p.pos));
-    const toReticle = reticle.visible && points.length ? reticlePos.distanceTo(points[points.length - 1].pos) : 0;
-    live.textContent = points.length ? `${(done + toReticle).toFixed(2)} m` : "–";
-    const sum = summarize(lengths);
-    list.innerHTML = lengths.length
-      ? `Saved: ${lengths.map((v) => v.toFixed(2)).join(", ")} m<br>`
-        + `Median <b>${sum.median.toFixed(2)} m</b> ± ${sum.halfRange.toFixed(2)}`
-        + (sum.n > 1 && sum.relSpread > SPREAD_WARN ? ' <span class="ar-warn">repeats disagree, measure again</span>' : "")
-      : "Measure the same wall 3 times for a reliable median.";
-    $("#arDone").disabled = !lengths.length;
-    $("#arFinish").disabled = points.length < 2;
-    $("#arUndo").disabled = !points.length;
+  let ui;  // refresh function for the mode's readouts and buttons
+  if (mode === "length") {
+    current = newShape("length");
+    buttons.innerHTML = btn("arUndo", "Undo point", "secondary") + btn("arFinish", "Save length")
+      + btn("arDone", "Use median") + btn("arExit", "Cancel", "secondary");
+    ui = () => {
+      const pts = current.points.map((p) => p.pos);
+      const toRet = reticle.visible && pts.length ? reticlePos.distanceTo(pts[pts.length - 1]) : 0;
+      live.textContent = pts.length ? `${(polylineLength(pts) + toRet).toFixed(2)} m` : "–";
+      const s = summarize(lengths);
+      list.innerHTML = s
+        ? `Saved: ${lengths.map((v) => v.toFixed(2)).join(", ")} m<br>Median <b>${s.median.toFixed(2)} m</b> ± ${s.halfRange.toFixed(2)}`
+          + (s.n > 1 && s.relSpread > SPREAD_WARN ? ' <span class="ar-warn">repeats disagree, measure again</span>' : "")
+        : "Measure the same wall 3 times for a reliable median.";
+      $("#arDone").disabled = !lengths.length;
+      $("#arFinish").disabled = pts.length < 2;
+      $("#arUndo").disabled = !pts.length;
+    };
+    $("#arUndo").onclick = () => { popPoint(current); ui(); };
+    $("#arFinish").onclick = () => {
+      if (current.points.length < 2) return;
+      lengths.push(polylineLength(current.points.map((p) => p.pos)));
+      while (current.points.length) popPoint(current);
+      msg.textContent = lengths.length < 3 ? "Saved. Measure the same wall again." : "Saved. Press Use median.";
+      ui();
+    };
+    $("#arDone").onclick = () => {
+      const s = summarize(lengths);
+      if (s) end(() => window.SolarScopeApplyARLength?.({ ...s, values: [...lengths] }));
+    };
+  } else {
+    current = newShape("roof");
+    buttons.innerHTML = btn("arUndo", "Undo point", "secondary") + btn("arClose", "Close shape")
+      + btn("arObs", "Add obstruction", "secondary") + btn("arFinishArea", "Finish")
+      + btn("arExit", "Cancel", "secondary");
+    const roofDone = () => closed.length > 0;
+    ui = () => {
+      const pts = current ? current.points.map((p) => flat(p.pos)) : [];
+      const tentative = reticle.visible && current ? [...pts, flat(reticlePos)] : pts;
+      const label = current?.kind === "obstruction" ? "Obstruction" : "Roof";
+      if (current && pts.length) {
+        const area = tentative.length >= 3 ? ` · ${polygonArea(tentative).toFixed(1)} m²` : "";
+        const edge = reticle.visible ? reticlePos.distanceTo(current.points[current.points.length - 1].pos) : 0;
+        live.textContent = `${label}: edge ${edge.toFixed(2)} m${area}`;
+      } else {
+        live.textContent = roofDone() ? "–" : "Tap the first corner";
+      }
+      const roof = closed[0];
+      const parts = [];
+      if (roof) {
+        const r = roof.points.map((p) => flat(p.pos));
+        parts.push(`Roof <b>${polygonArea(r).toFixed(1)} m²</b>, perimeter ${polygonPerimeter(r).toFixed(1)} m`);
+      }
+      const obs = closed.slice(1);
+      if (obs.length) {
+        const oa = obs.reduce((s, o) => s + polygonArea(o.points.map((p) => flat(p.pos))), 0);
+        parts.push(`${obs.length} obstruction${obs.length > 1 ? "s" : ""}, ${oa.toFixed(1)} m²`);
+      }
+      list.innerHTML = parts.join("<br>") || "Tap each corner of the roof (or of the house at ground level) in order.";
+      $("#arUndo").disabled = !(current?.points.length || closed.length);
+      $("#arClose").disabled = !(current && current.points.length >= 3);
+      $("#arObs").disabled = !roofDone() || (current && current.points.length > 0);
+      $("#arFinishArea").disabled = !roofDone();
+    };
+    const closeCurrent = () => {
+      if (!current || current.points.length < 3) return false;
+      current.closed = true;
+      drawShape(current, false);
+      closed.push(current);
+      current = null;
+      return true;
+    };
+    $("#arClose").onclick = () => {
+      const wasRoof = current?.kind === "roof";
+      if (!closeCurrent()) return;
+      msg.textContent = wasRoof
+        ? "Roof captured. Add obstructions (water tank, stair room) or press Finish."
+        : "Obstruction added. Add another or press Finish.";
+      ui();
+    };
+    $("#arObs").onclick = () => {
+      current = newShape("obstruction");
+      msg.textContent = "Tap the corners of the obstruction on the floor, then Close shape.";
+      ui();
+    };
+    $("#arUndo").onclick = () => {
+      if (current && current.points.length) popPoint(current);
+      else if (closed.length) {  // reopen the last closed shape
+        if (current) removeShape(current);
+        current = closed.pop();
+        current.closed = false;
+      }
+      ui();
+    };
+    $("#arFinishArea").onclick = () => {
+      if (current && current.points.length >= 3) closeCurrent();
+      if (!closed.length) return;
+      const shapes = closed.map((s) => s.points.map((p) => flat(p.pos)));
+      const result = { roof: shapes[0], obstructions: shapes.slice(1) };
+      end(() => window.SolarScopeApplyARArea?.(result));
+    };
   }
+  $("#arExit").onclick = () => end(null);
 
   // Taps on the camera view add a point at the ring; taps on overlay buttons must not.
   for (const el of overlay.querySelectorAll(".ar-panel")) {
     el.addEventListener("beforexrselect", (e) => e.preventDefault());
   }
   session.addEventListener("select", () => {
-    if (!hit) return;
-    const p = { pos: reticlePos.clone(), mesh: new THREE.Mesh(dotGeo, dotMat) };
-    p.mesh.position.copy(p.pos);
-    scene.add(p.mesh);
-    points.push(p);
-    // Pin the corner in the world so tracking corrections do not drift it.
-    hit.createAnchor?.()?.then((a) => { p.anchor = a; }).catch(() => {});
-    msg.textContent = points.length === 1
-      ? "Walk along the wall and tap its other corner (tap more points for long walls)."
-      : "Tap more points, or press Save length.";
-    updateUI();
+    if (!hit || !current) return;
+    addPoint(current);
+    const n = current.points.length;
+    if (mode === "length") {
+      msg.textContent = n === 1 ? "Walk along the wall and tap its other corner." : "Tap more points, or press Save length.";
+    } else {
+      msg.textContent = n < 3 ? "Tap the next corner." : "Tap the next corner, or Close shape after the last one.";
+    }
+    ui();
   });
-
-  const onUndo = () => {
-    const p = points.pop();
-    if (p) { scene.remove(p.mesh); p.anchor?.delete?.(); }
-    updateUI();
-  };
-  const onFinish = () => {
-    if (points.length < 2) return;
-    lengths.push(polylineLength(points.map((p) => p.pos)));
-    while (points.length) onUndo();
-    msg.textContent = lengths.length < 3 ? "Saved. Measure the same wall again from the first corner." : "Saved. Press Use median.";
-    updateUI();
-  };
-  const end = (result) => {
-    session.end().catch(() => {});
-    if (result) window.SolarScopeApplyARLength?.(result);
-  };
-  const onDone = () => { const s = summarize(lengths); if (s) end({ ...s, values: [...lengths] }); };
-  const onExit = () => end(null);
-
-  $("#arUndo").onclick = onUndo;
-  $("#arFinish").onclick = onFinish;
-  $("#arDone").onclick = onDone;
-  $("#arExit").onclick = onExit;
-  updateUI();
+  ui();
 
   renderer.setAnimationLoop((_, frame) => {
     if (!frame) return;
@@ -172,22 +282,23 @@ async function startAR() {
     const results = frame.getHitTestResults(hitSource);
     if (results.length) {
       hit = results[0];
-      const pose = hit.getPose(ref);
       reticle.visible = true;
-      reticle.matrix.fromArray(pose.transform.matrix);
+      reticle.matrix.fromArray(hit.getPose(ref).transform.matrix);
       reticlePos.setFromMatrixPosition(reticle.matrix);
-      if (!points.length && msg.textContent.startsWith("Move")) msg.textContent = "Point the ring at a wall corner on the ground and tap.";
+      if (msg.textContent.startsWith("Move")) msg.textContent = "Point the ring at a corner on the ground and tap.";
     } else {
       hit = null;
       reticle.visible = false;
     }
-    for (const p of points) {
-      if (!p.anchor) continue;
-      const ap = frame.getPose(p.anchor.anchorSpace, ref);
-      if (ap) { p.pos.set(ap.transform.position.x, ap.transform.position.y, ap.transform.position.z); p.mesh.position.copy(p.pos); }
+    for (const shape of [...closed, current].filter(Boolean)) {
+      for (const p of shape.points) {
+        if (!p.anchor) continue;
+        const ap = frame.getPose(p.anchor.anchorSpace, ref);
+        if (ap) { p.pos.set(ap.transform.position.x, ap.transform.position.y, ap.transform.position.z); p.mesh.position.copy(p.pos); }
+      }
+      drawShape(shape, shape === current);
     }
-    redrawLine();
-    updateUI();
+    ui();
     renderer.render(scene, camera);
   });
 
@@ -197,23 +308,28 @@ async function startAR() {
     renderer.dispose();
     renderer.domElement.remove();
     overlay.hidden = true;
-    session = null;
   });
 }
 
 // ---------- wire up ----------
 
 async function init() {
-  const btn = $("#arBtn"), note = $("#arNote");
-  if (!btn) return;
+  const pairs = [["#arBtn", "length"], ["#arScanBtn", "area"]];
   const a = await availability();
-  if (a === "ok") {
-    btn.disabled = false;
-    note.textContent = "Stand outside the house, tap where the wall meets the ground at both corners.";
-    btn.addEventListener("click", startAR);
-  } else {
-    btn.disabled = true;
-    note.textContent = REASONS[a];
+  for (const [sel, mode] of pairs) {
+    const button = $(sel);
+    if (!button) continue;
+    const note = $(button.dataset.note);
+    if (a === "ok") {
+      button.disabled = false;
+      if (note) note.textContent = mode === "length"
+        ? "Stand by the house wall; tap where it meets the ground at both corners."
+        : "Ready. Walk to the first corner of the roof (or of the house) and start.";
+      button.addEventListener("click", () => startAR(mode));
+    } else {
+      button.disabled = true;
+      if (note) note.textContent = REASONS[a] + (mode === "area" ? " You can type the roof size below instead." : " Or type a tape-measured length in the calibration box.");
+    }
   }
 }
 

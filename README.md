@@ -10,6 +10,13 @@ assumption and its source shown.
 
 Built for Environmental Hacks (WeMakeDevs x AWS), track: Waste and Energy (Rooftop solar).
 
+## Two ways to use it
+
+| Page | For | Flow |
+|---|---|---|
+| **Image** (`/image.html`) | Anyone with a top-down drone/aerial photo | Upload → AI detects roof + obstructions → brush fixes → scale (type, draw a known length, or measure a wall with AR) → panels → report |
+| **Phone scan** (`/scan.html`) | Anyone with an ARCore Android phone (or a tape) | Tap each roof corner with the camera (WebXR) → live area → tap around tanks/stair rooms → **digital roof plan drawn to scale** → panels placed on it → report. Without AR: type length × width and add obstructions, drag them into place |
+
 ## How it works
 
 1. **Segmentation**: U-Net (ResNet-34 encoder, segmentation-models-pytorch) trained on hand-labelled 0.1 m/px

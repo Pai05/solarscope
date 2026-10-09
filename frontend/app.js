@@ -1,4 +1,5 @@
 "use strict";
+// Image page. Needs common.js (helpers, settings, report card) loaded first.
 
 // Working image is at most MAX_SIDE px; mask, brush, calibration and report all use its pixels.
 const MAX_SIDE = 1024;
@@ -6,7 +7,6 @@ const OVERLAY_ALPHA = 110;
 const CLASS_RGB = { 1: [34, 197, 94], 2: [239, 68, 68] };
 const ZOOM_MIN = 1, ZOOM_MAX = 12, ZOOM_STEP = 1.5;  // zoom is relative to "fit to view"
 
-const $ = (s) => document.querySelector(s);
 const imgCv = $("#img");
 const ovCv = $("#overlay");
 const ictx = imgCv.getContext("2d");
@@ -36,53 +36,6 @@ const state = {
   panMode: false,
   panning: null,      // {x, y, sl, st} while dragging the view
 };
-
-// ---------- helpers ----------
-
-function setStatus(msg, kind = "") {
-  const el = $("#status");
-  el.textContent = msg;
-  el.className = "status " + kind;
-}
-
-async function busy(btn, msg, fn) {
-  btn.disabled = true;
-  setStatus(msg, "busy");
-  try {
-    await fn();
-  } catch (e) {
-    setStatus(e.message || String(e), "error");
-  } finally {
-    btn.disabled = false;
-  }
-}
-
-async function apiError(r) {
-  try {
-    const j = await r.json();
-    if (typeof j.detail === "string") return j.detail;
-    if (Array.isArray(j.detail)) return j.detail.map((d) => `${d.loc.slice(-1)[0]}: ${d.msg}`).join("; ");
-  } catch (_) { /* not JSON */ }
-  return `Server error (${r.status})`;
-}
-
-function b64FromBytes(bytes) {
-  let s = "";
-  const CH = 0x8000;
-  for (let i = 0; i < bytes.length; i += CH) s += String.fromCharCode.apply(null, bytes.subarray(i, i + CH));
-  return btoa(s);
-}
-
-function bytesFromB64(b64) {
-  const s = atob(b64);
-  const out = new Uint8Array(s.length);
-  for (let i = 0; i < s.length; i++) out[i] = s.charCodeAt(i);
-  return out;
-}
-
-const fmt = (v, d = 0) => (v === null || v === undefined || Number.isNaN(v))
-  ? "–" : Number(v).toLocaleString("en-IN", { maximumFractionDigits: d, minimumFractionDigits: d });
-const num = (id) => { const v = parseFloat($(id).value); return Number.isFinite(v) ? v : null; };
 
 // ---------- image loading ----------
 
@@ -262,22 +215,6 @@ $("#calibApply").addEventListener("click", () => {
   markStale();
   render();
   setStatus(`Scale set: ${px.toFixed(0)} px = ${len} m → ${state.gsd.toFixed(4)} m/px.`);
-});
-
-// ---------- location ----------
-
-$("#locBtn").addEventListener("click", () => {
-  if (!navigator.geolocation) { setStatus("Location is not available in this browser.", "error"); return; }
-  setStatus("Getting location…", "busy");
-  navigator.geolocation.getCurrentPosition(
-    (p) => {
-      $("#lat").value = p.coords.latitude.toFixed(4);
-      $("#lon").value = p.coords.longitude.toFixed(4);
-      setStatus("Location set.");
-    },
-    (e) => setStatus(`Location failed: ${e.message}. Type latitude/longitude instead.`, "error"),
-    { timeout: 10000 },
-  );
 });
 
 // ---------- drawing ----------
@@ -539,29 +476,15 @@ $("#file").addEventListener("change", async (e) => {
 
 $("#reportBtn").addEventListener("click", (e) => busy(e.currentTarget, "Laying out panels and computing the report…", async () => {
   if (!state.mask.some((v) => v === 1)) throw new Error("No roof in the mask yet. Detect it or paint it with the Roof brush.");
-  const overrides = {};
-  if (num("#tariff") !== null) overrides.tariff_inr_per_kwh = num("#tariff");
-  if (num("#cost") !== null) overrides.installed_cost_inr_per_kw = num("#cost");
-  const body = {
+  const rep = await postReport({
     width: state.w,
     height: state.h,
     mask_b64: b64FromBytes(state.mask),
     gsd_m: state.gsd,
-    lat: num("#lat"),
-    lon: num("#lon"),
     roof_point: state.roofPoint,
     roof_box: state.roofBox,
-    setback_m: num("#setback") ?? state.defaults?.setback_m,
-    obstruction_buffer_m: num("#buffer") ?? state.defaults?.obstruction_buffer_m,
-    panel_w_m: num("#panelW") ?? state.defaults?.panel_w_m,
-    panel_h_m: num("#panelH") ?? state.defaults?.panel_h_m,
-    panel_wp: num("#panelWp") ?? state.defaults?.panel_wp,
-    overrides,
-  };
-  for (const k of Object.keys(body)) if (body[k] === null || body[k] === undefined) delete body[k];
-  const r = await fetch("/report", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
-  if (!r.ok) throw new Error(await apiError(r));
-  const rep = await r.json();
+    ...reportSettings(),
+  });
   state.panels = rep.panels;
   render();
   showReport(rep);
@@ -570,101 +493,13 @@ $("#reportBtn").addEventListener("click", (e) => busy(e.currentTarget, "Laying o
     : "No panel fits. Check the scale, the setback or the roof mask.");
 }));
 
-// ---------- report ----------
-
-const LABELS = {
-  ghi_kwh_m2_day: "Solar irradiance",
-  performance_ratio: "Performance ratio",
-  tariff_inr_per_kwh: "Electricity tariff",
-  installed_cost_inr_per_kw: "Installed cost",
-  subsidy_tier1_inr_per_kw: "Subsidy, tier 1 rate",
-  subsidy_tier1_kw: "Subsidy, tier 1 size",
-  subsidy_tier2_inr_per_kw: "Subsidy, tier 2 rate",
-  subsidy_tier2_kw: "Subsidy, tier 2 size",
-  subsidy_cap_inr: "Subsidy cap",
-  grid_emission_kg_per_kwh: "Grid emission factor",
-  panel_size_m: "Panel size",
-  panel_wp: "Panel power",
-  setback_m: "Edge setback",
-  obstruction_buffer_m: "Obstruction buffer",
-  gsd_m: "Image scale",
-};
-
-function rows(el, items) {
-  el.innerHTML = "";
-  for (const [k, v] of items) {
-    const tr = el.insertRow();
-    tr.insertCell().textContent = k;
-    const td = tr.insertCell();
-    td.className = "num";
-    td.textContent = v;
-  }
-}
-
-function showReport(rep) {
-  $("#report").hidden = false;
-  $("#kPanels").textContent = fmt(rep.panel_count);
-  $("#kKw").textContent = fmt(rep.capacity_kw, 2);
-  $("#kKwh").textContent = fmt(rep.annual_generation_kwh);
-  $("#kSave").textContent = fmt(rep.annual_savings_inr);
-  $("#kPay").textContent = rep.payback_years === null ? "–" : fmt(rep.payback_years, 1);
-  $("#kCo2").textContent = fmt(rep.co2_avoided_kg_per_year / 1000, 2);
-
-  const a = rep.areas_m2;
-  rows($("#areas"), [
-    ["Roof area (incl. obstructions)", `${fmt(a.roof_total, 1)} m²`],
-    ["Obstructions", `${fmt(a.obstructions, 1)} m²`],
-    ["Free roof", `${fmt(a.roof_free, 1)} m²`],
-    ["Usable after setbacks", `${fmt(a.usable_after_setback, 1)} m²`],
-    ["Covered by panels", `${fmt(a.covered_by_panels, 1)} m² (${rep.panel_orientation})`],
-    ["Specific yield", `${fmt(rep.specific_yield_kwh_per_kwp)} kWh/kWp/yr`],
-  ]);
-  rows($("#costs"), [
-    ["System cost", `₹ ${fmt(rep.gross_cost_inr)}`],
-    ["Subsidy", `− ₹ ${fmt(rep.subsidy_inr)}`],
-    ["Net cost", `₹ ${fmt(rep.net_cost_inr)}`],
-    ["Savings per year", `₹ ${fmt(rep.annual_savings_inr)}`],
-    ["Simple payback", rep.payback_years === null ? "–" : `${fmt(rep.payback_years, 1)} years`],
-  ]);
-
-  const tb = $("#assumptions");
-  tb.innerHTML = "";
-  for (const [k, x] of Object.entries(rep.assumptions)) {
-    const tr = tb.insertRow();
-    tr.insertCell().textContent = LABELS[k] || k;
-    tr.insertCell().textContent = `${typeof x.value === "number" ? fmt(x.value, x.value < 10 ? 3 : 0) : x.value} ${x.unit}`;
-    tr.insertCell().textContent = x.source;
-    const chip = document.createElement("span");
-    chip.className = x.verified ? "ok-chip" : "todo-chip";
-    chip.textContent = x.verified ? "verified" : "to verify";
-    tr.insertCell().appendChild(chip);
-  }
-  $("#unverified").hidden = rep.all_assumptions_verified;
-  $("#report").scrollIntoView({ behavior: "smooth", block: "start" });
-}
-
 // ---------- startup ----------
 
 async function init() {
   showGsd();
+  setupLocation();
   try {
-    const cfg = await (await fetch("/config")).json();
-    const d = cfg.layout_defaults;
-    state.defaults = d;
-    $("#setback").value = d.setback_m;
-    $("#buffer").value = d.obstruction_buffer_m;
-    $("#panelW").value = d.panel_w_m;
-    $("#panelH").value = d.panel_h_m;
-    $("#panelWp").value = d.panel_wp;
-    const badge = $("#modelBadge");
-    if (cfg.model.available) {
-      const miou = cfg.model.metrics?.miou;
-      badge.textContent = `Model: ${cfg.model.arch || "U-Net"}${miou ? ` · mIoU ${miou.toFixed(2)}` : ""}`;
-      badge.className = "badge ok";
-    } else {
-      badge.textContent = "Model offline — paint by hand";
-      badge.className = "badge off";
-    }
+    state.defaults = (await loadConfig()).layout_defaults;
   } catch (_) {
     setStatus("Could not reach the server.", "error");
   }

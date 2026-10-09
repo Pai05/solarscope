@@ -4,179 +4,71 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SolarScope</title>
-  <meta name="description" content="Rooftop solar potential from aerial images of cluttered Indian rooftops.">
+  <meta name="description" content="How much of your rooftop can really carry solar panels? Upload a roof image or scan your roof with your phone.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%E2%98%80%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-page="home">
   <header class="top">
-    <div class="brand">
+    <a class="brand" href="/">
       <span class="logo" aria-hidden="true">☀</span>
       <div>
         <h1>SolarScope</h1>
-        <p class="tag">How much of your rooftop can really carry solar panels?</p>
+        <p class="tag">Rooftop solar for cluttered Indian roofs</p>
       </div>
-    </div>
-    <span id="modelBadge" class="badge">checking model…</span>
+    </a>
+    <nav class="nav">
+      <a href="/image.html">&#128444; Image</a>
+      <a href="/scan.html">&#128241; Phone scan</a>
+    </nav>
   </header>
 
-  <main class="layout">
-    <section class="stage-wrap">
-      <div id="zoombar" class="zoombar" hidden>
-        <button id="zoomOut" class="secondary icon" title="Zoom out (-)" aria-label="Zoom out">&minus;</button>
-        <span id="zoomVal" class="zoom-val">100%</span>
-        <button id="zoomIn" class="secondary icon" title="Zoom in (+)" aria-label="Zoom in">+</button>
-        <button id="zoomFit" class="secondary" title="Fit whole image (0)">Fit</button>
-        <button id="panBtn" class="secondary" title="Drag to move the view (or hold Space)">&#9995; Pan</button>
-        <span class="muted small zoom-hint">Scroll or pinch over the image to zoom &middot; hold Space or middle-drag to pan</span>
-      </div>
-      <div id="stage" class="stage">
-        <div id="placeholder" class="placeholder">
-          <p><strong>Upload a top-down rooftop image</strong> (drone or aerial), or try a sample.</p>
-          <p class="muted">Usable roof is shown green, obstructions red, panels blue.</p>
-        </div>
-        <div id="canvasBox" class="canvas-box" hidden>
-          <canvas id="img"></canvas>
-          <canvas id="overlay"></canvas>
-        </div>
-      </div>
-      <div id="status" class="status" role="status" aria-live="polite"></div>
-      <div class="legend">
-        <span><i class="sw roof"></i>Usable roof</span>
-        <span><i class="sw obs"></i>Obstruction</span>
-        <span><i class="sw panel"></i>Panel</span>
-        <label class="inline"><input type="checkbox" id="showOverlay" checked> Show overlay</label>
-      </div>
-    </section>
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Water tanks · stair rooms · AC units · setbacks</p>
+      <h2>How much of your roof can <em>really</em> carry solar panels?</h2>
+      <p class="lead">SolarScope finds the usable part of your roof, lays out real panels on it and tells you
+        the capacity, yearly units, savings after the PM Surya Ghar subsidy, payback and CO₂ avoided.</p>
+    </div>
+  </section>
 
-    <aside class="controls">
-      <div class="step">
-        <h2><span>1</span> Image</h2>
-        <label class="file-btn">
-          <input type="file" id="file" accept="image/png,image/jpeg,image/webp">
-          Upload image
-        </label>
-        <div id="samples" class="samples"></div>
-        <p class="muted small">Images are resized to at most 1024 px on your device before upload.</p>
-      </div>
-
-      <div class="step">
-        <h2><span>2</span> Scale</h2>
-        <label>Metres per pixel (original image)
-          <input type="number" id="gsd" step="0.001" min="0.005" max="2" value="0.1">
-        </label>
-        <button id="arBtn" class="secondary" disabled>&#128241; Measure a wall with AR</button>
-        <p id="arNote" class="muted small">Checking AR support&hellip;</p>
-        <button id="calibBtn" class="secondary" disabled>Calibrate: draw a known length</button>
-        <div id="calibBox" class="calib" hidden>
-          <label>Real length of the line (m)
-            <input type="number" id="calibLen" step="0.01" min="0.1" value="1.2">
-          </label>
-          <button id="calibApply">Apply</button>
-        </div>
-        <p id="gsdInfo" class="muted small"></p>
-      </div>
-
-      <div class="step">
-        <h2><span>3</span> Location</h2>
-        <div class="row">
-          <label>Latitude <input type="number" id="lat" step="0.0001" min="-90" max="90" placeholder="16.53"></label>
-          <label>Longitude <input type="number" id="lon" step="0.0001" min="-180" max="180" placeholder="80.64"></label>
-        </div>
-        <button id="locBtn" class="secondary">Use my location</button>
-        <p class="muted small">Used for site irradiance from NASA POWER.</p>
-      </div>
-
-      <div class="step">
-        <h2><span>4</span> Detect &amp; correct</h2>
-        <button id="detectBtn" disabled>Detect roof &amp; obstructions</button>
-        <div class="tools" role="group" aria-label="Brush tool">
-          <button class="tool active" data-tool="1">Roof</button>
-          <button class="tool" data-tool="2">Obstruction</button>
-          <button class="tool" data-tool="0">Erase</button>
-          <button class="tool" data-tool="point" title="Drag a box around your roof, or click it">Pick my roof</button>
-        </div>
-        <p class="muted small">Pick my roof: drag a box around your building (or click it).</p>
-        <label>Brush size <span id="brushVal"></span>
-          <input type="range" id="brush" min="2" max="60" value="10">
-        </label>
-        <div class="row">
-          <button id="undoBtn" class="secondary" disabled>Undo</button>
-          <button id="clearPointBtn" class="secondary">Whole image</button>
-        </div>
-      </div>
-
-      <details class="step">
-        <summary><h2><span>⚙</span> Layout &amp; cost settings</h2></summary>
-        <div class="row">
-          <label>Edge setback (m) <input type="number" id="setback" step="0.1" min="0" max="5"></label>
-          <label>Obstruction buffer (m) <input type="number" id="buffer" step="0.1" min="0" max="3"></label>
-        </div>
-        <div class="row">
-          <label>Panel length (m) <input type="number" id="panelW" step="0.01" min="0.3" max="4"></label>
-          <label>Panel width (m) <input type="number" id="panelH" step="0.01" min="0.3" max="4"></label>
-        </div>
-        <div class="row">
-          <label>Panel power (Wp) <input type="number" id="panelWp" step="5" min="10" max="1500"></label>
-          <label>Tariff (₹/kWh) <input type="number" id="tariff" step="0.1" min="0" placeholder="default"></label>
-        </div>
-        <label>Installed cost (₹/kWp) <input type="number" id="cost" step="1000" min="0" placeholder="default"></label>
-      </details>
-
-      <button id="reportBtn" class="primary" disabled>Compute solar report</button>
-    </aside>
+  <main class="choices">
+    <a class="choice" href="/image.html">
+      <div class="choice-icon" aria-hidden="true">&#128752;</div>
+      <h3>Upload a roof image</h3>
+      <p>Top-down drone or aerial photo. Our AI model marks usable roof and obstructions; fix anything with a brush,
+        set the scale (or measure one wall with AR) and get panels and the report.</p>
+      <ul>
+        <li>AI roof &amp; obstruction detection</li>
+        <li>Manual correction, zoom, calibration</li>
+        <li>Works on any device</li>
+      </ul>
+      <span class="choice-cta">Start with an image &rarr;</span>
+    </a>
+    <a class="choice" href="/scan.html">
+      <div class="choice-icon" aria-hidden="true">&#128241;</div>
+      <h3>Scan with your phone</h3>
+      <p>Walk your terrace (or around the house) and tap each corner with the camera. We measure the area, draw a
+        digital plan of your roof, place the panels and compute the report. No photo needed.</p>
+      <ul>
+        <li>AR area measurement (WebXR)</li>
+        <li>Digital roof plan with panels</li>
+        <li>Android + Chrome; or type the size</li>
+      </ul>
+      <span class="choice-cta">Scan my roof &rarr;</span>
+    </a>
   </main>
 
-  <section id="report" class="report" hidden>
-    <div id="unverified" class="warn" hidden>
-      Some inputs below are <strong>placeholders that are not yet verified</strong> against official sources.
-      Treat the money figures as illustrative.
-    </div>
-    <div class="kpis">
-      <div class="kpi"><span id="kPanels">–</span><small>panels</small></div>
-      <div class="kpi"><span id="kKw">–</span><small>kWp capacity</small></div>
-      <div class="kpi"><span id="kKwh">–</span><small>kWh per year</small></div>
-      <div class="kpi"><span id="kSave">–</span><small>₹ saved per year</small></div>
-      <div class="kpi"><span id="kPay">–</span><small>years payback</small></div>
-      <div class="kpi"><span id="kCo2">–</span><small>t CO₂ avoided / yr</small></div>
-    </div>
-    <div class="tables">
-      <table>
-        <caption>Roof</caption>
-        <tbody id="areas"></tbody>
-      </table>
-      <table>
-        <caption>Cost</caption>
-        <tbody id="costs"></tbody>
-      </table>
-    </div>
-    <table class="assumptions">
-      <caption>Assumptions and sources</caption>
-      <thead><tr><th>Input</th><th>Value</th><th>Source</th><th></th></tr></thead>
-      <tbody id="assumptions"></tbody>
-    </table>
+  <section class="how">
+    <div class="how-step"><b>1</b><span>Capture the roof<br><small>image or phone scan</small></span></div>
+    <div class="how-step"><b>2</b><span>Remove what can't hold panels<br><small>tanks, stair rooms, edge setback</small></span></div>
+    <div class="how-step"><b>3</b><span>Fit real panels<br><small>both orientations, best layout</small></span></div>
+    <div class="how-step"><b>4</b><span>Report with sources<br><small>NASA POWER, CEA, PM Surya Ghar</small></span></div>
   </section>
 
   <footer class="foot">
-    <p>Sample imagery: OpenAerialMap, CC-BY 4.0 (Vijayawada, provider Bhuvan). Irradiance: NASA POWER.
+    <p>Runs on AWS EC2, model weights on Amazon S3. Imagery: OpenAerialMap (CC-BY 4.0). Irradiance: NASA POWER.
       <a href="https://github.com/Pai05/solarscope">Source code (MIT)</a></p>
   </footer>
-
-  <div id="arOverlay" class="ar-overlay" hidden>
-    <div class="ar-panel ar-top">
-      <div id="arMsg">Starting AR&hellip;</div>
-      <div id="arLive" class="ar-live">&ndash;</div>
-      <div id="arList" class="ar-list"></div>
-    </div>
-    <div class="ar-panel ar-bottom">
-      <button id="arUndo" class="secondary">Undo point</button>
-      <button id="arFinish">Save length</button>
-      <button id="arDone">Use median</button>
-      <button id="arExit" class="secondary">Cancel</button>
-    </div>
-  </div>
-
-  <script src="app.js"></script>
-  <script type="module" src="ar.js"></script>
 </body>
 </html>
