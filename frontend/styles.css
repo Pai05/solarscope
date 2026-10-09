@@ -80,6 +80,7 @@ h1 { margin: 0; font-size: 20px; }
   padding: 8px;
   overflow: auto;                /* scrolls when zoomed in */
   overscroll-behavior: contain;
+  touch-action: pan-x pan-y;     /* pinch over the image zooms the image, not the page */
 }
 /* margin:auto centres when smaller than the stage and allows full scrolling when larger */
 .placeholder { text-align: center; padding: 40px 20px; max-width: 420px; margin: auto; }

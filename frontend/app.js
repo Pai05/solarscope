@@ -173,18 +173,33 @@ $("#panBtn").addEventListener("click", () => {
   $("#panBtn").classList.toggle("active", state.panMode);
   updateCursor();
 });
-$("#stage").addEventListener("wheel", (e) => {
-  if (!state.w || !(e.ctrlKey || e.metaKey)) return;  // plain wheel keeps scrolling the page
+// Over the image, the wheel / trackpad pinch (Ctrl+wheel) / Ctrl +/-/0 zoom the image, never the page.
+const stageWrap = $(".stage-wrap");
+let overImage = false;
+stageWrap.addEventListener("pointerenter", () => { overImage = true; });
+stageWrap.addEventListener("pointerleave", () => { overImage = false; });
+stageWrap.addEventListener("wheel", (e) => {
+  if (!state.w) return;
+  const onStage = e.target.closest("#stage");
+  if (!onStage && !(e.ctrlKey || e.metaKey)) return;  // plain wheel over the toolbar/legend scrolls the page
   e.preventDefault();
   zoomTo(state.zoom * Math.exp(-e.deltaY * (e.deltaMode ? 0.05 : 0.0015)), e.clientX, e.clientY);
 }, { passive: false });
 window.addEventListener("keydown", (e) => {
-  if (!state.w || typing(e) || e.ctrlKey || e.metaKey || e.altKey) return;
+  if (!state.w || typing(e) || e.altKey) return;
+  if (e.ctrlKey || e.metaKey) {
+    if (!overImage) return;  // elsewhere, browser page zoom keeps working
+    const z = { "+": ZOOM_STEP, "=": ZOOM_STEP, "-": 1 / ZOOM_STEP, "_": 1 / ZOOM_STEP }[e.key];
+    if (z) { e.preventDefault(); zoomTo(state.zoom * z); }
+    else if (e.key === "0") { e.preventDefault(); zoomTo(1); }
+    return;
+  }
+  if (e.code === "Space" && !overImage) return;  // Space only pans while the mouse is over the image
   if (e.code === "Space") { spaceDown = true; updateCursor(); e.preventDefault(); }
   else if (e.key === "+" || e.key === "=") zoomTo(state.zoom * ZOOM_STEP);
   else if (e.key === "-" || e.key === "_") zoomTo(state.zoom / ZOOM_STEP);
   else if (e.key === "0") zoomTo(1);
-});
+}, true);  // capture phase: runs before anything else can let the browser zoom the page
 window.addEventListener("keyup", (e) => { if (e.code === "Space") { spaceDown = false; updateCursor(); } });
 
 // Two-finger pinch on touch screens: zoom around the fingers' midpoint and pan with them.
