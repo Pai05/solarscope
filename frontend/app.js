@@ -4,6 +4,7 @@
 const MAX_SIDE = 1024;
 const OVERLAY_ALPHA = 110;
 const CLASS_RGB = { 1: [34, 197, 94], 2: [239, 68, 68] };
+const ZOOM_MIN = 1, ZOOM_MAX = 12, ZOOM_STEP = 1.5;  // zoom is relative to "fit to view"
 
 const $ = (s) => document.querySelector(s);
 const imgCv = $("#img");
@@ -30,6 +31,10 @@ const state = {
   last: null,
   panels: [],
   defaults: null,
+  zoom: 1,            // 1 = whole image fits the view
+  baseScale: 1,       // CSS px per image px at zoom 1
+  panMode: false,
+  panning: null,      // {x, y, sl, st} while dragging the view
 };
 
 // ---------- helpers ----------
@@ -93,7 +98,7 @@ async function loadImage(blob, meta = {}) {
 
   Object.assign(state, {
     w, h, resize: k, mask: new Uint8Array(w * h), overlay: octx.createImageData(w, h),
-    undo: [], roofPoint: null, roofBox: null, panels: [], calib: null, calibrating: false,
+    undo: [], roofPoint: null, roofBox: null, panels: [], calib: null, calibrating: false, zoom: 1,
   });
   state.imgBlob = await new Promise((res) => imgCv.toBlob(res, "image/png"));
 
@@ -103,6 +108,7 @@ async function loadImage(blob, meta = {}) {
 
   $("#placeholder").hidden = true;
   $("#canvasBox").hidden = false;
+  $("#zoombar").hidden = false;
   $("#report").hidden = true;
   for (const id of ["#detectBtn", "#reportBtn", "#calibBtn"]) $(id).disabled = false;
   updateUndo();
@@ -114,15 +120,80 @@ async function loadImage(blob, meta = {}) {
 function fitCanvas() {
   if (!state.w) return;
   const stage = $("#stage");
-  const maxW = stage.clientWidth - 16;
+  const maxW = stage.parentElement.clientWidth - 18;  // independent of the stage's own scrollbars
   const maxH = Math.max(320, window.innerHeight * 0.72);
-  const s = Math.min(maxW / state.w, maxH / state.h);
-  for (const c of [imgCv, ovCv]) {
-    c.style.width = `${Math.floor(state.w * s)}px`;
-    c.style.height = `${Math.floor(state.h * s)}px`;
-  }
+  state.baseScale = Math.min(maxW / state.w, maxH / state.h);
+  stage.style.height = `${Math.floor(state.h * state.baseScale) + 18}px`;
+  applyZoom();
 }
 window.addEventListener("resize", fitCanvas);
+
+// ---------- zoom & pan ----------
+
+function applyZoom() {
+  const s = state.baseScale * state.zoom;
+  for (const c of [imgCv, ovCv]) {
+    c.style.width = `${Math.round(state.w * s)}px`;
+    c.style.height = `${Math.round(state.h * s)}px`;
+  }
+  $("#zoomVal").textContent = `${Math.round(state.zoom * 100)}%`;
+  $("#zoomOut").disabled = state.zoom <= ZOOM_MIN;
+  $("#zoomIn").disabled = state.zoom >= ZOOM_MAX;
+}
+
+// Zoom keeping the image point under (clientX, clientY) fixed; defaults to the view centre.
+function zoomTo(z, clientX, clientY) {
+  if (!state.w) return;
+  z = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, z));
+  if (Math.abs(z - state.zoom) < 1e-3) return;
+  const stage = $("#stage");
+  if (clientX === undefined) {
+    const sr = stage.getBoundingClientRect();
+    clientX = sr.left + sr.width / 2;
+    clientY = sr.top + sr.height / 2;
+  }
+  const r = ovCv.getBoundingClientRect();
+  const fx = (clientX - r.left) / r.width, fy = (clientY - r.top) / r.height;
+  state.zoom = z;
+  applyZoom();
+  const r2 = ovCv.getBoundingClientRect();
+  stage.scrollLeft += r2.left + fx * r2.width - clientX;
+  stage.scrollTop += r2.top + fy * r2.height - clientY;
+}
+
+let spaceDown = false;
+const updateCursor = () => { ovCv.style.cursor = state.panMode || spaceDown ? "grab" : "crosshair"; };
+const typing = (e) => ["INPUT", "TEXTAREA", "SELECT"].includes(e.target.tagName);
+
+$("#zoomIn").addEventListener("click", () => zoomTo(state.zoom * ZOOM_STEP));
+$("#zoomOut").addEventListener("click", () => zoomTo(state.zoom / ZOOM_STEP));
+$("#zoomFit").addEventListener("click", () => zoomTo(1));
+$("#panBtn").addEventListener("click", () => {
+  state.panMode = !state.panMode;
+  $("#panBtn").classList.toggle("active", state.panMode);
+  updateCursor();
+});
+$("#stage").addEventListener("wheel", (e) => {
+  if (!state.w || !(e.ctrlKey || e.metaKey)) return;  // plain wheel keeps scrolling the page
+  e.preventDefault();
+  zoomTo(state.zoom * Math.exp(-e.deltaY * (e.deltaMode ? 0.05 : 0.0015)), e.clientX, e.clientY);
+}, { passive: false });
+window.addEventListener("keydown", (e) => {
+  if (!state.w || typing(e) || e.ctrlKey || e.metaKey || e.altKey) return;
+  if (e.code === "Space") { spaceDown = true; updateCursor(); e.preventDefault(); }
+  else if (e.key === "+" || e.key === "=") zoomTo(state.zoom * ZOOM_STEP);
+  else if (e.key === "-" || e.key === "_") zoomTo(state.zoom / ZOOM_STEP);
+  else if (e.key === "0") zoomTo(1);
+});
+window.addEventListener("keyup", (e) => { if (e.code === "Space") { spaceDown = false; updateCursor(); } });
+
+// Two-finger pinch on touch screens: zoom around the fingers' midpoint and pan with them.
+const touches = new Map();
+let pinch = null;
+function pinchState() {
+  const [a, b] = [...touches.values()];
+  return { d: Math.hypot(a.x - b.x, a.y - b.y) || 1, mx: (a.x + b.x) / 2, my: (a.y + b.y) / 2 };
+}
 
 // ---------- scale ----------
 
@@ -284,6 +355,29 @@ ovCv.addEventListener("pointerdown", (e) => {
   if (!state.w) return;
   e.preventDefault();
   ovCv.setPointerCapture(e.pointerId);
+  if (e.pointerType === "touch") {
+    touches.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (touches.size === 2) {
+      // Second finger: this is a pinch, so undo whatever the first finger started.
+      if (state.painting && !state.calibrating && !state.boxStart && state.undo.length) {
+        state.mask = state.undo.pop();
+        updateUndo();
+      }
+      state.painting = false;
+      state.boxStart = null;
+      state.last = null;
+      pinch = { ...pinchState(), z0: state.zoom };
+      render();
+      return;
+    }
+    if (touches.size > 2) return;
+  }
+  if (state.panMode || spaceDown || e.button === 1) {
+    const stage = $("#stage");
+    state.panning = { x: e.clientX, y: e.clientY, sl: stage.scrollLeft, st: stage.scrollTop };
+    ovCv.style.cursor = "grabbing";
+    return;
+  }
   const p = pos(e);
   if (state.calibrating) {
     state.calib = { a: p, b: p };
@@ -306,6 +400,25 @@ ovCv.addEventListener("pointerdown", (e) => {
 });
 
 ovCv.addEventListener("pointermove", (e) => {
+  if (e.pointerType === "touch" && touches.has(e.pointerId)) {
+    touches.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pinch && touches.size === 2) {
+      const now = pinchState();
+      zoomTo(pinch.z0 * now.d / pinch.d, now.mx, now.my);
+      const stage = $("#stage");
+      stage.scrollLeft -= now.mx - pinch.mx;
+      stage.scrollTop -= now.my - pinch.my;
+      pinch.mx = now.mx;
+      pinch.my = now.my;
+      return;
+    }
+  }
+  if (state.panning) {
+    const stage = $("#stage");
+    stage.scrollLeft = state.panning.sl - (e.clientX - state.panning.x);
+    stage.scrollTop = state.panning.st - (e.clientY - state.panning.y);
+    return;
+  }
   if (!state.painting) return;
   const p = pos(e);
   if (state.calibrating) state.calib.b = p;
@@ -314,7 +427,16 @@ ovCv.addEventListener("pointermove", (e) => {
   scheduleRender();
 });
 
-function endStroke() {
+function endStroke(e) {
+  if (e && e.pointerType === "touch") {
+    touches.delete(e.pointerId);
+    if (touches.size < 2) pinch = null;
+  }
+  if (state.panning) {
+    state.panning = null;
+    updateCursor();
+    return;
+  }
   if (!state.painting) return;
   state.painting = false;
   state.last = null;

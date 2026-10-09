@@ -22,6 +22,14 @@
 
   <main class="layout">
     <section class="stage-wrap">
+      <div id="zoombar" class="zoombar" hidden>
+        <button id="zoomOut" class="secondary icon" title="Zoom out (-)" aria-label="Zoom out">&minus;</button>
+        <span id="zoomVal" class="zoom-val">100%</span>
+        <button id="zoomIn" class="secondary icon" title="Zoom in (+)" aria-label="Zoom in">+</button>
+        <button id="zoomFit" class="secondary" title="Fit whole image (0)">Fit</button>
+        <button id="panBtn" class="secondary" title="Drag to move the view (or hold Space)">&#9995; Pan</button>
+        <span class="muted small zoom-hint">Ctrl + scroll or pinch to zoom &middot; hold Space or middle-drag to pan</span>
+      </div>
       <div id="stage" class="stage">
         <div id="placeholder" class="placeholder">
           <p><strong>Upload a top-down rooftop image</strong> (drone or aerial), or try a sample.</p>

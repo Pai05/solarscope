@@ -27,6 +27,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }  /* class rules like display:flex must not override hidden */
 
 body {
   margin: 0;
@@ -76,13 +77,20 @@ h1 { margin: 0; font-size: 20px; }
   border-radius: var(--radius);
   min-height: 360px;
   display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 8px;
-  overflow: hidden;
+  overflow: auto;                /* scrolls when zoomed in */
+  overscroll-behavior: contain;
 }
-.placeholder { text-align: center; padding: 40px 20px; max-width: 420px; }
-.canvas-box { position: relative; line-height: 0; }
+/* margin:auto centres when smaller than the stage and allows full scrolling when larger */
+.placeholder { text-align: center; padding: 40px 20px; max-width: 420px; margin: auto; }
+.canvas-box { position: relative; line-height: 0; margin: auto; flex: none; }
+
+.zoombar { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+.zoombar button { padding: 5px 10px; }
+.zoombar button.icon { width: 34px; padding: 5px 0; font-size: 17px; line-height: 1; }
+.zoombar button.active { background: var(--pv); border-color: var(--pv); color: #fff; }
+.zoom-val { min-width: 48px; text-align: center; font-variant-numeric: tabular-nums; font-size: 14px; }
+.zoom-hint { margin-left: 4px; }
 .canvas-box canvas { display: block; }
 #overlay {
   position: absolute;
@@ -237,6 +245,7 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: now
   .report { padding: 0 16px; }
 }
 @media (max-width: 520px) {
+  .zoom-hint { display: none; }
   .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .kpi span { font-size: 22px; }
   .top { padding: 12px 16px; flex-wrap: wrap; }
