@@ -183,8 +183,9 @@ function niceStep(m) {
 function render() {
   const box = cv.parentElement;
   const dpr = window.devicePixelRatio || 1;
-  const cw = box.clientWidth;
-  if (!plan.roof) { cv.width = cv.height = 0; return; }
+  cv.hidden = !plan.roof;  // an empty canvas would still take 300 px and squeeze the placeholder
+  if (!plan.roof) return;
+  const cw = box.clientWidth - 18;  // clientWidth includes the stage's 8 px padding on each side
   const b = bbox(plan.roof);
   const W = b.maxX + MARGIN_M, H = b.maxY + MARGIN_M;
   const ch = Math.min(Math.max(320, window.innerHeight * 0.68), Math.max(260, (cw * H) / W + 40));
@@ -369,6 +370,7 @@ $("#manualBtn").addEventListener("click", () => {
   const l = num("#roofL"), w = num("#roofW");
   if (!l || !w || l <= 0 || w <= 0) { setStatus("Type the roof length and width in metres.", "error"); return; }
   setRoof([[0, 0], [l, 0], [l, w], [0, w]], [], "typed size");
+  if (window.matchMedia("(max-width: 900px)").matches) $("#planCard").scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 $("#obsType").innerHTML = OBS_TYPES.map((t) => `<option>${t}</option>`).join("");

@@ -190,7 +190,7 @@ async function startAR(mode) {
   let ui;  // refresh function for the mode's readouts and buttons
   if (mode === "length") {
     current = newShape("length");
-    buttons.innerHTML = placeBtn + btn("arUndo", "Undo point", "secondary") + btn("arFinish", "Save length")
+    buttons.innerHTML = placeBtn + btn("arUndo", "Undo", "secondary") + btn("arFinish", "Save length")
       + btn("arDone", "Use median") + btn("arExit", "Cancel", "secondary");
     ui = () => {
       const pts = current.points.map((p) => p.pos);
@@ -219,8 +219,8 @@ async function startAR(mode) {
     };
   } else {
     current = newShape("roof");
-    buttons.innerHTML = placeBtn + btn("arUndo", "Undo point", "secondary") + btn("arClose", "Close shape")
-      + btn("arObs", "Add obstruction", "secondary") + btn("arFinishArea", "Finish")
+    buttons.innerHTML = placeBtn + btn("arUndo", "Undo", "secondary") + btn("arClose", "Close shape")
+      + btn("arObs", "+ Obstruction", "secondary") + btn("arFinishArea", "Finish")
       + btn("arExit", "Cancel", "secondary");
     const roofDone = () => closed.length > 0;
     ui = () => {
