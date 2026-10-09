@@ -41,6 +41,11 @@ def test_frontend_served():
     assert "SolarScope" in r.text
 
 
+def test_client_log_accepts_and_caps_text():
+    r = client.post("/client-log", content=b"x" * 5000)
+    assert r.status_code == 200 and r.json() == {"ok": True}
+
+
 def test_config_lists_assumptions():
     r = client.get("/config").json()
     assert "tariff_inr_per_kwh" in r["assumptions"]

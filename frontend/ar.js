@@ -71,11 +71,31 @@ const REASONS = {
   unsupported: "AR needs Chrome on an Android phone with ARCore (Google Play Services for AR).",
 };
 
+// ---------- diagnostics: shown in the AR screen and sent to the server log (/client-log) ----------
+
+const DIAG = [];
+function diag(text) {
+  const line = `${new Date().toISOString().slice(11, 19)} ${text}`;
+  DIAG.push(line);
+  const el = $("#arDebug");
+  if (el) el.textContent = DIAG.slice(-2).join("\n");
+  fetch("/client-log", { method: "POST", body: line.slice(0, 500) }).catch(() => {});
+}
+window.addEventListener("error", (e) => diag(`JS error: ${e.message} @${e.lineno}`));
+window.addEventListener("unhandledrejection", (e) => diag(`Promise error: ${e.reason?.message || e.reason}`));
+
 // ---------- AR session ----------
 
 async function startAR(mode) {
   const overlay = $("#arOverlay");
   overlay.hidden = false;  // dom-overlay root must be displayed when the session starts
+  if (!$("#arDebug")) {
+    const d = document.createElement("div");
+    d.id = "arDebug";
+    d.className = "ar-debug";
+    overlay.querySelector(".ar-top").appendChild(d);
+  }
+  diag(`startAR ${mode}`);
   let session;
   try {
     session = await navigator.xr.requestSession("immersive-ar", {
@@ -83,8 +103,10 @@ async function startAR(mode) {
       optionalFeatures: ["anchors"],
       domOverlay: { root: overlay },
     });
+    diag(`session ok, domOverlay=${session.domOverlayState?.type || "?"}`);
   } catch (e) {
     overlay.hidden = true;
+    diag(`requestSession failed: ${e.name} ${e.message}`);
     window.setStatus?.(`Could not start AR: ${e.message}`, "error");
     return;
   }
@@ -111,14 +133,21 @@ async function startAR(mode) {
   const reticlePos = new THREE.Vector3();
   let hit = null;
   // Recent ring positions while the surface is tracked; a placed point is their average (less hand shake).
+  // The last good hit stays usable for HOLD_MS, so a one-frame tracking flicker while pressing the
+  // button does not swallow the press.
   const recent = [];
   const STEADY_MS = 400;
+  const HOLD_MS = 1500;
+  let lastHit = null, lastHitT = -1e9;
+  const stats = { frames: 0, hitFrames: 0, selects: 0, presses: 0, placed: 0 };
 
   let hitSource;
   try {
     const viewerSpace = await session.requestReferenceSpace("viewer");
     hitSource = await session.requestHitTestSource({ space: viewerSpace });
+    diag("hit-test source ok");
   } catch (e) {
+    diag(`hit-test source failed: ${e.name} ${e.message}`);
     $("#arMsg").textContent = `Surface detection could not start (${e.message}). Update "Google Play Services for AR" and Chrome.`;
     setTimeout(() => session.end().catch(() => {}), 6000);
     return;
@@ -132,9 +161,9 @@ async function startAR(mode) {
     return { kind, points: [], closed: false, line, dotMat: new THREE.MeshBasicMaterial({ color }) };
   }
   function steadyPosition() {
-    const now = performance.now();
-    const pts = recent.filter((r) => now - r.t <= STEADY_MS);
-    if (pts.length < 3) return reticlePos.clone();
+    // Average of the ring positions in the STEADY_MS before the last good hit.
+    const pts = recent.filter((r) => r.t >= lastHitT - STEADY_MS);
+    if (!pts.length) return reticlePos.clone();
     const avg = new THREE.Vector3();
     for (const r of pts) avg.add(r.p);
     return avg.divideScalar(pts.length);
@@ -144,7 +173,9 @@ async function startAR(mode) {
     p.mesh.position.copy(p.pos);
     scene.add(p.mesh);
     shape.points.push(p);
-    hit.createAnchor?.()?.then((a) => { p.anchor = a; }).catch(() => {});  // pin against drift
+    try {  // pin against drift; optional, placement works without it
+      lastHit?.createAnchor?.()?.then((a) => { p.anchor = a; }).catch(() => {});
+    } catch (_) { /* stale hit result */ }
   }
   function popPoint(shape) {
     const p = shape.points.pop();
@@ -295,13 +326,17 @@ async function startAR(mode) {
   for (const el of overlay.querySelectorAll(".ar-panel")) {
     el.addEventListener("beforexrselect", (e) => e.preventDefault());
   }
-  function placePoint() {
-    if (!current) return;
-    if (!hit) {
+  function placePoint(ev) {
+    if (ev?.type === "select") stats.selects++; else stats.presses++;
+    if (!current) { diag("place: no open shape (press Add obstruction or Undo)"); return; }
+    if (!lastHit || performance.now() - lastHitT > HOLD_MS) {
+      diag(`place: no surface (hits ${stats.hitFrames}/${stats.frames} frames)`);
       msg.textContent = "No floor under the crosshair yet. Move the phone slowly over a textured, well-lit floor.";
       return;
     }
     addPoint(current);
+    stats.placed++;
+    diag(`placed point ${current.points.length} (${current.kind})`);
     navigator.vibrate?.(30);
     const n = current.points.length;
     if (mode === "length") {
@@ -316,27 +351,39 @@ async function startAR(mode) {
   session.addEventListener("select", placePoint);  // tapping the camera view also places a point
   ui();
 
+  let lastReport = performance.now();
+  const t0 = lastReport;
   renderer.setAnimationLoop((_, frame) => {
     if (!frame) return;
+    stats.frames++;
+    const now = performance.now();
     const ref = renderer.xr.getReferenceSpace();
     const results = frame.getHitTestResults(hitSource);
-    if (results.length) {
+    const pose = results.length ? results[0].getPose(ref) : null;
+    if (pose) {
+      stats.hitFrames++;
       hit = results[0];
+      lastHit = hit;
+      lastHitT = now;
       reticle.visible = true;
-      reticle.matrix.fromArray(hit.getPose(ref).transform.matrix);
+      reticle.matrix.fromArray(pose.transform.matrix);
       reticlePos.setFromMatrixPosition(reticle.matrix);
-      const now = performance.now();
       recent.push({ t: now, p: reticlePos.clone() });
-      while (recent.length && now - recent[0].t > STEADY_MS) recent.shift();
       if (msg.textContent.startsWith("Move")) msg.textContent = "Aim the crosshair at a corner on the ground, hold steady, press Place point.";
     } else {
       hit = null;
       reticle.visible = false;
-      recent.length = 0;
     }
-    track.textContent = hit ? "● Floor found: ready to place" : "○ Searching for the floor… move slowly";
-    track.classList.toggle("ok", !!hit);
-    $("#arPlace").disabled = !hit || !current;
+    while (recent.length && now - recent[0].t > STEADY_MS + HOLD_MS) recent.shift();
+    const usable = now - lastHitT <= HOLD_MS;
+    track.textContent = hit ? "● Floor found: ready to place"
+      : usable ? "● Floor found (hold steady)" : "○ Searching for the floor… move slowly";
+    track.classList.toggle("ok", usable);
+    $("#arPlace").disabled = !current;  // never disabled by tracking flicker; placePoint explains if no surface
+    if (now - lastReport > (now - t0 < 30000 ? 3000 : 10000)) {
+      lastReport = now;
+      diag(`frames ${stats.frames}, floor hits ${stats.hitFrames}, presses ${stats.presses}, taps ${stats.selects}, placed ${stats.placed}`);
+    }
     for (const shape of [...closed, current].filter(Boolean)) {
       for (const p of shape.points) {
         if (!p.anchor) continue;
@@ -350,6 +397,7 @@ async function startAR(mode) {
   });
 
   session.addEventListener("end", () => {
+    diag(`session end: ${JSON.stringify(stats)}`);
     renderer.setAnimationLoop(null);
     hitSource.cancel?.();
     renderer.dispose();
@@ -363,6 +411,9 @@ async function startAR(mode) {
 async function init() {
   const pairs = [["#arBtn", "length"], ["#arScanBtn", "area"]];
   const a = await availability();
+  if ($("#arBtn") || $("#arScanBtn")) {
+    diag(`page ${location.pathname}: AR=${a}, secure=${window.isSecureContext}, xr=${!!navigator.xr}, ua=${navigator.userAgent.slice(0, 120)}`);
+  }
   for (const [sel, mode] of pairs) {
     const button = $(sel);
     if (!button) continue;

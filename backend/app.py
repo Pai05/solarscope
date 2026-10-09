@@ -8,7 +8,7 @@ import logging
 from pathlib import Path
 
 import numpy as np
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -33,6 +33,17 @@ LAYOUT_SOURCE = "configurable layout rule (not a regulation)"
 @app.get("/health")
 def health() -> dict:
     return {"status": "ok", "model_loaded": segmenter.available}
+
+
+client_log = logging.getLogger("solarscope.client")
+
+
+@app.post("/client-log")
+async def client_log_endpoint(request: Request) -> dict:
+    """AR diagnostics from phones (WebXR cannot be debugged remotely without a cable). Text only, capped."""
+    text = (await request.body())[:2000].decode("utf-8", "replace").replace("\n", " ")
+    client_log.info("%s %s", request.client.host if request.client else "?", text)
+    return {"ok": True}
 
 
 @app.get("/config")
