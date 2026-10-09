@@ -139,7 +139,7 @@ async function startAR(mode) {
   const STEADY_MS = 400;
   const HOLD_MS = 1500;
   let lastHit = null, lastHitT = -1e9;
-  const stats = { frames: 0, hitFrames: 0, selects: 0, presses: 0, placed: 0 };
+  const stats = { frames: 0, hitFrames: 0, selects: 0, presses: 0, placed: 0, tracked: 0, emulated: 0, rawResults: 0 };
 
   let hitSource;
   try {
@@ -358,7 +358,13 @@ async function startAR(mode) {
     stats.frames++;
     const now = performance.now();
     const ref = renderer.xr.getReferenceSpace();
+    const viewerPose = frame.getViewerPose(ref);  // null = the phone is not tracking its own position
+    if (viewerPose) {
+      stats.tracked++;
+      if (viewerPose.emulatedPosition) stats.emulated++;
+    }
     const results = frame.getHitTestResults(hitSource);
+    if (results.length) stats.rawResults++;
     const pose = results.length ? results[0].getPose(ref) : null;
     if (pose) {
       stats.hitFrames++;
@@ -382,7 +388,11 @@ async function startAR(mode) {
     $("#arPlace").disabled = !current;  // never disabled by tracking flicker; placePoint explains if no surface
     if (now - lastReport > (now - t0 < 30000 ? 3000 : 10000)) {
       lastReport = now;
-      diag(`frames ${stats.frames}, floor hits ${stats.hitFrames}, presses ${stats.presses}, taps ${stats.selects}, placed ${stats.placed}`);
+      diag(`frames ${stats.frames}, tracked ${stats.tracked} (emulated ${stats.emulated}), hit results ${stats.rawResults}, `
+        + `floor hits ${stats.hitFrames}, presses ${stats.presses}, taps ${stats.selects}, placed ${stats.placed}`);
+      if (stats.frames > 150 && !stats.tracked) {
+        track.textContent = "○ Phone is not tracking: check ARCore / camera";
+      }
     }
     for (const shape of [...closed, current].filter(Boolean)) {
       for (const p of shape.points) {
