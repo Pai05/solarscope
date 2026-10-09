@@ -110,9 +110,19 @@ async function startAR(mode) {
   const dotGeo = new THREE.SphereGeometry(0.03, 16, 12);
   const reticlePos = new THREE.Vector3();
   let hit = null;
+  // Recent ring positions while the surface is tracked; a placed point is their average (less hand shake).
+  const recent = [];
+  const STEADY_MS = 400;
 
-  const viewerSpace = await session.requestReferenceSpace("viewer");
-  const hitSource = await session.requestHitTestSource({ space: viewerSpace });
+  let hitSource;
+  try {
+    const viewerSpace = await session.requestReferenceSpace("viewer");
+    hitSource = await session.requestHitTestSource({ space: viewerSpace });
+  } catch (e) {
+    $("#arMsg").textContent = `Surface detection could not start (${e.message}). Update "Google Play Services for AR" and Chrome.`;
+    setTimeout(() => session.end().catch(() => {}), 6000);
+    return;
+  }
 
   // A shape is an open or closed polyline of anchored points.
   function newShape(kind) {
@@ -121,8 +131,16 @@ async function startAR(mode) {
     scene.add(line);
     return { kind, points: [], closed: false, line, dotMat: new THREE.MeshBasicMaterial({ color }) };
   }
+  function steadyPosition() {
+    const now = performance.now();
+    const pts = recent.filter((r) => now - r.t <= STEADY_MS);
+    if (pts.length < 3) return reticlePos.clone();
+    const avg = new THREE.Vector3();
+    for (const r of pts) avg.add(r.p);
+    return avg.divideScalar(pts.length);
+  }
   function addPoint(shape) {
-    const p = { pos: reticlePos.clone(), mesh: new THREE.Mesh(dotGeo, shape.dotMat) };
+    const p = { pos: steadyPosition(), mesh: new THREE.Mesh(dotGeo, shape.dotMat) };
     p.mesh.position.copy(p.pos);
     scene.add(p.mesh);
     shape.points.push(p);
@@ -146,6 +164,20 @@ async function startAR(mode) {
   const msg = $("#arMsg"), live = $("#arLive"), list = $("#arList"), buttons = $("#arButtons");
   msg.textContent = "Move the phone slowly over the ground until the white ring appears.";
   const btn = (id, label, cls = "") => `<button id="${id}" class="${cls}">${label}</button>`;
+  // Crosshair at the screen centre (where the hit-test ray points) and a surface-tracking indicator.
+  if (!overlay.querySelector(".ar-crosshair")) {
+    const c = document.createElement("div");
+    c.className = "ar-crosshair";
+    overlay.appendChild(c);
+  }
+  let track = $("#arTrack");
+  if (!track) {
+    track = document.createElement("div");
+    track.id = "arTrack";
+    track.className = "ar-track";
+    overlay.querySelector(".ar-top").prepend(track);
+  }
+  const placeBtn = btn("arPlace", "＋ Place point", "place");
   const end = (callback) => {
     session.end().catch(() => {});
     callback?.();
@@ -158,7 +190,7 @@ async function startAR(mode) {
   let ui;  // refresh function for the mode's readouts and buttons
   if (mode === "length") {
     current = newShape("length");
-    buttons.innerHTML = btn("arUndo", "Undo point", "secondary") + btn("arFinish", "Save length")
+    buttons.innerHTML = placeBtn + btn("arUndo", "Undo point", "secondary") + btn("arFinish", "Save length")
       + btn("arDone", "Use median") + btn("arExit", "Cancel", "secondary");
     ui = () => {
       const pts = current.points.map((p) => p.pos);
@@ -187,7 +219,7 @@ async function startAR(mode) {
     };
   } else {
     current = newShape("roof");
-    buttons.innerHTML = btn("arUndo", "Undo point", "secondary") + btn("arClose", "Close shape")
+    buttons.innerHTML = placeBtn + btn("arUndo", "Undo point", "secondary") + btn("arClose", "Close shape")
       + btn("arObs", "Add obstruction", "secondary") + btn("arFinishArea", "Finish")
       + btn("arExit", "Cancel", "secondary");
     const roofDone = () => closed.length > 0;
@@ -263,17 +295,25 @@ async function startAR(mode) {
   for (const el of overlay.querySelectorAll(".ar-panel")) {
     el.addEventListener("beforexrselect", (e) => e.preventDefault());
   }
-  session.addEventListener("select", () => {
-    if (!hit || !current) return;
+  function placePoint() {
+    if (!current) return;
+    if (!hit) {
+      msg.textContent = "No floor under the crosshair yet. Move the phone slowly over a textured, well-lit floor.";
+      return;
+    }
     addPoint(current);
+    navigator.vibrate?.(30);
     const n = current.points.length;
     if (mode === "length") {
-      msg.textContent = n === 1 ? "Walk along the wall and tap its other corner." : "Tap more points, or press Save length.";
+      msg.textContent = n === 1 ? "Walk along the wall to its other corner and place a point." : "Place more points, or press Save length.";
     } else {
-      msg.textContent = n < 3 ? "Tap the next corner." : "Tap the next corner, or Close shape after the last one.";
+      msg.textContent = n < 3 ? "Walk to the next corner, aim the crosshair at it, Place point."
+        : "Next corner, or Close shape after the last one.";
     }
     ui();
-  });
+  }
+  $("#arPlace").onclick = placePoint;
+  session.addEventListener("select", placePoint);  // tapping the camera view also places a point
   ui();
 
   renderer.setAnimationLoop((_, frame) => {
@@ -285,11 +325,18 @@ async function startAR(mode) {
       reticle.visible = true;
       reticle.matrix.fromArray(hit.getPose(ref).transform.matrix);
       reticlePos.setFromMatrixPosition(reticle.matrix);
-      if (msg.textContent.startsWith("Move")) msg.textContent = "Point the ring at a corner on the ground and tap.";
+      const now = performance.now();
+      recent.push({ t: now, p: reticlePos.clone() });
+      while (recent.length && now - recent[0].t > STEADY_MS) recent.shift();
+      if (msg.textContent.startsWith("Move")) msg.textContent = "Aim the crosshair at a corner on the ground, hold steady, press Place point.";
     } else {
       hit = null;
       reticle.visible = false;
+      recent.length = 0;
     }
+    track.textContent = hit ? "● Floor found: ready to place" : "○ Searching for the floor… move slowly";
+    track.classList.toggle("ok", !!hit);
+    $("#arPlace").disabled = !hit || !current;
     for (const shape of [...closed, current].filter(Boolean)) {
       for (const p of shape.points) {
         if (!p.anchor) continue;

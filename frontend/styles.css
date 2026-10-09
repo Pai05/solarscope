@@ -360,6 +360,33 @@ select {
 .ar-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .ar-bottom button { padding: 12px; font-size: 15px; }
 .ar-bottom button.secondary { color: #fff; border-color: rgba(255, 255, 255, 0.5); }
+.ar-bottom button.place { grid-column: 1 / -1; font-size: 19px; padding: 16px; font-weight: 700; }
+.ar-track { font-size: 13px; font-weight: 600; color: #fbbf24; margin-bottom: 4px; }
+.ar-track.ok { color: #4ade80; }
+/* Crosshair at the screen centre: the hit-test ray (and the placed point) goes through here */
+.ar-crosshair {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+.ar-crosshair::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  border-radius: 50%;
+  background: #fff;
+}
 
 .foot { text-align: center; color: var(--muted); font-size: 12px; padding: 10px 16px 30px; }
 .foot a { color: inherit; }
