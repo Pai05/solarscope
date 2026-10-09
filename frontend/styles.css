@@ -236,6 +236,31 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: now
 .ok-chip { background: #dcfce7; color: #166534; }
 .todo-chip { background: var(--warn-bg); color: #92400e; border: 1px solid var(--warn-line); }
 
+/* AR measuring screen: drawn over the camera view by WebXR dom-overlay */
+.ar-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px;
+  pointer-events: none;
+  color: #fff;
+  font-size: 15px;
+}
+.ar-panel {
+  pointer-events: auto;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+.ar-live { font-size: 34px; font-weight: 700; margin: 4px 0; font-variant-numeric: tabular-nums; }
+.ar-list { font-size: 14px; }
+.ar-warn { color: #fbbf24; font-weight: 600; }
+.ar-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ar-bottom button { padding: 12px; font-size: 15px; }
+.ar-bottom button.secondary { color: #fff; border-color: rgba(255, 255, 255, 0.5); }
+
 .foot { text-align: center; color: var(--muted); font-size: 12px; padding: 10px 16px 30px; }
 .foot a { color: inherit; }
 

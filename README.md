@@ -15,7 +15,10 @@ Built for Environmental Hacks (WeMakeDevs x AWS), track: Waste and Energy (Rooft
 1. **Segmentation**: U-Net (ResNet-34 encoder, segmentation-models-pytorch) trained on hand-labelled 0.1 m/px
    tiles of Vijayawada (India) and Dhaka drone imagery from OpenAerialMap (CC-BY 4.0). Exported to ONNX, runs on CPU.
 2. **Scale**: metres per pixel from the image's stated resolution, or by drawing a line over a known length.
-3. **Correction**: brush to paint roof / obstruction / erase; click "Pick my roof" to analyse one building.
+3. **Correction**: brush to paint roof / obstruction / erase; drag "Pick my roof" around one building; zoom and pan.
+   **AR wall measurement** (Android Chrome + ARCore, WebXR hit-test): tap where a house wall meets the ground at
+   both corners, repeat 3x, and the median length calibrates the image scale. True size from the phone,
+   shape and obstructions from the image.
 4. **Geometry** (`backend/geometry.py`): edge setback and obstruction buffer by Euclidean distance transform;
    greedy panel packing in both orientations and several row offsets, keeping the best.
 5. **Economics** (`backend/solar_calc.py`): irradiance from NASA POWER for the site → yield → savings,
@@ -28,6 +31,8 @@ Built for Environmental Hacks (WeMakeDevs x AWS), track: Waste and Energy (Rooft
 | **EC2** (t3.small, Ubuntu 24.04, ap-south-1) | The whole app: FastAPI + ONNX Runtime + static frontend, as a systemd service |
 | **S3** | Model weights (`models/solarscope.onnx`), pulled at deploy time |
 | **IAM role** (instance profile) | Read-only access from EC2 to the weights bucket; no access keys on the server |
+
+Caddy on the same instance terminates HTTPS (needed for camera/AR in browsers) at `https://<ip>.sslip.io`.
 
 Deploy guide: [`infra/DEPLOY.md`](infra/DEPLOY.md).
 

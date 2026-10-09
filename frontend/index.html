@@ -65,6 +65,8 @@
         <label>Metres per pixel (original image)
           <input type="number" id="gsd" step="0.001" min="0.005" max="2" value="0.1">
         </label>
+        <button id="arBtn" class="secondary" disabled>&#128241; Measure a wall with AR</button>
+        <p id="arNote" class="muted small">Checking AR support&hellip;</p>
         <button id="calibBtn" class="secondary" disabled>Calibrate: draw a known length</button>
         <div id="calibBox" class="calib" hidden>
           <label>Real length of the line (m)
@@ -160,6 +162,21 @@
       <a href="https://github.com/Pai05/solarscope">Source code (MIT)</a></p>
   </footer>
 
+  <div id="arOverlay" class="ar-overlay" hidden>
+    <div class="ar-panel ar-top">
+      <div id="arMsg">Starting AR&hellip;</div>
+      <div id="arLive" class="ar-live">&ndash;</div>
+      <div id="arList" class="ar-list"></div>
+    </div>
+    <div class="ar-panel ar-bottom">
+      <button id="arUndo" class="secondary">Undo point</button>
+      <button id="arFinish">Save length</button>
+      <button id="arDone">Use median</button>
+      <button id="arExit" class="secondary">Cancel</button>
+    </div>
+  </div>
+
   <script src="app.js"></script>
+  <script type="module" src="ar.js"></script>
 </body>
 </html>

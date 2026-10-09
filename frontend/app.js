@@ -235,6 +235,19 @@ $("#calibBtn").addEventListener("click", () => {
   setStatus("Calibrate: drag a line across something of known length (e.g. a water tank, a door, a car).");
 });
 
+// Called by ar.js with {median, halfRange, relSpread, n, values} after an AR wall measurement.
+window.SolarScopeStatus = setStatus;
+window.SolarScopeApplyARLength = (r) => {
+  $("#calibLen").value = r.median.toFixed(2);
+  const spread = `${r.median.toFixed(2)} m ± ${r.halfRange.toFixed(2)} (median of ${r.n})`;
+  if (!state.w) {
+    setStatus(`AR wall length ${spread}. Load the roof image, press Calibrate and drag along the same wall.`);
+    return;
+  }
+  $("#calibBtn").click();
+  setStatus(`AR wall length ${spread}. Now drag a line along the same wall on the image, then press Apply.`);
+};
+
 $("#calibApply").addEventListener("click", () => {
   const len = num("#calibLen");
   if (!state.calib || !len) return;

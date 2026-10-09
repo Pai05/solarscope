@@ -75,3 +75,15 @@ curl -fsSL https://raw.githubusercontent.com/Pai05/solarscope/main/infra/setup.s
 
 3. `http://<public-ip>/health` -> `{"status":"ok","model_loaded":true}`. The prefix is remembered in `/etc/solarscope.conf`,
    so later updates only need the plain `curl ... | sudo bash`.
+
+## HTTPS and AR wall measurement
+`setup.sh` also installs **Caddy**, which serves the app over HTTPS at `https://<a-b-c-d>.sslip.io/`
+(your public IP with dashes, e.g. `https://13-233-10-20.sslip.io/`) and gets a Let's Encrypt certificate
+automatically. Browsers only allow the camera / WebXR AR on HTTPS, so open this address on the phone.
+Plain `http://<public-ip>/` keeps working. Needs inbound ports 80 and 443 open in the security group.
+
+If the public IP changes (stop/start without an Elastic IP), re-run `setup.sh` to regenerate the address.
+
+AR test: Android phone with ARCore, **Chrome**, open the https address -> step 2 "Measure a wall with AR"
+-> tap where the wall meets the ground at both corners -> Save length (x3) -> Use median ->
+drag the same wall on the image -> Apply.

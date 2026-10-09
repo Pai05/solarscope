@@ -50,6 +50,11 @@ exported as COCO and converted with `training/coco_to_masks.py`. Released with t
 | ONNX | Model export | Apache-2.0 |
 | rasterio / GDAL | Reading OpenAerialMap GeoTIFFs | BSD-3-Clause / MIT |
 | pytest, httpx | Tests | MIT, BSD-3-Clause |
+| three.js (r160, via jsDelivr CDN) | AR measuring view (WebXR) | MIT |
+| Caddy | HTTPS reverse proxy on EC2 | Apache-2.0 |
+
+Services: [sslip.io](https://sslip.io) (free DNS name for the server IP, used for the HTTPS certificate),
+Let's Encrypt (certificate, via Caddy).
 
 ## Official sources for economic inputs
 
