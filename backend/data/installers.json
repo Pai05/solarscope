@@ -1,0 +1,6209 @@
+{
+ "_note": "Real installers copied from official DISCOM / state empanelled-vendor lists (see each entry's source). Being listed does not mean SolarScope recommends them: check the vendor on pmsuryaghar.gov.in and ask for written quotes. Office locations are approximate (city centre).",
+ "installers": [
+  {
+   "id": "mpcz-001",
+   "company_name": "SolarSquare Energy Private Limited",
+   "contact_person": "Manoj Kumar",
+   "phone": "8826376150",
+   "email": null,
+   "website": null,
+   "address": "Het Kunj, G3 B Wing, VP Road, Opp. Fidai Baugh Lane,Andheri West, Mumbai 400058",
+   "city": null,
+   "state": "Madhya Pradesh",
+   "pincode": "400058",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "region",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-002",
+   "company_name": "SHOURYA ENERGY SOLUTIONS",
+   "contact_person": "SANDESH CHOUKSEY",
+   "phone": "9300585810",
+   "email": null,
+   "website": null,
+   "address": "F-STAR, 01, SAGAR ROYAL VILLAS, HOSHANGABADROAD, BHOPAL, Bhopal, Madhya Pradesh, 462026",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462026",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-003",
+   "company_name": "DSA Electrical Construction and Consultancy",
+   "contact_person": "Deepansh Babbar",
+   "phone": "7999314211",
+   "email": null,
+   "website": null,
+   "address": "46, Archana Tower, c- sector, Indrapuri, Bhopal (M.P.)",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-004",
+   "company_name": "Ray Flux Enterprises Private Limited",
+   "contact_person": "Aman Verma",
+   "phone": "9343538764",
+   "email": null,
+   "website": null,
+   "address": "A-22, Minal Residency near Minal Gate No -01",
+   "city": null,
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "region",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-005",
+   "company_name": "M N SOLAR",
+   "contact_person": "MANOJ KUMAR UPLAVDIA",
+   "phone": "9174115580",
+   "email": null,
+   "website": null,
+   "address": "05 new sainik colony bairagarh bhopal mp 462030",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462030",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-006",
+   "company_name": "EQUIPOLLENT ENERGY SOLUTIONS CONSULTANCY OPC PVT L",
+   "contact_person": "SANJAY RAUT",
+   "phone": "8871216721",
+   "email": null,
+   "website": null,
+   "address": "15-21, 2nd Floor ,Malhar Mall ,Vijay Nagar ,AB Road Indore MP 452010",
+   "city": "Indore",
+   "state": "Madhya Pradesh",
+   "pincode": "452010",
+   "lat": 22.72,
+   "lon": 75.86,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-007",
+   "company_name": "MONTAS INFRA POWER PVT LTD",
+   "contact_person": "OPMEHRA",
+   "phone": "8839817456",
+   "email": null,
+   "website": null,
+   "address": "PLOT NO.10,CHITRAKOOT COLONY,NEAR MITTAL COLLGE KAROND BHOPAL(MP)462010 CORPORATE OFFICE:-FF-116,MINAL MALL,JK ROAD,BHOPAL",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462010",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-008",
+   "company_name": "SOLAR TECHOLUTIONS",
+   "contact_person": "Anmol Rai",
+   "phone": "8109314313",
+   "email": null,
+   "website": null,
+   "address": "FIRST FLOOR, PLOT NO.34, ZONE-I, MAHARANA PRATAP NAGAR, MAHARANA PRATAP NAGAR, Bhopal",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-009",
+   "company_name": "SURYAMTECH ENGINEERING",
+   "contact_person": "RAHUL PALIWAL",
+   "phone": "9993642777",
+   "email": null,
+   "website": null,
+   "address": "Suryamtech EngineeringS.C. No. 932, Near Bajaj ShowroomShastriward, Hoshangabad Road,Sohagpur, Hoshangatrad-461771",
+   "city": "Sohagpur",
+   "state": "Madhya Pradesh",
+   "pincode": "461771",
+   "lat": 22.7,
+   "lon": 78.2,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-010",
+   "company_name": "A and A Associates",
+   "contact_person": "Sakina Ansari",
+   "phone": "9300001095",
+   "email": null,
+   "website": null,
+   "address": "FLAT NO. 202, RACHNA HOMES, E-7/118 LALA LAJPAT RAI SOCIETY ARERA COLONY, BHOPAL",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-011",
+   "company_name": "Enhance Multi Trade Pvt Ltd",
+   "contact_person": "Rajneesh Kumar Shukla",
+   "phone": "9893309749",
+   "email": null,
+   "website": null,
+   "address": "11, SHREE BALAJI NAGAR, NARELA SHANKARI,BHOPAL, MADHYA PRADESH, 462041",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462041",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-012",
+   "company_name": "Teorainn Solar Private Limited",
+   "contact_person": "Abhishek Wadhwa",
+   "phone": "7773081777",
+   "email": null,
+   "website": null,
+   "address": "Teorainn Solar Private Limited 2nd Floor, Frontier ENT Hospital Building, 1492 Wright Town, Jabalpur M.P. 482001",
+   "city": "Jabalpur",
+   "state": "Madhya Pradesh",
+   "pincode": "482001",
+   "lat": 23.18,
+   "lon": 79.99,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-013",
+   "company_name": "VAISHNAV ELECTRICALS",
+   "contact_person": "BHAGWAN SANGTANI",
+   "phone": "9827272100",
+   "email": null,
+   "website": null,
+   "address": "NEW A 26/270 BAIRAGARH BHOPAL",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-014",
+   "company_name": "Blueneba Technologies Private Limited",
+   "contact_person": "Nikhil Shrivastava",
+   "phone": "9999277000",
+   "email": null,
+   "website": null,
+   "address": "H.No.- 148/E-5, Arera Colony Bhopal Madhya Pradesh, 462016",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462016",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-015",
+   "company_name": "BHASKAR ENERGY SYSTEM",
+   "contact_person": "MR KAPIL KHARE",
+   "phone": "9425096444",
+   "email": null,
+   "website": null,
+   "address": "131/6 KIRAN COMPLEX ZONE-II M.P NAGAR , BHOPAL - 462011",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462011",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-016",
+   "company_name": "MS Greenmax systems",
+   "contact_person": "Mr satish kataria",
+   "phone": "9826017167",
+   "email": null,
+   "website": null,
+   "address": "B-147 Dr. govind narayan model town chunabhati kolar road bhopal mp.",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-017",
+   "company_name": "Vijay Enterprises",
+   "contact_person": "Rahul Pawar",
+   "phone": "9425150152",
+   "email": null,
+   "website": null,
+   "address": "Talaiya Complex, Sadar Bazar , Betul (M.P)-460001",
+   "city": "Betul",
+   "state": "Madhya Pradesh",
+   "pincode": "460001",
+   "lat": 21.9,
+   "lon": 77.9,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-018",
+   "company_name": "KUMKRIT POWER",
+   "contact_person": "HARSEVAK PRAJAPATI",
+   "phone": "7804024975",
+   "email": null,
+   "website": null,
+   "address": "H.no-17, E-8, LAXMAN NAGAR DANA PANI ROAD, BHOPAL (M.P)",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-019",
+   "company_name": "SUNRAY ENERGY SOLUTIONS",
+   "contact_person": "ARJUN THAKUR",
+   "phone": "9713613643",
+   "email": null,
+   "website": null,
+   "address": "106,CHITRAGUPT COLONY KOTRA SULTANABAD BHOPAL 462003",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462003",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-020",
+   "company_name": "SHARMA ASSOCIATES",
+   "contact_person": "PREETAM SHARMA",
+   "phone": "9111917222",
+   "email": null,
+   "website": null,
+   "address": "HOUSE NO 73 RAJ SAMRAT COLONY PHASE 2 J.K ROAD BHOPAL",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-021",
+   "company_name": "Heliosvento Power Infra OPC Pvt Ltd",
+   "contact_person": "Shivani Jhariya",
+   "phone": "7747832020",
+   "email": null,
+   "website": null,
+   "address": "H.NO 14. Second Floor, Sehkar Nagar, E8- Trilanga, Bhopal, M.P 462039",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462039",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-022",
+   "company_name": "DYNAMECH ELECTROPOWER PVT LTD",
+   "contact_person": "ALOK GUPTA",
+   "phone": "9826026059",
+   "email": null,
+   "website": null,
+   "address": "55-56A, SECTOR-H, GOVINDPURA INDUSTRIAL AREA, BHOPAL -462023",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462023",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-023",
+   "company_name": "ECOCARE VENTURES",
+   "contact_person": "RAHUL VERMA",
+   "phone": "8770795474",
+   "email": null,
+   "website": null,
+   "address": "401 MAHARANA APARTMENT ZONE 1 M P NAGAR BHOPAL",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-024",
+   "company_name": "CNS NEMA SOLAR",
+   "contact_person": "Shubham Nema",
+   "phone": "8463887865",
+   "email": null,
+   "website": null,
+   "address": "Shop no 2, Shri krishna enclave , near aashima mall , hoshangabad road bhopal",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-025",
+   "company_name": "RB TECHNICAL SOLUTION",
+   "contact_person": "BHUPENDRA MAITHIL",
+   "phone": "6264747448",
+   "email": null,
+   "website": null,
+   "address": "near power sub station ,ramleela,vidisha",
+   "city": "Vidisha",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.52,
+   "lon": 77.81,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-026",
+   "company_name": "Brink Constructions",
+   "contact_person": "Aayush Jain",
+   "phone": "9039140393",
+   "email": null,
+   "website": null,
+   "address": "99, malviya nagar, Bhopal,462003, M.P",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462003",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-027",
+   "company_name": "Shridhar renewable energy pvt ltd",
+   "contact_person": "yogesh gautam",
+   "phone": "7000248987",
+   "email": null,
+   "website": null,
+   "address": "B-1 , PLOT NO 148 , SANCHI APARTMENT , TRILOCHAN SINGH NAGAR , TRILANGA ,BHOPAL",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-028",
+   "company_name": "KRISHI STORE",
+   "contact_person": "SHIVAM KAPOOR",
+   "phone": "9425005223",
+   "email": null,
+   "website": null,
+   "address": "JAWAHAR WARD PLOT NO 17/25 GANJ BETUL",
+   "city": "Betul",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 21.9,
+   "lon": 77.9,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-029",
+   "company_name": "BHUPENDRA SHARMA INFRA AND DEVELOPERS PVT LTD",
+   "contact_person": "BHUPENDRA SHARMA",
+   "phone": "7024153401",
+   "email": null,
+   "website": null,
+   "address": "FIRST FLOOR, OPPOSITE INDIAN BANK, MAIN ROAD DURGA NAGAR ROAD, VIDISHA (M.P.) 464001",
+   "city": "Vidisha",
+   "state": "Madhya Pradesh",
+   "pincode": "464001",
+   "lat": 23.52,
+   "lon": 77.81,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-030",
+   "company_name": "SHANTIMANI ENTERPRISES",
+   "contact_person": "CHIRAG JAIN",
+   "phone": "8085824040",
+   "email": null,
+   "website": null,
+   "address": "SHANTIMANI ENTERPRISES, MAIN ROAD BABAI, BabaiDist. NARMADAPURAM (461661)",
+   "city": "Babai",
+   "state": "Madhya Pradesh",
+   "pincode": "461661",
+   "lat": 22.7,
+   "lon": 77.93,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-031",
+   "company_name": "P and A Ecotech Solutions",
+   "contact_person": "ANAMIKA KUMARI",
+   "phone": "8294630522",
+   "email": null,
+   "website": null,
+   "address": "A-33, GALAXY CITY PHASE-2, AMRAWAD KHURD, BHOPAL, MP-462022",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462022",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-032",
+   "company_name": "REFLEX TECHNO SYSTEMS",
+   "contact_person": "ADESH GOUR",
+   "phone": "9826731909",
+   "email": null,
+   "website": null,
+   "address": "125, SANTOSHI VIHAR AYODHYA BYPASS ROAD BHOPAL-462041",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462041",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-033",
+   "company_name": "Sparkle Energy Solution",
+   "contact_person": "KAMAL KISHORE KATARE",
+   "phone": "9958569488",
+   "email": null,
+   "website": null,
+   "address": "C-3A, NARAYAN NAGAR, NEAR SARTHI HOSPITAL, HOSHANGABAD ROAD, BHOPAL-462026",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462026",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-034",
+   "company_name": "Macwell Infra and Power Engineering",
+   "contact_person": "Kamal Kant Ughade",
+   "phone": "9755332410",
+   "email": null,
+   "website": null,
+   "address": "A-2/176, Sagar Estate, Ayodhya By Pass Road, Bhopal, (M.P.)",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-035",
+   "company_name": "Tropics Energy Solutions Private Limited",
+   "contact_person": "Arun Kumar Ghodki",
+   "phone": "7697573439",
+   "email": null,
+   "website": null,
+   "address": "H.No. 216/3, New Baraskar Colony, Mahaveer Ward, TikariBetul, Betul, Madhya Pradesh, 460001",
+   "city": "Betul",
+   "state": "Madhya Pradesh",
+   "pincode": "460001",
+   "lat": 21.9,
+   "lon": 77.9,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-036",
+   "company_name": "Laxmi Construction",
+   "contact_person": "Sharda Bai",
+   "phone": "9827232009",
+   "email": null,
+   "website": null,
+   "address": "1, Gram Ghatakhedi, Tehsil Khilchipur, Dist. Rajgarh 465697",
+   "city": "Rajgarh",
+   "state": "Madhya Pradesh",
+   "pincode": "465697",
+   "lat": 24.01,
+   "lon": 76.73,
+   "location_precision": "region",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-037",
+   "company_name": "TIRUPATI SALES AND ONLINE POWER",
+   "contact_person": "MR DHARMENDRA KUMAR JOSHI",
+   "phone": "9826229850",
+   "email": null,
+   "website": null,
+   "address": "DR. J.P. SHARMA KE PAAS, JINSI NALA NO. 03, LASHKAR,Gwalior, Madhya Pradesh, 474001",
+   "city": "Gwalior",
+   "state": "Madhya Pradesh",
+   "pincode": "474001",
+   "lat": 26.22,
+   "lon": 78.18,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-038",
+   "company_name": "GREENNUB TECHNOLOGY PRIVATE LIMITED",
+   "contact_person": "Neeraj Mangal",
+   "phone": "9372295841",
+   "email": null,
+   "website": null,
+   "address": "Plot No. 95 & 102, Kailash Vihar City Center, GWALIOR Gwalior MP 474011 IN.",
+   "city": "Gwalior",
+   "state": "Madhya Pradesh",
+   "pincode": "474011",
+   "lat": 26.22,
+   "lon": 78.18,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-039",
+   "company_name": "shree akshay urja company",
+   "contact_person": "divyansh sharma",
+   "phone": "9406502540",
+   "email": null,
+   "website": null,
+   "address": "F-10 SHRI GANESH COMPLEX JHANSI ROAD GWALIOR MP PIN 474001",
+   "city": "Gwalior",
+   "state": "Madhya Pradesh",
+   "pincode": "474001",
+   "lat": 26.22,
+   "lon": 78.18,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-040",
+   "company_name": "Eagles Solar Glow Enterprises",
+   "contact_person": "Rajendra kumar",
+   "phone": "9149496470",
+   "email": null,
+   "website": null,
+   "address": "3119, Gayatri Vihar colony Pinto Park, Morar Gwalior, MP, PIN 474005 Mobile 9149496470, 9479808746",
+   "city": "Gwalior",
+   "state": "Madhya Pradesh",
+   "pincode": "474005",
+   "lat": 26.22,
+   "lon": 78.18,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-041",
+   "company_name": "ETERNAL ENERGY SOLUTIONS",
+   "contact_person": "NRIPENDRA PATEL",
+   "phone": "7021993379",
+   "email": null,
+   "website": null,
+   "address": "ward number 11, bara,opposite stadium , university road , rewa , MP486001",
+   "city": "Rewa",
+   "state": "Madhya Pradesh",
+   "pincode": "486001",
+   "lat": 24.53,
+   "lon": 81.3,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-042",
+   "company_name": "SOLARURJAA",
+   "contact_person": "KARAN SINGH",
+   "phone": "7000447288",
+   "email": null,
+   "website": null,
+   "address": "Ram kala nagar,Morar gwalior",
+   "city": "Gwalior",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 26.22,
+   "lon": 78.18,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-043",
+   "company_name": "bhandari solar",
+   "contact_person": "aakash bhandari",
+   "phone": "8878665511",
+   "email": null,
+   "website": null,
+   "address": "c-26 raddhavallabh market Khargone",
+   "city": "Khargone",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 21.82,
+   "lon": 75.61,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-044",
+   "company_name": "STARFIELD RENEWABLES PVT LTD",
+   "contact_person": "PRASHANT SUNDRANI",
+   "phone": "9557426363",
+   "email": null,
+   "website": null,
+   "address": "10/9B Katra Wazir Khan Rambagh Agra-282006",
+   "city": null,
+   "state": "Madhya Pradesh",
+   "pincode": "282006",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "region",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-045",
+   "company_name": "RR ENGITECH",
+   "contact_person": "Ranvijay Singh",
+   "phone": "9687094077",
+   "email": null,
+   "website": null,
+   "address": "Virat nagar Mod,Satna,Madhya Pradesh,485001",
+   "city": "Satna",
+   "state": "Madhya Pradesh",
+   "pincode": "485001",
+   "lat": 24.6,
+   "lon": 80.83,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-046",
+   "company_name": "Ashra Retail Pvt Ltd",
+   "contact_person": "SANDEEP KUMAR SINGH",
+   "phone": "7898892300",
+   "email": null,
+   "website": null,
+   "address": "ASHRA RETAIL PVT LTDMITRA HEIGHTS COLLEGE CHOWK REWA (M.P) 486001",
+   "city": "Rewa",
+   "state": "Madhya Pradesh",
+   "pincode": "486001",
+   "lat": 24.53,
+   "lon": 81.3,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-047",
+   "company_name": "BALAJI POWER AND INFRA SOLUTIONS",
+   "contact_person": "AVADH NARAYAN SAHU",
+   "phone": "9907584329",
+   "email": null,
+   "website": null,
+   "address": "SHOP NO-01 BARRAI, WARD -85 KATAR HILLS BHOPAL",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-048",
+   "company_name": "Nivid Trading Co",
+   "contact_person": "Anil Mishra",
+   "phone": "9893484938",
+   "email": null,
+   "website": null,
+   "address": "21, CHHAWANI SHAHAPURA,BHOPAL, Madhya Pradesh, 462039",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462039",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-049",
+   "company_name": "Brijwasi electricals",
+   "contact_person": "Sneh Prabha Sharma",
+   "phone": "9229668463",
+   "email": null,
+   "website": null,
+   "address": "GB-17, Sarvodaya Complex, Bagmugaliya, Bhopal, Madhya Pradesh. 462043",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462043",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-050",
+   "company_name": "PRACHI SERVICES",
+   "contact_person": "BRIJESH",
+   "phone": "9827569360",
+   "email": null,
+   "website": null,
+   "address": "H.No. 143 , Anand nagarn , Hathai kheda , bhopal-462022",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462022",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-051",
+   "company_name": "konark solar energie",
+   "contact_person": "Dinesh singh rajput",
+   "phone": "9630472531",
+   "email": null,
+   "website": null,
+   "address": "PLOT NO.114,KAILASH VIHAR ,CITY CENTRE,GWALIOR,MADHYA PRADESH.",
+   "city": "Gwalior",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 26.22,
+   "lon": 78.18,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-052",
+   "company_name": "PROCURA ONE SOURCE",
+   "contact_person": "PRIYANKA SHARMA",
+   "phone": "8959890113",
+   "email": null,
+   "website": null,
+   "address": "LIG - 102/3A , Saket Nagar, Bhopal - 462024",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462024",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-053",
+   "company_name": "Onis Solar Solutions OPC Private Limited",
+   "contact_person": "Himanshu Jamliya",
+   "phone": "9522421777",
+   "email": null,
+   "website": null,
+   "address": "202 Second floor 507-508 MR5 Mahalaxmi Nagar, Indore",
+   "city": "Indore",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 22.72,
+   "lon": 75.86,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-054",
+   "company_name": "AN Electro Mech India Pvt Ltd",
+   "contact_person": "Abhay Singh Verma",
+   "phone": "9958798855",
+   "email": null,
+   "website": null,
+   "address": "vipul plaza c 810 sec 81 faridabad 121004",
+   "city": null,
+   "state": "Madhya Pradesh",
+   "pincode": "121004",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "region",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-055",
+   "company_name": "AGRAWAL ELECTRICALS",
+   "contact_person": "ARUN GARG",
+   "phone": "8827418311",
+   "email": null,
+   "website": null,
+   "address": "0, NEAR BRADDHASHRAM, GALI NO. 07, MADHOPURA, Morena, Madhya Pradesh, 476001",
+   "city": "Morena",
+   "state": "Madhya Pradesh",
+   "pincode": "476001",
+   "lat": 26.5,
+   "lon": 78.0,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-056",
+   "company_name": "KHANDELWAL AGENCY",
+   "contact_person": "SAMARTH KHANDELWAL",
+   "phone": "9826731732",
+   "email": null,
+   "website": null,
+   "address": "milan garden",
+   "city": null,
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "region",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-057",
+   "company_name": "KKR Energy",
+   "contact_person": "Mohan Singh Sikarwar",
+   "phone": "9985550736",
+   "email": null,
+   "website": null,
+   "address": "1, SIKARWAR PETROL PUMP, NEAR IES COLLEGE, RATIBAD MAIN ROAD, BHOPAL, MADHYA PRADESH",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-058",
+   "company_name": "SARASWATI ENTERPRISES",
+   "contact_person": "KANISHKA RICHHARIA",
+   "phone": "7415580106",
+   "email": null,
+   "website": null,
+   "address": "GROUND FLOOR,SHOP NO. 2 SAHKAARI DUKAANPANDIT BAIJNATH PRASAD DUBEY MARGARERA COLONYBHOPAL (M.P.) - 462016",
+   "city": null,
+   "state": "Madhya Pradesh",
+   "pincode": "462016",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "region",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-059",
+   "company_name": "PICKRENEW ENERGY PVT LTD",
+   "contact_person": "GOURAV BAPNA",
+   "phone": "7898663839",
+   "email": null,
+   "website": null,
+   "address": "Office no. A-102-103, Plot no. 161-162-C, Vasant Vihar Colony, Indore, Madhya Pradesh 452010, India",
+   "city": "Indore",
+   "state": "Madhya Pradesh",
+   "pincode": "452010",
+   "lat": 22.72,
+   "lon": 75.86,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-060",
+   "company_name": "PRATEEK SOLAR ENTERPRISES",
+   "contact_person": "PRATEEK NAYAK",
+   "phone": "9713644191",
+   "email": null,
+   "website": null,
+   "address": "AMAR COMPLEX, RANITAL CHOWK, JABALPUR 482002",
+   "city": "Jabalpur",
+   "state": "Madhya Pradesh",
+   "pincode": "482002",
+   "lat": 23.18,
+   "lon": 79.99,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-061",
+   "company_name": "SUNHEAVEN ENERGY PRIVATE LIMITED",
+   "contact_person": "AMAN AGARWAL",
+   "phone": "7987468793",
+   "email": null,
+   "website": null,
+   "address": "79, ANUP NAGAR, F NO. 101, R.S.S. NAGAR, INDORE, MADHYA PRADESH, INDIA, 452011",
+   "city": "Indore",
+   "state": "Madhya Pradesh",
+   "pincode": "452011",
+   "lat": 22.72,
+   "lon": 75.86,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-062",
+   "company_name": "AIMTECH SALES AND SOLAR SERVICES",
+   "contact_person": "ASIF KHAN",
+   "phone": "9300180822",
+   "email": null,
+   "website": null,
+   "address": "SHOP NO-4 BASEMENT AT CENTER POINT COMPLEX JINSI JAHANGIRABAD BHOPAL M.P.",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-063",
+   "company_name": "POONAM ENTERPRISES",
+   "contact_person": "POONAM GUPTA",
+   "phone": "9425110813",
+   "email": null,
+   "website": null,
+   "address": "69, TANSEN NAGAR, GWALIOR, 474002",
+   "city": "Gwalior",
+   "state": "Madhya Pradesh",
+   "pincode": "474002",
+   "lat": 26.22,
+   "lon": 78.18,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-064",
+   "company_name": "Onward Energies Pvt Ltd",
+   "contact_person": "Vikas Barve",
+   "phone": "9303125406",
+   "email": null,
+   "website": null,
+   "address": "6, Vashali Complex, M.P. Nagar Zone II , Bhopal ( M.P.)",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-065",
+   "company_name": "TRUPTI ENTERPRISES",
+   "contact_person": "PANKAJ CHADHOKER",
+   "phone": "9074167817",
+   "email": null,
+   "website": null,
+   "address": "Behind mahila iti kosmi road betul",
+   "city": "Betul",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 21.9,
+   "lon": 77.9,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-066",
+   "company_name": "HITANSHI ENTERPRISES",
+   "contact_person": "ANKITA GUPTA",
+   "phone": "7011879690",
+   "email": null,
+   "website": null,
+   "address": "22B KRATIN ENCLAVE, MAHALGAON, GWALIOR MADHYA PRADESH - 474001",
+   "city": "Gwalior",
+   "state": "Madhya Pradesh",
+   "pincode": "474001",
+   "lat": 26.22,
+   "lon": 78.18,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-067",
+   "company_name": "MP SOLAR INNOVATIONS",
+   "contact_person": "NITIN PATEL",
+   "phone": "7049660603",
+   "email": null,
+   "website": null,
+   "address": "KN : 67/11 Locality : Mahalwada City/Town : Pipariya District: Narmadapuram State: Madhya Pradesh PIN Code: 461775",
+   "city": "Pipariya",
+   "state": "Madhya Pradesh",
+   "pincode": "461775",
+   "lat": 22.76,
+   "lon": 78.35,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-068",
+   "company_name": "MARTANDA INFRATECH",
+   "contact_person": "VIRESH SHUKLA",
+   "phone": "7974659891",
+   "email": null,
+   "website": null,
+   "address": "F-4, Landmark Complex, Near Indain oil Petrol Pump, Bagmugaliya, Bhopal (MP)",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-069",
+   "company_name": "Green Volt Energy Solutions",
+   "contact_person": "Himanshu Gupta",
+   "phone": "9575684884",
+   "email": null,
+   "website": null,
+   "address": "B-69,Anand Nagar ,Siddarth Lake City BHopal,Madhya Pradesh-462022",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462022",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-071",
+   "company_name": "SOLARAXIS SPECTRUM PRIVATE LIMITED",
+   "contact_person": "ANOOP RAI",
+   "phone": "9893239939",
+   "email": null,
+   "website": null,
+   "address": "plot no.-141,Flat no.-303, Siddharth Homes, Zone-2 M.P Nagar, Bhopal462011",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462011",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-072",
+   "company_name": "LOTUS AGENCIES",
+   "contact_person": "JAIKISHAN MATANI",
+   "phone": "9229298270",
+   "email": null,
+   "website": null,
+   "address": "10 CHETAK COMPLEX ZONE 2 M.P NAGAR BHOPAL 462011",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462011",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-073",
+   "company_name": "RISING IMPACT",
+   "contact_person": "JITENDRA KUMAR GUPTA",
+   "phone": "9636056208",
+   "email": null,
+   "website": null,
+   "address": "BARODA ROAD SHEOPUR",
+   "city": "Sheopur",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 25.67,
+   "lon": 76.7,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-074",
+   "company_name": "SUNSTREAM ENERGY",
+   "contact_person": "POOJA SHARMA",
+   "phone": "7970096589",
+   "email": null,
+   "website": null,
+   "address": "B81-PRAGATI VIHAR COLONY, GOLE KA MANDIR, GWALIOR, MADHYA PRADESH, PIN-474005",
+   "city": "Gwalior",
+   "state": "Madhya Pradesh",
+   "pincode": "474005",
+   "lat": 26.22,
+   "lon": 78.18,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-075",
+   "company_name": "MADHAV TECHNOLOGIES AND INTEGRATORS LLP",
+   "contact_person": "PARTH CHATPAT",
+   "phone": "9979987866",
+   "email": null,
+   "website": null,
+   "address": "Vihav Trade Centre, Sixth Floor, Office No 617 Near Waves Club, Vasna - Bhayli Main Rd, Bhayli, Vadodara, Gujarat 390015, India",
+   "city": null,
+   "state": "Madhya Pradesh",
+   "pincode": "390015",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "region",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-076",
+   "company_name": "MAHESHWARI ENERGY AND MOBILITY PRIVATE LIMITED",
+   "contact_person": "HRISHIKA MAHESHWARI",
+   "phone": "9425040254",
+   "email": null,
+   "website": null,
+   "address": "M N 382, WARD 18 RADHAKRASHNA WARD, SHOBHAPUR ROAD , PIPARIYA 461775",
+   "city": "Pipariya",
+   "state": "Madhya Pradesh",
+   "pincode": "461775",
+   "lat": 22.76,
+   "lon": 78.35,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-077",
+   "company_name": "MAA SHARDA SALES",
+   "contact_person": "PARAS JAIN",
+   "phone": "7724959303",
+   "email": null,
+   "website": null,
+   "address": "PREM KUTI KHUBI KI BAJARIYA, JINSI NALA NO.1, LASHKAR, GWALIOR.",
+   "city": "Gwalior",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 26.22,
+   "lon": 78.18,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-078",
+   "company_name": "Swara Energy Pvt Ltd",
+   "contact_person": "Tarun Vishnoi",
+   "phone": "7974692340",
+   "email": null,
+   "website": null,
+   "address": "12 Tai Regency Ganesh Dham Near Ashish Nagar Indore",
+   "city": "Indore",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 22.72,
+   "lon": 75.86,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-079",
+   "company_name": "MSKVA ECO ENERGY",
+   "contact_person": "Abhishek Pare",
+   "phone": "8109007361",
+   "email": null,
+   "website": null,
+   "address": "Plot No. 672, North Avenue Industrial Colony, Near Gyan jyoti International School, Katipura, Sukhliya, Indore(MP)-452010",
+   "city": "Indore",
+   "state": "Madhya Pradesh",
+   "pincode": "452010",
+   "lat": 22.72,
+   "lon": 75.86,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-080",
+   "company_name": "BHOPAL GREEN ENERGY SOLUTIONS",
+   "contact_person": "ANIL MARAN",
+   "phone": "9644267067",
+   "email": null,
+   "website": null,
+   "address": "66, NEW MLA COLONY, JAWAHARCHOWK, BHOPAL 462003",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462003",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-081",
+   "company_name": "Akaal Energy Solutions Private Limited",
+   "contact_person": "Gagandeep Singh Kukreja",
+   "phone": "7898836957",
+   "email": null,
+   "website": null,
+   "address": "D-21, Basant Vihar, Main Road, Lashkar, Gwalior",
+   "city": "Gwalior",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 26.22,
+   "lon": 78.18,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-082",
+   "company_name": "GREENRAY SOLAR SOLUTIONS",
+   "contact_person": "KUMAR NISHANT",
+   "phone": "9993393777",
+   "email": null,
+   "website": null,
+   "address": "NARYANA GALI NO.2 MODEL TOWN GWALIOR MADHYA PRADESH PIN CODE 474011",
+   "city": "Gwalior",
+   "state": "Madhya Pradesh",
+   "pincode": "474011",
+   "lat": 26.22,
+   "lon": 78.18,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-083",
+   "company_name": "ABHI SOLAR ENERGY SOLUTION",
+   "contact_person": "RENU KUSHWAHA",
+   "phone": "9630814351",
+   "email": null,
+   "website": null,
+   "address": "372, ROYAL CITY, VIDISHA",
+   "city": "Vidisha",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.52,
+   "lon": 77.81,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-084",
+   "company_name": "Pooran Chand Agro LLP",
+   "contact_person": "Ankur Yadav",
+   "phone": "8077429207",
+   "email": null,
+   "website": null,
+   "address": "Basement Shop No.-11, Anupam Plaza , Block no.-51 , Sanjay Place - Agra -282001",
+   "city": null,
+   "state": "Madhya Pradesh",
+   "pincode": "282001",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "region",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-085",
+   "company_name": "SOLAR GENIUS INNOVATIONS",
+   "contact_person": "SACHIN MISHRA",
+   "phone": "7987967045",
+   "email": null,
+   "website": null,
+   "address": "plot no.21 TRT MARKET NEAR AGARWAL SWEETS GOVINDPURA BHOPAL",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-086",
+   "company_name": "S K SOLAR ENTERRISES",
+   "contact_person": "AJAY GARG",
+   "phone": "8959387987",
+   "email": null,
+   "website": null,
+   "address": "SHRI GOPAL GAU SHALA SAMITI KI DUKAN PALI ROAD SHEOPUR M.P. 476337",
+   "city": "Sheopur",
+   "state": "Madhya Pradesh",
+   "pincode": "476337",
+   "lat": 25.67,
+   "lon": 76.7,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-087",
+   "company_name": "SAS SOLUTIONS",
+   "contact_person": "ASHEESH KUMAR HANDA",
+   "phone": "8989094473",
+   "email": null,
+   "website": null,
+   "address": "B1/401 DK 24 CARAT GUJRATI COLONY BAWADIA KALAN BHOPAL MADHYA PRADESH 462039",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462039",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-088",
+   "company_name": "ENVEST GREENTECH SOLUTIONS LLP",
+   "contact_person": "ANMOL RAI",
+   "phone": "9755777296",
+   "email": null,
+   "website": null,
+   "address": "Plot No. 34, 2nd Floor, Zone-1, MP Nagar, Bhopal - 462011",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462011",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-089",
+   "company_name": "ENSHIFT POWER AND INFRA",
+   "contact_person": "ANUJ JAISWAL",
+   "phone": "9713144773",
+   "email": null,
+   "website": null,
+   "address": "shop 2 parasmani mall jayendra ganj",
+   "city": null,
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "region",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-090",
+   "company_name": "sunworks complete solar private limited",
+   "contact_person": "Shweta Patidra",
+   "phone": "9753726571",
+   "email": null,
+   "website": null,
+   "address": "106, Navneet Darshan Building, Old Palasia, INDORE, Indore, Madhya Pradesh, 452001",
+   "city": "Indore",
+   "state": "Madhya Pradesh",
+   "pincode": "452001",
+   "lat": 22.72,
+   "lon": 75.86,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-091",
+   "company_name": "NEXT TECH SOLAR ENERGY PRIVATE LIMITED",
+   "contact_person": "Mahesh Kumar Chandel",
+   "phone": "8602860288",
+   "email": null,
+   "website": null,
+   "address": "Karmakhedi, Ward No 23, Ruthiyai, Ruthiyai, Raghogarh,Guna, Madhya Pradesh, 473110",
+   "city": "Guna",
+   "state": "Madhya Pradesh",
+   "pincode": "473110",
+   "lat": 24.65,
+   "lon": 77.31,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-092",
+   "company_name": "Shandilya Power Solutions Pvt Ltd",
+   "contact_person": "Nishant Shandilya",
+   "phone": "9713436353",
+   "email": null,
+   "website": null,
+   "address": "18 Lajpat Kunj Napier Town Jabalpur",
+   "city": "Jabalpur",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.18,
+   "lon": 79.99,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-093",
+   "company_name": "Vaibhav Traders",
+   "contact_person": "Vinita jain",
+   "phone": "8889757192",
+   "email": null,
+   "website": null,
+   "address": "506, Kalpana Nagar Ayodhya Bypass Road, Bhopal ,462022",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462022",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-094",
+   "company_name": "Estateman Energy Pvt Ltd",
+   "contact_person": "Alok Gupta",
+   "phone": "9571900999",
+   "email": null,
+   "website": null,
+   "address": "5A and 5D, Corporate Tower A-2, Jawahar Lal Nehru Marg, Jaipur, Rajasthan 302017",
+   "city": null,
+   "state": "Madhya Pradesh",
+   "pincode": "302017",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "region",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-095",
+   "company_name": "Apricus Energy Solutions Private Limited",
+   "contact_person": "Ajendra Singh",
+   "phone": "9584017975",
+   "email": null,
+   "website": null,
+   "address": "Forth Floor, Unit No. 408, SKYE PRIVILON, Nipania Main Road, Indore, Indore, Madhya Pradesh, 452010",
+   "city": "Indore",
+   "state": "Madhya Pradesh",
+   "pincode": "452010",
+   "lat": 22.72,
+   "lon": 75.86,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-096",
+   "company_name": "sameer enterprises",
+   "contact_person": "sagar mehto",
+   "phone": "6266653601",
+   "email": null,
+   "website": null,
+   "address": "sanchi main road kamapar sanchi dist. raisen 464661",
+   "city": "Sanchi",
+   "state": "Madhya Pradesh",
+   "pincode": "464661",
+   "lat": 23.48,
+   "lon": 77.74,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-097",
+   "company_name": "SHIVI SOLAR ENERGY",
+   "contact_person": "ATUL MAINA",
+   "phone": "6260823098",
+   "email": null,
+   "website": null,
+   "address": "KHASRA NO 110/14 H NO 14-B GEETA NAGAR COLONY BHANPUR BHOPAL MP (462037)",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462037",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-098",
+   "company_name": "NATIONAL GRID INFRA",
+   "contact_person": "ANINDO BASU",
+   "phone": "9009006889",
+   "email": null,
+   "website": null,
+   "address": "302 MAHLAR SAHARA ESTATE M II BHOJPUR ROAD 11 MILL NEAR MISROD ROAD BHOPAL 462026",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462026",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-099",
+   "company_name": "Quintett Energy Inc",
+   "contact_person": "Rajeev Sood",
+   "phone": "9826090616",
+   "email": null,
+   "website": null,
+   "address": "155, Fine Avenue, Phase-1,Kolar Road, Bhopal- 462042",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462042",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-100",
+   "company_name": "Solar Setu",
+   "contact_person": "Ravi Yadav",
+   "phone": "9826223029",
+   "email": null,
+   "website": null,
+   "address": "11/6 magilal churiya hospital somnath ki juni chal Indore",
+   "city": "Indore",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 22.72,
+   "lon": 75.86,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-101",
+   "company_name": "MANAS POLYMERS AND ENERGIES LTD",
+   "contact_person": "DHRUV BHADAURIA",
+   "phone": "9617038884",
+   "email": null,
+   "website": null,
+   "address": "PLOT NO.3, BARAGHATA INDUSTRIAL AREA, JHANSI ROAD, GWALIOR 474001",
+   "city": "Gwalior",
+   "state": "Madhya Pradesh",
+   "pincode": "474001",
+   "lat": 26.22,
+   "lon": 78.18,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-102",
+   "company_name": "PRABUDDHA POWER",
+   "contact_person": "VARUN BANSAL",
+   "phone": "9425606584",
+   "email": null,
+   "website": null,
+   "address": "PRABUDDHA POWER, PLOT NO. E-1(D), New II Industrial area, Near Lupin Industries Gate No. 1, Mandideep, District Raisen, BHOPAL, MP 462046",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462046",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-103",
+   "company_name": "TRINITY ENERGY PRIVATE LIMITED",
+   "contact_person": "Lokendra Yadav",
+   "phone": "6264866452",
+   "email": null,
+   "website": null,
+   "address": "WARD 38 Shanti Nagar Shivpuri Madhya Pradesh PIN Code: 473551",
+   "city": "Shivpuri",
+   "state": "Madhya Pradesh",
+   "pincode": "473551",
+   "lat": 25.42,
+   "lon": 77.66,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-104",
+   "company_name": "SNS ENERGY PRIVATE LIMITED",
+   "contact_person": "SUJIT KUMAR SHARMA",
+   "phone": "7043136049",
+   "email": null,
+   "website": null,
+   "address": "324/325, RAAJPATH COMMERCIAL COMPLEX, OPP. ESSAR PETROL PUMP, VASANA-BHAILY ROAD, VADODARA - 391410, GUJARAT",
+   "city": null,
+   "state": "Madhya Pradesh",
+   "pincode": "391410",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "region",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-105",
+   "company_name": "GREEN POWER SOLUTIONS",
+   "contact_person": "NITESH VERMA",
+   "phone": "7693997915",
+   "email": null,
+   "website": null,
+   "address": "A500 ASHOKA GARDEN BHOPAL",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": null,
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-106",
+   "company_name": "HORIZON RENEWABLE POWER PVT LTD",
+   "contact_person": "CHANDAN MISHRA",
+   "phone": "9811121859",
+   "email": null,
+   "website": null,
+   "address": "114, FIRST FLOOR, ANSAL BHAWAN CONNAUGHAT PLACE 16, KASTURABA GANDHI MARG NEW DELHI-110001",
+   "city": null,
+   "state": "Madhya Pradesh",
+   "pincode": "110001",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "region",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-107",
+   "company_name": "MECHATRONIK RENEWABLES PRIVATE LIMITED",
+   "contact_person": "Niket Rajeshbhai Shah",
+   "phone": "9033029394",
+   "email": null,
+   "website": null,
+   "address": "310, Vraj Valencia, Opp Kadva Patidar Hospital, Nr IDBI Bank, Sola Overbridge, Ahmedabad Gujarat - 380060",
+   "city": null,
+   "state": "Madhya Pradesh",
+   "pincode": "380060",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "region",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-108",
+   "company_name": "SURYA GHAR SOLAR ENERGY",
+   "contact_person": "CHETANA ANANDITA PANDEY",
+   "phone": "7415157353",
+   "email": null,
+   "website": null,
+   "address": "3, BHAWANI CAMPUS PHASE - 1, INDRAPURI, HUZUR, BHOPAL, M.P ( 462022 )",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462022",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "mpcz-109",
+   "company_name": "VEIG ENERGY",
+   "contact_person": "PREMBATI CHOUHAN",
+   "phone": "7566607303",
+   "email": null,
+   "website": null,
+   "address": "V-88 VAISHNAV PARISAR BAGSEWANIYA BHOPAL 462026",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "pincode": "462026",
+   "lat": 23.26,
+   "lon": 77.41,
+   "location_precision": "city",
+   "service_areas": [
+    "MPCZ area (Bhopal and Gwalior regions)"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "MPCZ - Vendor List (Empanelled for Solar Subsidy)",
+    "url": "https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-001",
+   "company_name": "Aarvin Green Power India Private Limited",
+   "contact_person": "Veerasamy Ravindran",
+   "phone": "8826501199",
+   "email": "aarvingreen@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-002",
+   "company_name": "Amplus Kn One Power Pvt Ltd",
+   "contact_person": "Gautham",
+   "phone": "9611234422",
+   "email": "himanshu.khurana@amplussolar.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-003",
+   "company_name": "Annai GSK Enterprises",
+   "contact_person": "M. Janakendhiran",
+   "phone": "7540014741",
+   "email": "annaigskenterprises@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-004",
+   "company_name": "Antony Fabricators",
+   "contact_person": "Stephen Joseph",
+   "phone": "9442222910",
+   "email": "antonyfabricators2019@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-005",
+   "company_name": "Arul Power System",
+   "contact_person": "Ramachandran",
+   "phone": "9443289809",
+   "email": "arulpowersystem@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-006",
+   "company_name": "Auraa Energies",
+   "contact_person": "Karthikeyan",
+   "phone": "8682085816",
+   "email": "auraaenergies@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-007",
+   "company_name": "Aurog Power Solutions",
+   "contact_person": "Sivaraj",
+   "phone": "9843230273",
+   "email": "sivarajaurog@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-008",
+   "company_name": "Best Solar",
+   "contact_person": "Rajesh Babu",
+   "phone": "9790003277",
+   "email": "bestsolarpdy@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-009",
+   "company_name": "C K Solar Power",
+   "contact_person": "Kichenamourthy",
+   "phone": "9442708427",
+   "email": "cksolarpowerpdy@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-010",
+   "company_name": "Darling Digital World Pvt. Ltd.",
+   "contact_person": "Venkatasubbu S",
+   "phone": "8072804265",
+   "email": "darlingsolarpdy@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-011",
+   "company_name": "Dazzle Solar Solutions",
+   "contact_person": "Sebastin",
+   "phone": "7305792292",
+   "email": "dazzlesolarsolutions@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-012",
+   "company_name": "DD Project Services Pvt Ltd",
+   "contact_person": "Arumugam",
+   "phone": "9940228111",
+   "email": "arumugam.dakshina@yahoo.co.in",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-013",
+   "company_name": "Encore Business System Limited",
+   "contact_person": "Rajasekaran",
+   "phone": "9025293371",
+   "email": "encorebusiness@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-014",
+   "company_name": "Envo Energy Private Limited",
+   "contact_person": "Vignesh",
+   "phone": "9952112703",
+   "email": "envoenergy25@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-015",
+   "company_name": "Everrenew Energy Private Limited",
+   "contact_person": "Senrayuperumal",
+   "phone": "8056621110",
+   "email": "visakan.k@everrenew.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-016",
+   "company_name": "Fixit India",
+   "contact_person": "M Balaji",
+   "phone": "8300811994",
+   "email": "fixitindia2016@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-017",
+   "company_name": "French Traders",
+   "contact_person": "Shamudeen Mohammed Salahudeen",
+   "phone": "7200042488",
+   "email": "frenchtraders28@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-018",
+   "company_name": "Future Technologies",
+   "contact_person": "K. Srithar",
+   "phone": "9976263817",
+   "email": "futuretechnologiespy@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-019",
+   "company_name": "Gateway Power Systems",
+   "contact_person": "Jayapaul",
+   "phone": "9345400639",
+   "email": "gatewayups@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-020",
+   "company_name": "Go Green Solar Energy Systems",
+   "contact_person": "Santhanam",
+   "phone": "9500278571",
+   "email": "gogreensolarenergysys@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-021",
+   "company_name": "Golden Power Enterprises",
+   "contact_person": "P Ashok Kumar",
+   "phone": "9500357659",
+   "email": "ashokofc1456@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-022",
+   "company_name": "Goodsun Industries Pvt. Ltd.",
+   "contact_person": "R Jaganathan",
+   "phone": "9842230194",
+   "email": "goodsunindia@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-023",
+   "company_name": "GP Solar",
+   "contact_person": "Mahes Kumar",
+   "phone": "9786404583",
+   "email": "gpsolarpy@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-024",
+   "company_name": "Green Pro Energy Technologies",
+   "contact_person": "Manoj Kumar Swaminathan",
+   "phone": "9943044022",
+   "email": "greenpronrg@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-025",
+   "company_name": "Greenergy Solar Solutions",
+   "contact_person": "Kannan",
+   "phone": "9943256109",
+   "email": "greenergypdy@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-026",
+   "company_name": "Hardika Enterprises",
+   "contact_person": "Sithanandan",
+   "phone": "9500952294",
+   "email": "hardikaentp@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-027",
+   "company_name": "Hyper Technologies & Soluition",
+   "contact_person": "P Venkatachalam",
+   "phone": "9003641092",
+   "email": "hypertechups@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-028",
+   "company_name": "Jai Solar Energy Management Systems",
+   "contact_person": "Kandasamy",
+   "phone": "9843071622",
+   "email": "jaisolarpdy@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-029",
+   "company_name": "KK Renewable Energy",
+   "contact_person": "Jayachandran",
+   "phone": "8015310093",
+   "email": "kkrenewableenergies@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-030",
+   "company_name": "Le Soleil Enterprises",
+   "contact_person": "Kadiresan G",
+   "phone": "7094372032",
+   "email": "lesoleilenterprises6@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-031",
+   "company_name": "Lightning Power Control",
+   "contact_person": "Selvakumar",
+   "phone": "9843438701",
+   "email": "lightningups@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-032",
+   "company_name": "M/s P M Solars",
+   "contact_person": "Thanigachalam",
+   "phone": "9363534550",
+   "email": "pmsolars1@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-033",
+   "company_name": "Maisun Solar Energy Solutions",
+   "contact_person": "Thamaraiselvan",
+   "phone": "9894717116",
+   "email": "maisun.energyz@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-034",
+   "company_name": "Manatec E Drive Private Limited",
+   "contact_person": "Vijayaragavan",
+   "phone": "9442183515",
+   "email": "vijayaragavan@medrive.in",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-035",
+   "company_name": "Max Associates",
+   "contact_person": "J. Vetriselvan",
+   "phone": "9443283862",
+   "email": "max_associates@yahoo.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-036",
+   "company_name": "Meena Enterprices",
+   "contact_person": "Rajasekaran",
+   "phone": "9025293371",
+   "email": "meenavicky1306@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-037",
+   "company_name": "Nithin Solar Solutions",
+   "contact_person": "Parthibhan",
+   "phone": "8122869241",
+   "email": "nithinsolarsolutions@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-038",
+   "company_name": "Onoff Electrician Works",
+   "contact_person": "Manikandan",
+   "phone": "9994566233",
+   "email": "onoffelectrician@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-039",
+   "company_name": "Power World Systems",
+   "contact_person": "D Selva Kumar",
+   "phone": "9842784934",
+   "email": "powerworldsystem@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-040",
+   "company_name": "Pudhuvai Renewables",
+   "contact_person": "Siva",
+   "phone": "9443971298",
+   "email": "pudhuvairenewables@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-041",
+   "company_name": "Purodha Electric Company",
+   "contact_person": "R. Ramkumar",
+   "phone": "9500271207",
+   "email": "purodhaelectric@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-042",
+   "company_name": "R R Solar Agency",
+   "contact_person": "Rajassekaran R",
+   "phone": "9025191899",
+   "email": "rajassekaran33@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-043",
+   "company_name": "Raksun Solar Energy Systems",
+   "contact_person": "Bharathkumar",
+   "phone": "9600821829",
+   "email": "raksunsolarenergy@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-044",
+   "company_name": "Ray Roars Power Solution",
+   "contact_person": "Cojandavel A",
+   "phone": "9443431381",
+   "email": "rayroarspowersolution@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-045",
+   "company_name": "Rising Sun Solar Products",
+   "contact_person": "Sithanandham",
+   "phone": "9443595027",
+   "email": "risingsunsolarproducts@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-046",
+   "company_name": "RR Energy Solution",
+   "contact_person": "R. Rajasegaran",
+   "phone": "9443294375",
+   "email": "rr.energypdy@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-047",
+   "company_name": "S.K. Solar and Aircon Services",
+   "contact_person": "Subash",
+   "phone": "9042832412",
+   "email": "sksolarandaircon@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-048",
+   "company_name": "Saminathan Enterprises",
+   "contact_person": "Saminathan",
+   "phone": "8870671723",
+   "email": "saminathanenterprises26@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-049",
+   "company_name": "Sinewave Technologies",
+   "contact_person": "M. Ilamparuthy",
+   "phone": "9843736462",
+   "email": "sinetechpy01@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-050",
+   "company_name": "Skandha Solar Private Limited",
+   "contact_person": "Vijay",
+   "phone": "9524181954",
+   "email": "vijay@skandagroups.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-051",
+   "company_name": "Sky Energys",
+   "contact_person": "Sathish",
+   "phone": "9976986300",
+   "email": "sky.energys99@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-052",
+   "company_name": "Sky Technologies",
+   "contact_person": "Jeeva E",
+   "phone": "8870226212",
+   "email": "skytechnologiessolar@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-053",
+   "company_name": "SM Solar Power & Technical Services",
+   "contact_person": "Sabarigreesan M",
+   "phone": "7598941849",
+   "email": "smsolarpower@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-054",
+   "company_name": "SMK Constructions",
+   "contact_person": "G. Kalaivanan",
+   "phone": "6382236280",
+   "email": "smk.electriconstruction@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-055",
+   "company_name": "Solar Kavach",
+   "contact_person": "Konkey Sriram",
+   "phone": "9666516613",
+   "email": "solarkavach123@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-056",
+   "company_name": "Sree Lakshmi Battery Zone",
+   "contact_person": "Parthasarathy",
+   "phone": "9965229090",
+   "email": "grr.sarathy@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-057",
+   "company_name": "Sri Bhanu Solar Systems & General Stores",
+   "contact_person": "Bhanu Rajesh",
+   "phone": "9515198466",
+   "email": "sribhanusolarsystems@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-058",
+   "company_name": "Sri Radhika Engineering",
+   "contact_person": "Karthik",
+   "phone": "9843574968",
+   "email": "srirathigaengineering@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-059",
+   "company_name": "Sterlawn Power",
+   "contact_person": "Maheswari",
+   "phone": "8015081565",
+   "email": "sterlawndigital@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-060",
+   "company_name": "Sun Bloom Solars",
+   "contact_person": "A. Purushothaman",
+   "phone": "8220002313",
+   "email": "info@sunbloomsolars.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-061",
+   "company_name": "Sun Energy Systems",
+   "contact_person": "Ravi Baskar",
+   "phone": "9843097957",
+   "email": "ses1999@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-062",
+   "company_name": "Sun Lights Solar System",
+   "contact_person": "Sirubalan",
+   "phone": "7305566511",
+   "email": "sunlightssolarsystem@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-063",
+   "company_name": "Sun Systems & Services",
+   "contact_person": "G. Murugan",
+   "phone": "9443277941",
+   "email": "sunups2002@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-064",
+   "company_name": "Sun Touch Solar Solutions",
+   "contact_person": "Amuthan",
+   "phone": "8300163906",
+   "email": "suntouchsolarsolutions@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-065",
+   "company_name": "Suncharge Smartgrids India Private Limited",
+   "contact_person": "Nune Vanmsi Krishna",
+   "phone": "9894314767",
+   "email": "nvk@suncharge.in",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-066",
+   "company_name": "Sunmax Energy Systemss Pvt. Ltd.",
+   "contact_person": "Anbarasu. E",
+   "phone": "9994597774",
+   "email": "sunmaxsolarpdy@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-067",
+   "company_name": "Sunzter Innovations",
+   "contact_person": "Balasubramanian",
+   "phone": "7448828881",
+   "email": "support@sunzter.in",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-068",
+   "company_name": "SV Energy Solutions Pvt. Ltd.",
+   "contact_person": "Vijayaraghavan",
+   "phone": "9442183515",
+   "email": "vijayaragavan@svenergy.in",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-069",
+   "company_name": "SVSAP Green Energy OPC Private Limited",
+   "contact_person": "Dharmarajan",
+   "phone": "9385810372",
+   "email": "svsap-green-energy@outlook.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-070",
+   "company_name": "Taken Solar Energy and Infrastructure Corporation Pvt. Ltd.",
+   "contact_person": "Arun. G",
+   "phone": "9345348836",
+   "email": "takenenergyindia@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-071",
+   "company_name": "TD Renewables",
+   "contact_person": "Amarnathe",
+   "phone": "9600828359",
+   "email": "tdrenewablespdy@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-072",
+   "company_name": "Technaus Renewable Pvt. Ltd.",
+   "contact_person": "Karthi",
+   "phone": "7418650503",
+   "email": "solar@technaus.co.in",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-073",
+   "company_name": "The Pondicherry Industrial Coop Soc For New And Renewable",
+   "contact_person": "T.P. Chandran",
+   "phone": "8281272544",
+   "email": "reponmahe@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-074",
+   "company_name": "Thiruchendur Murugan Solar Energy",
+   "contact_person": "Saravanan",
+   "phone": "9698635163",
+   "email": "saravanakumar0058@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-075",
+   "company_name": "TJ Solaar Surge",
+   "contact_person": "K. Balamurugan",
+   "phone": "8270376782",
+   "email": "tjsolaars@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-076",
+   "company_name": "Touch Energy Solutions",
+   "contact_person": "V. Shanmuganandam",
+   "phone": "9025386033",
+   "email": "shan@touchenergy.in",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-077",
+   "company_name": "Varshini Sun Power Energy",
+   "contact_person": "G. Velmuruganathan",
+   "phone": "9698210021",
+   "email": "velelectrical88@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-078",
+   "company_name": "Venus Electric Powertec India Private Limited",
+   "contact_person": "A. Murugavel",
+   "phone": "9894244422",
+   "email": "venuspondy@gmail.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-079",
+   "company_name": "Y & Y Enterprise Private Limited",
+   "contact_person": "Jeyakumar",
+   "phone": "9099950858",
+   "email": "info@yny.co.in",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "py-080",
+   "company_name": "Yali Energies India Pvt. Ltd.",
+   "contact_person": "Vignesh",
+   "phone": "6382947552",
+   "email": "info@yalienergies.com",
+   "website": null,
+   "address": null,
+   "city": null,
+   "state": "Puducherry",
+   "pincode": null,
+   "lat": 11.94,
+   "lon": 79.81,
+   "location_precision": "region",
+   "service_areas": [
+    "Puducherry UT"
+   ],
+   "services": [
+    "Rooftop solar under PM Surya Ghar (subsidy)"
+   ],
+   "years_experience": null,
+   "certifications": [
+    "Empanelled / registered vendor, Electricity Department, Puducherry"
+   ],
+   "min_kwp": null,
+   "max_kwp": null,
+   "last_verified": "2026-10-10",
+   "source": {
+    "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
+    "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
+    "retrieved": "2026-10-10"
+   }
+  }
+ ]
+}

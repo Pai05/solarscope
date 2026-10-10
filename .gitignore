@@ -19,6 +19,7 @@ __pycache__/
 *.pth
 *.ckpt
 data/
+!backend/data/
 training/data/
 training/runs/
 

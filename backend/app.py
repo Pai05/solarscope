@@ -8,13 +8,13 @@ import logging
 from pathlib import Path
 
 import numpy as np
-from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, Query, Request, UploadFile
 from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.staticfiles import StaticFiles
 from PIL import Image, ImageOps, UnidentifiedImageError
 
-from backend import geometry, irradiance, solar_calc
+from backend import geometry, installers, irradiance, solar_calc
 from backend.model import MODEL_GSD, Segmenter
 from backend.schemas import MAX_SIDE, PANEL_DEFAULTS, ReportRequest
 
@@ -138,6 +138,44 @@ def build_report(req: ReportRequest) -> dict:
 @app.post("/report")
 async def report(req: ReportRequest) -> dict:
     return await run_in_threadpool(build_report, req)
+
+
+@app.get("/api/installers")
+def list_installers(
+    state: str | None = Query(None, max_length=60),
+    city: str | None = Query(None, max_length=60),
+    min_kwp: float | None = Query(None, ge=0, le=10000),
+    max_kwp: float | None = Query(None, ge=0, le=10000),
+    lat: float | None = Query(None, ge=-90, le=90),
+    lon: float | None = Query(None, ge=-180, le=180),
+    radius_km: float | None = Query(None, gt=0, le=5000),
+    limit: int = Query(50, ge=1, le=200),
+) -> dict:
+    """Installer directory, nearest first when lat/lon are given. The shipped data is placeholders (see README)."""
+    if min_kwp is not None and max_kwp is not None and min_kwp > max_kwp:
+        raise HTTPException(400, "min_kwp must not be greater than max_kwp.")
+    if (lat is None) != (lon is None):
+        raise HTTPException(400, "Give both lat and lon, or neither.")
+    if radius_km is not None and lat is None:
+        raise HTTPException(400, "radius_km needs lat and lon.")
+    try:
+        items, note = installers.load()
+    except installers.InstallerDataError as e:
+        logging.getLogger("solarscope.installers").error("%s", e)
+        raise HTTPException(503, "Installer directory is not available right now.")
+    found = installers.filter_installers(items, (state or "").strip() or None, (city or "").strip() or None,
+                                         min_kwp, max_kwp, lat, lon, radius_km)
+    return {"count": min(len(found), limit), "total": len(found), "installers": found[:limit], "note": note}
+
+
+@app.get("/api/locations")
+def list_locations() -> dict:
+    """States and union territories of India with their main cities, for the installer filters."""
+    try:
+        return {"states": installers.load_locations()}
+    except installers.InstallerDataError as e:
+        logging.getLogger("solarscope.installers").error("%s", e)
+        raise HTTPException(503, "Location list is not available right now.")
 
 
 # Mounted last so API routes take precedence.
