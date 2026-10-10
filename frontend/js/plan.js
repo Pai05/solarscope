@@ -76,13 +76,14 @@ function setRoof(roof, obstructionPolys, source) {
   plan.sel = -1;
   changed(false);
   $("#planEmpty").hidden = true;
+  markStep("capture", true);
   $("#reportBtn").disabled = false;
   $("#obsAdd").disabled = false;
   setStatus(`Roof outline ready (${source}). Add obstructions if needed, then compute the report.`);
 }
 
 function changed(stale = true) {
-  if (stale && plan.panels.length) setStatus("Plan changed — compute the report again.");
+  if (stale && plan.panels.length) { setStatus("Plan changed — compute the report again."); reportStale(); }
   plan.panels = [];
   renderList();
   render();
@@ -109,6 +110,7 @@ function removeObstruction(i) {
 }
 
 function renderList() {
+  markStep("correct", plan.obstructions.length > 0);  // optional step: done once something is marked
   const ul = $("#obsList");
   ul.innerHTML = "";
   plan.obstructions.forEach((o, i) => {
@@ -352,7 +354,7 @@ cv.addEventListener("pointermove", (e) => {
   plan.drag.last = p;
   const o = plan.obstructions[plan.drag.i];
   o.pts = o.pts.map(([x, y]) => [x + dx, y + dy]);
-  if (plan.panels.length) { plan.panels = []; setStatus("Plan changed — compute the report again."); }
+  if (plan.panels.length) { plan.panels = []; setStatus("Plan changed — compute the report again."); reportStale(); }
   render();
 });
 const endDrag = () => { if (plan.drag) { plan.drag = null; renderList(); } };

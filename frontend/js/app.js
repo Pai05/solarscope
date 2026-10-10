@@ -60,9 +60,12 @@ async function loadImage(blob, meta = {}) {
   if (meta.lat !== undefined) { $("#lat").value = meta.lat; $("#lon").value = meta.lon; }
 
   $("#placeholder").hidden = true;
+  markStep("capture", true);
+  markStep("correct", false);
   $("#canvasBox").hidden = false;
   $("#zoombar").hidden = false;
   $("#report").hidden = true;
+  reportStale();
   for (const id of ["#detectBtn", "#reportBtn", "#calibBtn"]) $(id).disabled = false;
   updateUndo();
   fitCanvas();
@@ -300,6 +303,7 @@ function pos(e) {
 }
 
 function pushUndo() {
+  markStep("correct", true);
   state.undo.push(state.mask.slice());
   if (state.undo.length > 20) state.undo.shift();
   updateUndo();
@@ -310,6 +314,7 @@ function markStale() {
   if (state.panels.length) {
     state.panels = [];
     setStatus("Mask or scale changed — compute the report again.");
+    reportStale();
   }
 }
 
@@ -432,7 +437,10 @@ ovCv.addEventListener("pointercancel", endStroke);
 for (const b of document.querySelectorAll(".tool")) {
   b.addEventListener("click", () => {
     state.tool = b.dataset.tool;
-    document.querySelectorAll(".tool").forEach((t) => t.classList.toggle("active", t === b));
+    document.querySelectorAll(".tool").forEach((t) => {
+      t.classList.toggle("active", t === b);
+      t.setAttribute("aria-pressed", String(t === b));
+    });
   });
 }
 $("#brush").addEventListener("input", (e) => { state.brush = Number(e.target.value); showGsd(); });
@@ -464,6 +472,7 @@ $("#detectBtn").addEventListener("click", (e) => busy(e.currentTarget, "Detectin
   state.mask = m;
   markStale();
   render();
+  markStep("correct", true);
   setStatus("Done. Fix mistakes with the brush, pick your roof, then compute the report.");
 }));
 

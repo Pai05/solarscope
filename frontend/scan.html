@@ -2,29 +2,130 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>SolarScope · Phone scan</title>
   <meta name="description" content="Measure your roof with your phone camera (AR), see a digital plan with solar panels and the savings report.">
+  <meta name="theme-color" content="#0b1a3d">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%E2%98%80%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/theme.js"></script>
 </head>
 <body data-page="scan">
-  <header class="top">
-    <a class="brand" href="/">
-      <span class="logo" aria-hidden="true">☀</span>
-      <div>
-        <h1>SolarScope</h1>
-        <p class="tag">Phone scan: measure your roof with the camera</p>
-      </div>
-    </a>
-    <nav class="nav">
-      <a href="/image.html">&#128444; Image</a>
-      <a href="/scan.html" class="active">&#128241; Phone scan</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="navbar">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2 6 6M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg></span>
+        <span><span class="brand-name">SolarScope</span><span class="brand-tag">Phone scan: measure your roof with the camera</span></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="/image.html" aria-label="Image"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg><span class="nav-text">Image</span></a>
+        <a href="/scan.html" aria-current="page" aria-label="Phone scan"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M11 18.5h2"/></svg><span class="nav-text">Phone scan</span></a>
+        <a href="/installers.html" aria-label="Installers"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></svg><span class="nav-text">Installers</span></a>
+      </nav>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2 6 6M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+      </button>
+    </div>
+    <nav class="progress" aria-label="Progress">
+      <ol class="steps" id="steps">
+        <li data-step="capture"><a href="#s-capture"><span class="step-num"><span>1</span></span><span class="step-label">Measure</span></a></li>
+        <li data-step="correct"><a href="#s-obstructions"><span class="step-num"><span>2</span></span><span class="step-label">Obstructions</span></a></li>
+        <li data-step="location"><a href="#s-location"><span class="step-num"><span>3</span></span><span class="step-label">Location</span></a></li>
+        <li data-step="report"><a href="#report-anchor"><span class="step-num"><span>4</span></span><span class="step-label">Report</span></a></li>
+      </ol>
     </nav>
   </header>
 
-  <main class="layout">
-    <section class="stage-wrap">
+  <section class="hero hero--page" aria-labelledby="pageTitle">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Phone scan</p>
+        <h1 id="pageTitle">Measure your roof with the <em>camera</em></h1>
+        <p class="lead">Scan the roof corners with your phone, or type the roof size. We draw it to scale, mark the obstructions and lay out the solar panels.</p>
+      </div>
+      <div class="hero-chips" aria-hidden="true">
+        <span class="hero-chip">AR measuring</span><span class="hero-chip">Roof plan to scale</span><span class="hero-chip">Panel layout</span>
+      </div>
+    </div>
+  </section>
+
+  <main id="main" class="workspace">
+    <aside class="inputs" aria-label="Inputs">
+      <section class="step" id="s-capture" aria-labelledby="h-capture">
+        <h2 id="h-capture"><span>1</span> Capture the roof shape</h2>
+        <button id="arScanBtn" class="primary" data-note="#arScanNote" data-fallback="#roofL" disabled>&#128241; Start AR scan</button>
+        <p id="arScanNote" class="note">Checking AR support&hellip;</p>
+        <details class="howto">
+          <summary>How to scan</summary>
+          <ol>
+            <li><b>Best:</b> stand on the terrace. <b>Or</b> walk around the house outside.</li>
+            <li>Move the phone slowly over the floor until a white ring appears.</li>
+            <li>Point the ring at each <b>corner</b> (where the wall meets the floor or ground) and tap, in order around the roof.</li>
+            <li>Tap <b>Close shape</b>. Then <b>Add obstruction</b> and tap around each water tank or stair room.</li>
+            <li>Tap <b>Finish</b>. Daylight and slow movement give the best accuracy.</li>
+          </ol>
+        </details>
+        <div class="or"><span>or type the roof size</span></div>
+        <div class="row">
+          <label>Length (m) <input type="number" id="roofL" step="0.1" min="1" placeholder="12.0"></label>
+          <label>Width (m) <input type="number" id="roofW" step="0.1" min="1" placeholder="9.0"></label>
+        </div>
+        <button id="manualBtn" class="secondary">Draw roof from size</button>
+      </section>
+
+      <section class="step" id="s-obstructions" aria-labelledby="h-obstructions">
+        <h2 id="h-obstructions"><span>2</span> Obstructions</h2>
+        <ul id="obsList" class="obs-list"></ul>
+        <div class="row">
+          <label>Type <select id="obsType"></select></label>
+        </div>
+        <div class="row">
+          <label>Length (m) <input type="number" id="obsL" step="0.1" min="0.2" value="1.2"></label>
+          <label>Width (m) <input type="number" id="obsW" step="0.1" min="0.2" value="1.2"></label>
+        </div>
+        <button id="obsAdd" class="secondary" disabled>+ Add obstruction</button>
+        <p class="muted small">Drag obstructions on the plan to their real position. Select one and press Delete to remove it.</p>
+      </section>
+
+      <section class="step" id="s-location" aria-labelledby="h-location">
+        <h2 id="h-location"><span>3</span> Location</h2>
+        <div class="row">
+          <label>Latitude <input type="number" id="lat" step="0.0001" min="-90" max="90" placeholder="16.53"></label>
+          <label>Longitude <input type="number" id="lon" step="0.0001" min="-180" max="180" placeholder="80.64"></label>
+        </div>
+        <button id="locBtn" class="secondary">&#128205; Use my location</button>
+        <p class="muted small">Used for site irradiance from NASA POWER.</p>
+      </section>
+
+      <details class="step">
+        <summary><h2><span>⚙</span> Layout &amp; cost settings</h2></summary>
+        <div class="row">
+          <label>Edge setback (m) <input type="number" id="setback" step="0.1" min="0" max="5"></label>
+          <label>Obstruction buffer (m) <input type="number" id="buffer" step="0.1" min="0" max="3"></label>
+        </div>
+        <div class="row">
+          <label>Panel length (m) <input type="number" id="panelW" step="0.01" min="0.3" max="4"></label>
+          <label>Panel width (m) <input type="number" id="panelH" step="0.01" min="0.3" max="4"></label>
+        </div>
+        <div class="row">
+          <label>Panel power (Wp) <input type="number" id="panelWp" step="5" min="10" max="1500"></label>
+          <label>Tariff (₹/kWh) <input type="number" id="tariff" step="0.1" min="0" placeholder="default"></label>
+        </div>
+        <label>Installed cost (₹/kWp) <input type="number" id="cost" step="1000" min="0" placeholder="default"></label>
+      </details>
+
+      <div class="action-bar">
+        <button id="reportBtn" class="primary" disabled>&#9728; Place panels &amp; compute report</button>
+      </div>
+    </aside>
+
+    <section class="stage-wrap work" aria-label="Roof plan">
       <div id="planCard" class="stage plan-stage">
         <div id="planEmpty" class="placeholder">
           <div class="placeholder-icon" aria-hidden="true">&#128208;</div>
@@ -45,101 +146,59 @@
       <p id="planInfo" class="muted small plan-info"></p>
     </section>
 
-    <aside class="controls">
-      <div class="step">
-        <h2><span>1</span> Capture the roof shape</h2>
-        <button id="arScanBtn" class="primary" data-note="#arScanNote" disabled>&#128241; Start AR scan</button>
-        <p id="arScanNote" class="muted small">Checking AR support&hellip;</p>
-        <details class="howto">
-          <summary>How to scan</summary>
-          <ol>
-            <li><b>Best:</b> stand on the terrace. <b>Or</b> walk around the house outside.</li>
-            <li>Move the phone slowly over the floor until a white ring appears.</li>
-            <li>Point the ring at each <b>corner</b> (where the wall meets the floor or ground) and tap, in order around the roof.</li>
-            <li>Tap <b>Close shape</b>. Then <b>Add obstruction</b> and tap around each water tank or stair room.</li>
-            <li>Tap <b>Finish</b>. Daylight and slow movement give the best accuracy.</li>
-          </ol>
-        </details>
-        <div class="or"><span>or type the roof size</span></div>
-        <div class="row">
-          <label>Length (m) <input type="number" id="roofL" step="0.1" min="1" placeholder="12.0"></label>
-          <label>Width (m) <input type="number" id="roofW" step="0.1" min="1" placeholder="9.0"></label>
-        </div>
-        <button id="manualBtn" class="secondary">Draw roof from size</button>
+    <section id="report" class="report" hidden aria-labelledby="reportTitle">
+      <span id="report-anchor"></span>
+      <div class="report-head">
+        <h2 id="reportTitle">Your solar report</h2>
       </div>
-
-      <div class="step">
-        <h2><span>2</span> Obstructions</h2>
-        <ul id="obsList" class="obs-list"></ul>
-        <div class="row">
-          <label>Type <select id="obsType"></select></label>
-        </div>
-        <div class="row">
-          <label>Length (m) <input type="number" id="obsL" step="0.1" min="0.2" value="1.2"></label>
-          <label>Width (m) <input type="number" id="obsW" step="0.1" min="0.2" value="1.2"></label>
-        </div>
-        <button id="obsAdd" class="secondary" disabled>+ Add obstruction</button>
-        <p class="muted small">Drag obstructions on the plan to their real position. Select one and press Delete to remove it.</p>
+      <div class="summary-hero">
+        <div class="sum-item"><span class="sum-label">Panels that fit</span><span class="sum-value" id="hPanels">–</span></div>
+        <div class="sum-item"><span class="sum-label">System size</span><span class="sum-value"><span id="hKw">–</span><span class="sum-unit">kWp</span></span></div>
+        <div class="sum-item is-key"><span class="sum-label">Cost after subsidy</span><span class="sum-value">₹&nbsp;<span id="hNet">–</span></span>
+          <small>System ₹&nbsp;<span id="hGross">–</span> − subsidy ₹&nbsp;<span id="hSub">–</span></small></div>
       </div>
-
-      <div class="step">
-        <h2><span>3</span> Location</h2>
-        <div class="row">
-          <label>Latitude <input type="number" id="lat" step="0.0001" min="-90" max="90" placeholder="16.53"></label>
-          <label>Longitude <input type="number" id="lon" step="0.0001" min="-180" max="180" placeholder="80.64"></label>
-        </div>
-        <button id="locBtn" class="secondary">Use my location</button>
-        <p class="muted small">Used for site irradiance from NASA POWER.</p>
+      <div id="unverified" class="warn" hidden>
+        <p>Some inputs below are <strong>placeholders that are not yet verified</strong> against official sources.
+        Treat the money figures as illustrative.</p>
       </div>
-
-      <details class="step">
-        <summary><h2><span>⚙</span> Layout &amp; cost settings</h2></summary>
-        <div class="row">
-          <label>Edge setback (m) <input type="number" id="setback" step="0.1" min="0" max="5"></label>
-          <label>Obstruction buffer (m) <input type="number" id="buffer" step="0.1" min="0" max="3"></label>
+      <div class="kpis">
+        <div class="kpi" data-kind="panels"><span class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M3 11h18M9 5v12M15 5v12M8 21h8M12 17v4"/></svg></span><span id="kPanels">–</span><small>panels</small></div>
+        <div class="kpi" data-kind="kw"><span class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><span id="kKw">–</span><small>kWp capacity</small></div>
+        <div class="kpi" data-kind="kwh"><span class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2 6 6M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg></span><span id="kKwh">–</span><small>kWh per year</small></div>
+        <div class="kpi" data-kind="save"><span class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12M6 9h12M9 4c6 0 6 10 0 10H6l8 7"/></svg></span><span id="kSave">–</span><small>₹ saved per year</small></div>
+        <div class="kpi" data-kind="pay"><span class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span id="kPay">–</span><small>years payback</small></div>
+        <div class="kpi" data-kind="co2"><span class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20c0-9 6-15 15-15 0 9-5 15-14 15"/><path d="M5 20c3-4 6-7 10-9"/></svg></span><span id="kCo2">–</span><small>t CO₂ avoided / yr</small></div>
+      </div>
+      <div class="tables">
+        <table><caption>Roof</caption><tbody id="areas"></tbody></table>
+        <table><caption>Cost</caption><tbody id="costs"></tbody></table>
+      </div>
+      <details class="collapsible">
+        <summary>Assumptions and sources <small>every input with its source</small></summary>
+        <div class="table-wrap">
+          <table class="assumptions">
+            <caption class="sr-only">Assumptions and sources</caption>
+            <thead><tr><th>Input</th><th>Value</th><th>Source</th><th><span class="sr-only">Status</span></th></tr></thead>
+            <tbody id="assumptions"></tbody>
+          </table>
         </div>
-        <div class="row">
-          <label>Panel length (m) <input type="number" id="panelW" step="0.01" min="0.3" max="4"></label>
-          <label>Panel width (m) <input type="number" id="panelH" step="0.01" min="0.3" max="4"></label>
-        </div>
-        <div class="row">
-          <label>Panel power (Wp) <input type="number" id="panelWp" step="5" min="10" max="1500"></label>
-          <label>Tariff (₹/kWh) <input type="number" id="tariff" step="0.1" min="0" placeholder="default"></label>
-        </div>
-        <label>Installed cost (₹/kWp) <input type="number" id="cost" step="1000" min="0" placeholder="default"></label>
       </details>
-
-      <button id="reportBtn" class="primary" disabled>Place panels &amp; compute report</button>
-    </aside>
+      <div class="installer-cta">
+        <p class="muted small">Installers closest to your location, with phone, WhatsApp, email and directions. Your results stay in this browser tab.</p>
+        <button id="installerBtn" class="primary" disabled>&#128205; Find solar installers near me</button>
+      </div>
+    </section>
   </main>
 
-  <section id="report" class="report" hidden>
-    <div id="unverified" class="warn" hidden>
-      Some inputs below are <strong>placeholders that are not yet verified</strong> against official sources.
-      Treat the money figures as illustrative.
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="brand-name">SolarScope</span>
+      <nav aria-label="Footer">
+        <a href="/">Home</a><a href="/image.html">Image</a><a href="/scan.html">Phone scan</a><a href="/installers.html">Installers</a>
+      </nav>
+      <p>AR measuring uses WebXR (Chrome on ARCore Android phones). Irradiance: NASA POWER.
+        <a href="https://github.com/Pai05/solarscope">Source code (MIT)</a></p>
     </div>
-    <div class="kpis">
-      <div class="kpi"><span id="kPanels">–</span><small>panels</small></div>
-      <div class="kpi"><span id="kKw">–</span><small>kWp capacity</small></div>
-      <div class="kpi"><span id="kKwh">–</span><small>kWh per year</small></div>
-      <div class="kpi"><span id="kSave">–</span><small>₹ saved per year</small></div>
-      <div class="kpi"><span id="kPay">–</span><small>years payback</small></div>
-      <div class="kpi"><span id="kCo2">–</span><small>t CO₂ avoided / yr</small></div>
-    </div>
-    <div class="tables">
-      <table><caption>Roof</caption><tbody id="areas"></tbody></table>
-      <table><caption>Cost</caption><tbody id="costs"></tbody></table>
-    </div>
-    <table class="assumptions">
-      <caption>Assumptions and sources</caption>
-      <thead><tr><th>Input</th><th>Value</th><th>Source</th><th></th></tr></thead>
-      <tbody id="assumptions"></tbody>
-    </table>
-  </section>
-
-  <footer class="foot">
-    <p>AR measuring uses WebXR (Chrome on ARCore Android phones). Irradiance: NASA POWER.
-      <a href="https://github.com/Pai05/solarscope">Source code (MIT)</a></p>
   </footer>
 
   <div id="arOverlay" class="ar-overlay" hidden>
@@ -151,8 +210,8 @@
     <div id="arButtons" class="ar-panel ar-bottom"></div>
   </div>
 
-  <script src="common.js"></script>
-  <script src="plan.js"></script>
-  <script type="module" src="ar.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/plan.js"></script>
+  <script type="module" src="js/ar.js"></script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 import base64
 import io
+import re
 
 import numpy as np
 import pytest
@@ -39,6 +40,17 @@ def test_frontend_served():
     r = client.get("/")
     assert r.status_code == 200
     assert "SolarScope" in r.text
+
+
+@pytest.mark.parametrize("page", ["/", "/image.html", "/scan.html", "/installers.html"])
+def test_page_assets_exist(page):
+    """Every local script and stylesheet a page links to is served (catches broken paths after moves)."""
+    html = client.get(page).text
+    refs = re.findall(r'<(?:script|link)[^>]+(?:src|href)="([^"]+)"', html)
+    local = [r for r in refs if not r.startswith(("http", "data:", "#"))]
+    assert any(r.endswith(".css") for r in local) and any(r.endswith(".js") for r in local)
+    for ref in local:
+        assert client.get("/" + ref.lstrip("/")).status_code == 200, f"{page} -> {ref}"
 
 
 def test_client_log_accepts_and_caps_text():

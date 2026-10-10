@@ -436,6 +436,29 @@ async function startAR(mode) {
 
 // ---------- wire up ----------
 
+// AR not available: say why in plain words and offer the manual way, with a button that jumps to it.
+function showFallback(note, reason, mode, target) {
+  note.classList.add("is-warn");
+  note.textContent = "";
+  const title = document.createElement("strong");
+  title.textContent = "AR is not available on this device.";
+  const why = document.createElement("span");
+  why.textContent = reason + (mode === "area"
+    ? " No problem: type the roof length and width instead."
+    : " No problem: type the scale, or draw a tape-measured length on the image with Calibrate.");
+  note.append(title, why);
+  if (!target) return;
+  const go = document.createElement("button");
+  go.type = "button";
+  go.className = "secondary note-action";
+  go.textContent = mode === "area" ? "Type the roof size instead" : "Type the scale instead";
+  go.addEventListener("click", () => {
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
+    target.focus({ preventScroll: true });
+  });
+  note.append(go);
+}
+
 async function init() {
   const pairs = [["#arBtn", "length"], ["#arScanBtn", "area"]];
   const a = await availability();
@@ -454,7 +477,7 @@ async function init() {
       button.addEventListener("click", () => startAR(mode));
     } else {
       button.disabled = true;
-      if (note) note.textContent = REASONS[a] + (mode === "area" ? " You can type the roof size below instead." : " Or type a tape-measured length in the calibration box.");
+      if (note) showFallback(note, REASONS[a], mode, $(button.dataset.fallback));
     }
   }
 }

@@ -2,73 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>SolarScope</title>
   <meta name="description" content="How much of your rooftop can really carry solar panels? Upload a roof image or scan your roof with your phone.">
+  <meta name="theme-color" content="#0b1a3d">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%E2%98%80%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/theme.js"></script>
 </head>
 <body data-page="home">
-  <header class="top">
-    <a class="brand" href="/">
-      <span class="logo" aria-hidden="true">☀</span>
-      <div>
-        <h1>SolarScope</h1>
-        <p class="tag">Rooftop solar for cluttered Indian roofs</p>
-      </div>
-    </a>
-    <nav class="nav">
-      <a href="/image.html">&#128444; Image</a>
-      <a href="/scan.html">&#128241; Phone scan</a>
-    </nav>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="navbar">
+      <a class="brand" href="/" aria-current="page">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2 6 6M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg></span>
+        <span><span class="brand-name">SolarScope</span><span class="brand-tag">Rooftop solar for cluttered Indian roofs</span></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="/image.html" aria-label="Image"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg><span class="nav-text">Image</span></a>
+        <a href="/scan.html" aria-label="Phone scan"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M11 18.5h2"/></svg><span class="nav-text">Phone scan</span></a>
+        <a href="/installers.html" aria-label="Installers"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></svg><span class="nav-text">Installers</span></a>
+      </nav>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2 6 6M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+      </button>
+    </div>
   </header>
 
-  <section class="hero">
+  <section class="hero hero--home" aria-labelledby="heroTitle">
     <div class="hero-inner">
       <p class="eyebrow">Water tanks · stair rooms · AC units · setbacks</p>
-      <h2>How much of your roof can <em>really</em> carry solar panels?</h2>
+      <h1 id="heroTitle">How much of your roof can <em>really</em> carry solar panels?</h1>
       <p class="lead">SolarScope finds the usable part of your roof, lays out real panels on it and tells you
         the capacity, yearly units, savings after the PM Surya Ghar subsidy, payback and CO₂ avoided.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/image.html">Start with an image &rarr;</a>
+        <a class="btn btn-ghost-light" href="/scan.html">Scan my roof &rarr;</a>
+      </div>
     </div>
   </section>
 
-  <main class="choices">
-    <a class="choice" href="/image.html">
-      <div class="choice-icon" aria-hidden="true">&#128752;</div>
-      <h3>Upload a roof image</h3>
-      <p>Top-down drone or aerial photo. Our AI model marks usable roof and obstructions; fix anything with a brush,
-        set the scale (or measure one wall with AR) and get panels and the report.</p>
-      <ul>
-        <li>AI roof &amp; obstruction detection</li>
-        <li>Manual correction, zoom, calibration</li>
-        <li>Works on any device</li>
-      </ul>
-      <span class="choice-cta">Start with an image &rarr;</span>
-    </a>
-    <a class="choice" href="/scan.html">
-      <div class="choice-icon" aria-hidden="true">&#128241;</div>
-      <h3>Scan with your phone</h3>
-      <p>Walk your terrace (or around the house) and tap each corner with the camera. We measure the area, draw a
-        digital plan of your roof, place the panels and compute the report. No photo needed.</p>
-      <ul>
-        <li>AR area measurement (WebXR)</li>
-        <li>Digital roof plan with panels</li>
-        <li>Android + Chrome; or type the size</li>
-      </ul>
-      <span class="choice-cta">Scan my roof &rarr;</span>
-    </a>
+  <main id="main" class="home-main">
+    <div class="choices">
+      <a class="choice" href="/image.html">
+        <div class="choice-icon" aria-hidden="true">&#128752;</div>
+        <h2>Upload a roof image</h2>
+        <p>Top-down drone or aerial photo. Our AI model marks usable roof and obstructions; fix anything with a brush,
+          set the scale (or measure one wall with AR) and get panels and the report.</p>
+        <ul>
+          <li>AI roof &amp; obstruction detection</li>
+          <li>Manual correction, zoom, calibration</li>
+          <li>Works on any device</li>
+        </ul>
+        <span class="choice-cta">Start with an image &rarr;</span>
+      </a>
+      <a class="choice" href="/scan.html">
+        <div class="choice-icon" aria-hidden="true">&#128241;</div>
+        <h2>Scan with your phone</h2>
+        <p>Walk your terrace (or around the house) and tap each corner with the camera. We measure the area, draw a
+          digital plan of your roof, place the panels and compute the report. No photo needed.</p>
+        <ul>
+          <li>AR area measurement (WebXR)</li>
+          <li>Digital roof plan with panels</li>
+          <li>Android + Chrome; or type the size</li>
+        </ul>
+        <span class="choice-cta">Scan my roof &rarr;</span>
+      </a>
+    </div>
+
+    <section class="how" aria-labelledby="howTitle">
+      <h2 id="howTitle">How it works</h2>
+      <div class="how-step"><b>1</b><span>Capture the roof<br><small>image or phone scan</small></span></div>
+      <div class="how-step"><b>2</b><span>Remove what can't hold panels<br><small>tanks, stair rooms, edge setback</small></span></div>
+      <div class="how-step"><b>3</b><span>Fit real panels<br><small>both orientations, best layout</small></span></div>
+      <div class="how-step"><b>4</b><span>Report with sources<br><small>NASA POWER, CEA, PM Surya Ghar</small></span></div>
+    </section>
   </main>
 
-  <section class="how">
-    <div class="how-step"><b>1</b><span>Capture the roof<br><small>image or phone scan</small></span></div>
-    <div class="how-step"><b>2</b><span>Remove what can't hold panels<br><small>tanks, stair rooms, edge setback</small></span></div>
-    <div class="how-step"><b>3</b><span>Fit real panels<br><small>both orientations, best layout</small></span></div>
-    <div class="how-step"><b>4</b><span>Report with sources<br><small>NASA POWER, CEA, PM Surya Ghar</small></span></div>
-  </section>
-
-  <footer class="foot">
-    <p>Runs on AWS EC2, model weights on Amazon S3. Imagery: OpenAerialMap (CC-BY 4.0). Irradiance: NASA POWER.
-      <a href="https://github.com/Pai05/solarscope">Source code (MIT)</a></p>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="brand-name">SolarScope</span>
+      <nav aria-label="Footer">
+        <a href="/">Home</a><a href="/image.html">Image</a><a href="/scan.html">Phone scan</a><a href="/installers.html">Installers</a>
+      </nav>
+      <p>Runs on AWS EC2, model weights on Amazon S3. Imagery: OpenAerialMap (CC-BY 4.0). Irradiance: NASA POWER.
+        <a href="https://github.com/Pai05/solarscope">Source code (MIT)</a></p>
+    </div>
   </footer>
 </body>
 </html>
