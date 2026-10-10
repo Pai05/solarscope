@@ -31,6 +31,96 @@ Built for Environmental Hacks (WeMakeDevs x AWS), track: Waste and Energy (Rooft
 5. **Economics** (`backend/solar_calc.py`): irradiance from NASA POWER for the site → yield → savings,
    tiered PM Surya Ghar subsidy with cap → payback → CO₂.
 
+## Find solar installers near me
+
+After the report is computed on either page, **📍 Find solar installers near me** (below the report) opens
+`/installers.html`:
+
+- **Project summary**: panels, kWp, estimated system cost and cost after subsidy.
+- **Nearest installers first**: uses the latitude/longitude from the report, or **Use my current location**
+  (browser geolocation). Each card shows "≈ N km away" (straight-line distance); a distance filter keeps
+  installers within 25 / 50 / 100 / 250 km or at any distance. Without a location, all installers are listed by name.
+- **Contact directly**: big **Call** button (`tel:`), **WhatsApp** (opens a chat with a prefilled quote request
+  for your kWp), **Email** (`mailto:` with the same prefilled request), **Directions** (Google Maps route to the
+  address) and **Website**.
+- **State / City filters** list all 28 states and 8 union territories of India; picking a state lists its main
+  cities (installer data so far covers Madhya Pradesh and Puducherry, see below). Plus an optional search box and "Only installers that handle N kWp" (installers whose capacity range
+  covers your system size).
+
+Privacy: the project summary is passed in the tab's `sessionStorage`, never in the page URL. The location is only
+sent to this app's own API, rounded to 2 decimals (~1 km), to sort by distance; it is not stored. The button is
+disabled again as soon as the roof or settings change, until the report is recomputed.
+
+API: `GET /api/installers?state=&city=&min_kwp=&max_kwp=&lat=&lon=&radius_km=&limit=` (all optional). `state` matches
+exactly (case-insensitive), `city` matches the installer's city or any of its service areas, and a kWp range keeps
+installers whose own `min_kwp`-`max_kwp` range overlaps it. With `lat` and `lon`, each result gets `distance_km`
+and results are sorted nearest first; `radius_km` drops installers further away. `limit` (1-200, default 50)
+caps the list. Returns `{"count", "total", "installers", "note"}` (`count` returned, `total` matching); 422 for
+out-of-range values, 400 if `min_kwp > max_kwp`, only one of `lat`/`lon` is given, or `radius_km` has no location;
+503 if the data file is missing or broken. `GET /api/locations` returns the states/UTs and their cities
+(from `backend/data/india_locations.json`) for the dropdowns.
+
+### Installer data: real, from official lists
+
+`backend/data/installers.json` holds **188 real installers copied from official empanelled-vendor lists**, checked
+on 2026-10-10. Nothing is made up: a field the source does not publish is `null` and the card simply leaves it out.
+
+| Source | Vendors | Published fields |
+|---|---|---|
+| [MPCZ (MP Madhya Kshetra Vidyut Vitaran Co.) - Vendor List (Empanelled for Solar Subsidy)](https://rooftop.mpcz.in/uwp_rooftop3/vendor_list/1) | 108 (the page's `TEST` row is skipped) | company, contact person, phone, address |
+| [Electricity Department, Puducherry - vendors registered under the PM Surya Ghar portal](https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal) (PDF of 15-09-2026) | 80 | company, contact person, email, mobile |
+
+Other states have no entries yet. Their lists are behind the JavaScript national portal or are out of date (the
+Tamil Nadu PDF is from 2022, before PM Surya Ghar), so the page points users to
+[pmsuryaghar.gov.in](https://pmsuryaghar.gov.in) instead. Every card names its source and the date it was checked.
+
+- **Locations are approximate.** Distances use the centre of the office's town found in the address
+  (`location_precision: "city"`). Where the address names no town in that state (offices in Mumbai, Delhi, etc.,
+  or Puducherry, whose list has no addresses) the installer is placed at the DISCOM area and the card says
+  "approx." (`"region"`).
+- **Listed is not recommended.** Being on a DISCOM list means the vendor is registered there, not that SolarScope
+  vouches for them. The page says to check the vendor on the national portal and get written quotes.
+- **Personal data.** Contact persons' names and mobile numbers are published by the DISCOMs so consumers can reach
+  vendors; they are reproduced here only for that purpose. Remove an entry if the vendor asks.
+
+**Refreshing the data.** DISCOMs update their lists regularly. Re-run the importer (it rewrites `installers.json`):
+
+```powershell
+# Download the current Puducherry PDF from the page linked above first. Needs pdftotext (poppler/xpdf) on PATH.
+python scripts/import_official_vendors.py --py-pdf "Solar Vendors 15092026.pdf"
+```
+
+It downloads the MPCZ page itself (or pass a saved copy with `--mpcz-html`). To add another state, add a parser
+for its official list to the importer, keeping only fields the source prints.
+
+### Editing `backend/data/installers.json`
+
+The file is `{"_note": "...", "installers": [ ... ]}`; the `_note` is shown as a banner on the page. Each installer:
+
+| Field | Type | Example / notes |
+|---|---|---|
+| `id` | string | unique, e.g. `"mpcz-002"` |
+| `company_name` | string | as published |
+| `state` | string | the state/UT the vendor is empanelled in; exact name from `india_locations.json` |
+| `city` | string or `null` | office town, if it is in that state; exact name from `india_locations.json` |
+| `lat`, `lon` | number | used for "near me" distance |
+| `location_precision` | `"city"` or `"region"` | how exact `lat`/`lon` are (see above) |
+| `phone`, `email` | string or `null` | at least one is required. WhatsApp is offered for 10-digit Indian mobiles (bare or `+91…`) |
+| `contact_person`, `website`, `address`, `pincode` | string or `null` | `website` must be `http(s)://`; no address = no Directions button |
+| `service_areas` | list of strings | area the vendor is registered for; also matched by the City filter |
+| `services` | list of strings | e.g. `"Rooftop solar under PM Surya Ghar (subsidy)"` |
+| `certifications` | list of strings | empanelment, e.g. `"Empanelled / registered vendor, MP Madhya Kshetra Vidyut Vitaran Co. (MPCZ)"` |
+| `years_experience`, `min_kwp`, `max_kwp` | number or `null` | installers with an unknown range are kept by the size filter |
+| `last_verified` | string | date the entry was checked against its source |
+| `source` | object | `{"name", "url", "retrieved"}`: the official list it came from |
+
+Entries that break these rules are skipped (and logged) rather than breaking the page. The file is re-read whenever
+it changes, so edits show up without restarting the server.
+
+**States and cities** (`backend/data/india_locations.json`): every state/UT with its main cities and approximate
+city-centre coordinates, one city per line. Add a city as `{"name": "...", "lat": ..., "lon": ...}` under its
+state; it appears in the City dropdown at once.
+
 ## Where AWS fits
 
 | AWS service | What runs there |
@@ -72,6 +162,37 @@ U-Net (ResNet-34, ImageNet encoder) trained for 40 epochs (10 min on a laptop CP
 
 _TBD: tape-measured roof vs SolarScope estimate._
 
+## Project structure
+
+```
+backend/                 FastAPI app (serves the API and the frontend from one process)
+  app.py                 routes: /health, /config, /predict, /report, /api/installers, /api/locations
+  geometry.py            setbacks, obstruction buffer, panel packing
+  solar_calc.py          economics and every assumption with its source
+  irradiance.py          NASA POWER lookup
+  model.py, schemas.py   ONNX segmenter, request models
+  installers.py          installer directory: load, validate, filter, distance
+  data/
+    installers.json      installers copied from official DISCOM lists (see "Installer data")
+    india_locations.json states / UTs of India with their main cities
+frontend/                static site, no build step
+  index.html  image.html  scan.html  installers.html
+  css/styles.css         design system (tokens, light/dark, components, layouts)
+  js/theme.js            light/dark toggle (loaded in <head>)
+  js/common.js           shared helpers, report card, step progress
+  js/app.js              image page: upload, detection, brush editor
+  js/plan.js             phone-scan page: roof plan and panels
+  js/ar.js               WebXR measuring (both pages)
+  js/installers.js       installers page
+  samples/               sample tiles for the image page
+scripts/
+  import_official_vendors.py   rebuilds backend/data/installers.json from the official lists
+tests/                   pytest: API, geometry, economics, model, installers, importer
+training/                tiling, labelling and training of the segmentation model
+infra/                   EC2 deploy (systemd + Caddy)
+docs/                    write-up, metrics and figures
+```
+
 ## Run locally (Windows PowerShell)
 
 ```powershell
@@ -81,6 +202,10 @@ pip install -r requirements-dev.txt
 pytest -q
 uvicorn backend.app:app --reload --port 8000     # open http://localhost:8000
 ```
+
+If the project is in a OneDrive (or other synced) folder, `--reload` can miss file changes and keep serving old
+code (for example a 404 on a new endpoint), or hang while reloading. Stop the server (Ctrl+C) and start it again
+after changing backend code. Editing `backend/data/*.json` needs no restart.
 
 Put a trained `solarscope.onnx` (+ `.json`) in `models/` to enable detection; without it you can paint the roof by hand.
 
