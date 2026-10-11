@@ -10,7 +10,7 @@ const OBS_TYPES = ["Water tank", "Stair room", "AC unit", "Solar heater", "Other
 const plan = {
   roof: null,             // [[x, y], ...] metres, plan frame (x right, y down)
   obstructions: [],       // [{label, pts}]
-  panels: [],             // [[x, y, w, h], ...] metres
+  panels: [],             // [[x, y, w, h, small], ...] metres; small = gap-filling panel
   source: "",
   sel: -1,
   drag: null,
@@ -167,12 +167,31 @@ $("#reportBtn").addEventListener("click", (e) => busy(e.currentTarget, "Laying o
   if (!plan.roof) throw new Error("Scan the roof or type its size first.");
   const r = rasterize();
   const rep = await postReport({ width: r.w, height: r.h, mask_b64: b64FromBytes(r.mask), gsd_m: r.gsd, ...reportSettings() });
-  plan.panels = rep.panels.map(([x, y, w, h]) => [x * r.gsd, y * r.gsd, w * r.gsd, h * r.gsd]);
+  // [x, y, w, h, small] in metres; small = gap-filling panel, drawn in teal.
+  const toM = (small) => ([x, y, w, h]) => [x * r.gsd, y * r.gsd, w * r.gsd, h * r.gsd, small];
+  plan.panels = rep.panels.map(toM(false)).concat((rep.small_panels || []).map(toM(true)));
+  // Room for more panels beyond the budget: drawn as dashed outlines.
+  plan.spare = rep.budget ? rep.budget.spare_panels.concat(rep.budget.spare_small_panels).map(toM(false)) : [];
   render();
-  showReport(rep);
-  setStatus(rep.panel_count
-    ? `${rep.panel_count} panels (${fmt(rep.capacity_kw, 2)} kWp) fit on your roof.`
-    : "No panel fits. Check the roof size, the setback or the obstructions.");
+  const rb = bbox(plan.roof);
+  const dims = { L: rb.maxX - rb.minX, W: rb.maxY - rb.minY };
+  showReport(rep, dims);
+  if (rep.panel_count) {
+    const nSmall = (rep.small_panels || []).length;
+    setStatus(`${rep.panel_count} panels (${fmt(rep.capacity_kw, 2)} kWp) fit on your roof`
+      + (nSmall ? `: ${rep.panel_count - nSmall} standard + ${nSmall} small in the leftover space.` : ".")
+      + (rep.budget?.limited ? ` Sized to your budget; the roof can hold ${rep.budget.roof_max.panel_count}.` : ""));
+  } else {
+    // Say why in numbers: usually the scanned area is smaller than one panel plus the edge gap.
+    const s = reportSettings();
+    const sp = smallestPanel(s);
+    const minL = Math.max(sp.w, sp.h) + 2 * s.setback_m;
+    const minW = Math.min(sp.w, sp.h) + 2 * s.setback_m;
+    setStatus(`No panel fits. The roof is about ${fmt(rb.maxX - rb.minX, 1)} m × ${fmt(rb.maxY - rb.minY, 1)} m; `
+      + `the smallest ${fmt(sp.w, 2)} × ${fmt(sp.h, 2)} m panel with a ${fmt(s.setback_m, 1)} m edge gap `
+      + `needs at least ${fmt(minL, 1)} m × ${fmt(minW, 1)} m free of obstructions. `
+      + (setbackAdvice(dims.L, dims.W, s) || "Move or remove obstructions, or lower the edge setback."), "error");
+  }
 }));
 
 // ---------- drawing ----------
@@ -202,9 +221,29 @@ function render() {
   const X = (x) => ox + x * s, Y = (y) => oy + y * s;
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   ctx.clearRect(0, 0, cw, ch);
+  // Theme colours from styles.css (--ink is the text colour; there is no --text, which made every label
+  // fall back to near-black and vanish on the dark theme).
   const css = getComputedStyle(document.documentElement);
-  const text = css.getPropertyValue("--text").trim() || "#222";
-  const muted = css.getPropertyValue("--muted").trim() || "#888";
+  const ink = css.getPropertyValue("--ink").trim() || "#0a1633";
+  const surface = css.getPropertyValue("--surface").trim() || "#ffffff";
+  // Text on a solid rounded label: readable over the grid, roof fill and edges, in both themes, and in the
+  // saved PNG (transparent background) whatever it is viewed on.
+  const pill = (label, x, y, { bg = surface, fg = ink, border = "rgba(128,128,128,0.6)", align = "center" } = {}) => {
+    ctx.font = "700 13px system-ui, sans-serif";
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "center";
+    const w = ctx.measureText(label).width + 12, h = 20;
+    const left = align === "left" ? x : x - w / 2;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(left, y - h / 2, w, h, 6); else ctx.rect(left, y - h / 2, w, h);
+    ctx.fillStyle = bg;
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = border;
+    ctx.stroke();
+    ctx.fillStyle = fg;
+    ctx.fillText(label, left + w / 2, y + 0.5);
+  };
 
   // 1 m grid, stronger every 5 m
   for (let m = 0; m <= Math.max(W, H); m += 1) {
@@ -224,7 +263,7 @@ function render() {
   path(plan.roof);
   ctx.fillStyle = "rgba(34,197,94,0.20)";
   ctx.fill();
-  const setback = num("#setback") ?? LAYOUT_DEFAULTS?.setback_m ?? 0.5;
+  const setback = num("#setback") ?? LAYOUT_DEFAULTS?.setback_m ?? 0.3;
   const buffer = num("#buffer") ?? LAYOUT_DEFAULTS?.obstruction_buffer_m ?? 0.3;
   ctx.save();
   path(plan.roof);
@@ -245,12 +284,23 @@ function render() {
   path(plan.roof);
   ctx.stroke();
 
+  // Over-budget room for more panels: dashed outlines only
+  if (plan.panels.length) {
+    ctx.save();
+    ctx.setLineDash([5, 4]);
+    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = ink;
+    ctx.globalAlpha = 0.55;
+    for (const [x, y, w, h] of plan.spare || []) ctx.strokeRect(X(x) + 1.5, Y(y) + 1.5, w * s - 3, h * s - 3);
+    ctx.restore();
+  }
+
   // Panels
-  for (const [x, y, w, h] of plan.panels) {
+  for (const [x, y, w, h, small] of plan.panels) {
     const px = X(x), py = Y(y), pw = w * s, ph = h * s;
     const grad = ctx.createLinearGradient(px, py, px + pw, py + ph);
-    grad.addColorStop(0, "#1e3a8a");
-    grad.addColorStop(1, "#2563eb");
+    grad.addColorStop(0, small ? "#115e59" : "#1e3a8a");  // small gap-fillers teal, standard blue
+    grad.addColorStop(1, small ? "#0d9488" : "#2563eb");
     ctx.fillStyle = grad;
     ctx.fillRect(px + 0.5, py + 0.5, pw - 1, ph - 1);
     ctx.strokeStyle = "rgba(219,234,254,0.9)";
@@ -274,18 +324,11 @@ function render() {
     ctx.stroke();
     ctx.setLineDash([]);
     const [cx, cy] = centroid(o.pts);
-    ctx.fillStyle = "#fff";
-    ctx.font = "600 11px system-ui, sans-serif";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText(o.label, X(cx), Y(cy));
+    pill(o.label, X(cx), Y(cy), { bg: "#7f1d1d", fg: "#ffffff", border: "#fecaca" });
   });
 
   // Edge lengths, written just outside each roof edge
   const ccw = area(plan.roof) < 0;  // y points down, so the sign flips the usual meaning
-  ctx.font = "600 12px system-ui, sans-serif";
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
   plan.roof.forEach((p, i) => {
     const q = plan.roof[(i + 1) % plan.roof.length];
     const len = Math.hypot(q[0] - p[0], q[1] - p[1]);
@@ -294,35 +337,40 @@ function render() {
     const nl = Math.hypot(nx, ny) || 1;
     nx /= nl; ny /= nl;
     if (ccw) { nx = -nx; ny = -ny; }
-    const mx = X((p[0] + q[0]) / 2) + nx * 14, my = Y((p[1] + q[1]) / 2) + ny * 14;
-    ctx.fillStyle = text;
-    ctx.fillText(`${len.toFixed(2)} m`, mx, my);
+    const mx = X((p[0] + q[0]) / 2) + nx * 18, my = Y((p[1] + q[1]) / 2) + ny * 18;
+    pill(`${len.toFixed(2)} m`, mx, my, { border: "#16a34a" });
   });
 
   // Scale bar
   const step = niceStep(80 / s);
   const sx = 14, sy = ch - 16;
-  ctx.strokeStyle = text;
-  ctx.lineWidth = 2;
+  // Bar in the text colour over a halo of the surface colour: visible on the page in both themes and on the
+  // white background of the downloaded report.
   ctx.beginPath();
-  ctx.moveTo(sx, sy - 5); ctx.lineTo(sx, sy); ctx.lineTo(sx + step * s, sy); ctx.lineTo(sx + step * s, sy - 5);
+  ctx.moveTo(sx, sy - 6); ctx.lineTo(sx, sy); ctx.lineTo(sx + step * s, sy); ctx.lineTo(sx + step * s, sy - 6);
+  ctx.lineJoin = "round";
+  ctx.strokeStyle = surface;
+  ctx.lineWidth = 6;
   ctx.stroke();
-  ctx.fillStyle = muted;
-  ctx.font = "12px system-ui, sans-serif";
-  ctx.textAlign = "left";
-  ctx.textBaseline = "bottom";
-  ctx.fillText(`${step} m`, sx + step * s + 6, sy + 2);
+  ctx.strokeStyle = ink;
+  ctx.lineWidth = 2.5;
+  ctx.stroke();
+  pill(`${step} m`, sx + step * s + 6, sy - 4, { align: "left" });
 }
 window.addEventListener("resize", render);
+document.addEventListener("themechange", render);  // labels use theme colours
 $("#setback")?.addEventListener("input", () => changed());
 $("#buffer")?.addEventListener("input", () => changed());
+$("#budget")?.addEventListener("input", () => changed());
+$("#budgetBasis")?.addEventListener("change", () => changed());
 
 // ---------- dragging obstructions ----------
 
 function toMetres(e) {
   const r = cv.getBoundingClientRect();
+  const k = pageZoom(cv);
   const { s, ox, oy } = plan.view;
-  return [(e.clientX - r.left - ox) / s, (e.clientY - r.top - oy) / s];
+  return [((e.clientX - r.left) / k - ox) / s, ((e.clientY - r.top) / k - oy) / s];
 }
 cv.addEventListener("pointerdown", (e) => {
   if (!plan.roof || !plan.view) return;
@@ -391,6 +439,9 @@ $("#savePlan").addEventListener("click", () => {
   a.href = cv.toDataURL("image/png");
   a.click();
 });
+
+// Picture for the downloadable report (report.js): the plan canvas as drawn, panels included.
+window.SolarScopeReportImage = () => (plan.roof ? cv : null);
 
 // Called by ar.js when an AR area scan finishes: {roof: [[x, z], ...], obstructions: [[[x, z], ...], ...]}
 window.SolarScopeApplyARArea = (r) => {

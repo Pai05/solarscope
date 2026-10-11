@@ -16,7 +16,7 @@ SolarScope turns a top-down drone or aerial image of a rooftop into a solar repo
 1. A **segmentation model** marks usable roof (green) and obstructions (red).
 2. The user **corrects the mask with a brush** and drags a box around their own building.
 3. The usable area is shrunk by an **edge setback** (parapets, maintenance access) and an **obstruction buffer**.
-4. **Real panel rectangles** (2.27 × 1.13 m, 540 Wp) are packed into what is left, trying both orientations.
+4. **Real panel rectangles** (1.70 × 1.00 m, 350 Wp residential 60-cell by default) are packed into what is left, trying both orientations.
 5. The report gives **capacity (kWp), yearly generation (kWh), savings (₹), PM Surya Ghar subsidy, payback and CO₂ avoided**,
    and lists every input with its source and a verified / to-verify badge.
 

@@ -70,20 +70,61 @@
       </section>
 
       <section class="step" id="s-scale" aria-labelledby="h-scale">
-        <h2 id="h-scale"><span>2</span> Scale</h2>
-        <label>Metres per pixel (original image)
-          <input type="number" id="gsd" step="0.001" min="0.005" max="2" value="0.1">
-        </label>
-        <button id="arBtn" class="secondary" data-note="#arNote" data-fallback="#gsd" disabled>&#128241; Measure a wall with AR</button>
-        <p id="arNote" class="note">Checking AR support&hellip;</p>
-        <button id="calibBtn" class="secondary" disabled>Calibrate: draw a known length</button>
-        <div id="calibBox" class="calib" hidden>
-          <label>Real length of the line (m)
-            <input type="number" id="calibLen" step="0.01" min="0.1" value="1.2">
-          </label>
-          <button id="calibApply">Apply</button>
+        <h2 id="h-scale"><span>2</span> Roof size</h2>
+        <p class="muted small">A photo cannot show how big the roof is. Measure it (tape, or the Phone scan) and type its
+          real size: the marked roof is redrawn to this size, also when the photo is taken at an angle.</p>
+        <div class="shape-choice" role="radiogroup" aria-label="Roof shape">
+          <label class="inline"><input type="radio" name="roofShape" value="rect" checked> Rectangle</label>
+          <label class="inline"><input type="radio" name="roofShape" value="sides"> 4 different sides</label>
         </div>
-        <p id="gsdInfo" class="muted small"></p>
+        <div class="row" id="rectInputs">
+          <label>Roof length (m) <input type="number" id="roofLen" step="0.1" min="1" max="300" inputmode="decimal" placeholder="e.g. 10"></label>
+          <label>Roof width (m) <input type="number" id="roofWid" step="0.1" min="1" max="300" inputmode="decimal" placeholder="e.g. 6"></label>
+        </div>
+        <div id="sideInputs" hidden>
+          <p class="muted small">Each side as seen in the photo. After computing, the sides are labelled on the photo so you can check them.</p>
+          <div class="row">
+            <label>Top side (m) <input type="number" id="sideTop" step="0.1" min="0.5" max="300" inputmode="decimal" placeholder="e.g. 8"></label>
+            <label>Right side (m) <input type="number" id="sideRight" step="0.1" min="0.5" max="300" inputmode="decimal" placeholder="e.g. 5.2"></label>
+          </div>
+          <div class="row">
+            <label>Bottom side (m) <input type="number" id="sideBottom" step="0.1" min="0.5" max="300" inputmode="decimal" placeholder="e.g. 7.5"></label>
+            <label>Left side (m) <input type="number" id="sideLeft" step="0.1" min="0.5" max="300" inputmode="decimal" placeholder="e.g. 5"></label>
+          </div>
+          <label>Diagonal, top-left to bottom-right corner (m, optional)
+            <input type="number" id="sideDiag" step="0.1" min="0.5" max="300" inputmode="decimal" placeholder="makes the shape exact"></label>
+          <p class="muted small">Four sides alone allow several shapes. Without the diagonal we use the most regular one
+            (a rectangle when opposite sides are equal); measuring one diagonal makes it exact.</p>
+          <figure class="side-preview" id="sidePreview" hidden>
+            <figcaption>The roof shape you typed</figcaption>
+            <svg id="sideSvg" viewBox="0 0 260 170" role="img" aria-label="Preview of the roof shape from the 4 sides"></svg>
+            <p id="sideArea" class="muted small"></p>
+            <p id="sideWarn" class="note is-warn" hidden></p>
+          </figure>
+        </div>
+        <div id="obsSizes" class="obs-sizes" hidden>
+          <p class="muted small"><b>Obstruction sizes</b>: each obstruction you paint gets a number on the photo. Type its
+            real size, as a <b>Rectangle</b> or with <b>4 different sides</b> (as seen in the photo). Leave it empty to use
+            the painted shape.</p>
+          <ul id="obsSizeList"></ul>
+        </div>
+        <details class="advanced" id="gsdMode">
+          <summary>Drone or satellite image with a known scale</summary>
+          <label class="inline"><input type="checkbox" id="useGsd"> Use the image scale instead of the roof size</label>
+          <label>Metres per pixel (original image)
+            <input type="number" id="gsd" step="0.001" min="0.005" max="2" value="0.1">
+          </label>
+          <button id="arBtn" class="secondary" data-note="#arNote" data-fallback="#gsd" disabled>&#128241; Measure a wall with AR</button>
+          <p id="arNote" class="note">Checking AR support&hellip;</p>
+          <button id="calibBtn" class="secondary" disabled>Calibrate: draw a known length</button>
+          <div id="calibBox" class="calib" hidden>
+            <label>Real length of the line (m)
+              <input type="number" id="calibLen" step="0.01" min="0.1" value="1.2">
+            </label>
+            <button id="calibApply">Apply</button>
+          </div>
+          <p id="gsdInfo" class="muted small"></p>
+        </details>
       </section>
 
       <section class="step" id="s-location" aria-labelledby="h-location">
@@ -102,6 +143,19 @@
         <p class="muted small">Then fix mistakes with the brush tools under the image. Pick my roof: drag a box around your building (or click it).</p>
       </section>
 
+      <section class="step" id="s-budget" aria-labelledby="h-budget">
+        <h2 id="h-budget"><span>₹</span> Budget (optional)</h2>
+        <div class="row">
+          <label>My budget (₹) <input type="number" id="budget" min="1000" step="1000" inputmode="numeric" placeholder="e.g. 100000"></label>
+          <label>Budget covers <select id="budgetBasis">
+            <option value="net">Cost after subsidy</option>
+            <option value="gross">Full upfront cost</option>
+          </select></label>
+        </div>
+        <p class="muted small">Leave empty to fill the whole roof. With a budget we plan the biggest system you can afford.
+          Under PM Surya Ghar you usually pay the full cost first; the subsidy reaches your bank later.</p>
+      </section>
+
       <details class="step">
         <summary><h2><span>⚙</span> Layout &amp; cost settings</h2></summary>
         <div class="row">
@@ -116,6 +170,12 @@
           <label>Panel power (Wp) <input type="number" id="panelWp" step="5" min="10" max="1500"></label>
           <label>Tariff (₹/kWh) <input type="number" id="tariff" step="0.1" min="0" placeholder="default"></label>
         </div>
+        <label class="inline"><input type="checkbox" id="fillSmall" checked> Fill leftover space with small panels</label>
+        <div class="row">
+          <label>Small panel length (m) <input type="number" id="smallPanelW" step="0.01" min="0.2" max="4"></label>
+          <label>Small panel width (m) <input type="number" id="smallPanelH" step="0.01" min="0.2" max="4"></label>
+        </div>
+        <label>Small panel power (Wp) <input type="number" id="smallPanelWp" step="5" min="5" max="1500"></label>
         <label>Installed cost (₹/kWp) <input type="number" id="cost" step="1000" min="0" placeholder="default"></label>
       </details>
 
@@ -150,6 +210,7 @@
         <span><i class="sw roof"></i>Usable roof</span>
         <span><i class="sw obs"></i>Obstruction</span>
         <span><i class="sw panel"></i>Panel</span>
+        <span><i class="sw panel-small"></i>Small panel</span>
         <label class="inline"><input type="checkbox" id="showOverlay" checked> Show overlay</label>
       </div>
 
@@ -174,6 +235,14 @@
       <span id="report-anchor"></span>
       <div class="report-head">
         <h2 id="reportTitle">Your solar report</h2>
+        <div class="report-actions">
+          <button id="downloadReport" class="primary" disabled>&#11015; Download report</button>
+          <button id="printReport" class="secondary" disabled>&#128424; Print / Save as PDF</button>
+        </div>
+      </div>
+      <div id="budgetNote" class="budget-note" role="status" hidden></div>
+      <div id="noFit" class="warn" role="alert" hidden>
+        <p><strong>The area is too small to fit a solar panel.</strong> <span id="noFitWhy"></span></p>
       </div>
       <div class="summary-hero">
         <div class="sum-item"><span class="sum-label">Panels that fit</span><span class="sum-value" id="hPanels">–</span></div>
@@ -193,6 +262,23 @@
         <div class="kpi" data-kind="pay"><span class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span id="kPay">–</span><small>years payback</small></div>
         <div class="kpi" data-kind="co2"><span class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20c0-9 6-15 15-15 0 9-5 15-14 15"/><path d="M5 20c3-4 6-7 10-9"/></svg></span><span id="kCo2">–</span><small>t CO₂ avoided / yr</small></div>
       </div>
+      <figure class="photo-plan" id="photoPlanBox" hidden>
+        <figcaption>Roof plan to scale, from your photo and roof size</figcaption>
+        <canvas id="photoPlan" aria-label="To-scale roof plan with the solar panels"></canvas>
+        <div class="legend">
+          <span><i class="sw roof"></i>Roof</span><span><i class="sw obs"></i>Obstruction</span>
+          <span><i class="sw panel"></i>Panel</span><span><i class="sw panel-small"></i>Small panel</span>
+          <span><i class="sw panel-spare"></i>Room for more (over budget)</span>
+        </div>
+      </figure>
+      <div class="tables" id="panelMix" hidden>
+        <table>
+          <caption>Panels</caption>
+          <thead><tr><th>Type</th><th>Size (m)</th><th class="num">Power</th><th class="num">Count</th></tr></thead>
+          <tbody id="panelTypes"></tbody>
+        </table>
+      </div>
+      <p class="muted small" id="panelNote" hidden></p>
       <div class="tables">
         <table>
           <caption>Roof</caption>
@@ -218,6 +304,14 @@
         <button id="installerBtn" class="primary" disabled>&#128205; Find solar installers near me</button>
       </div>
     </section>
+    <section id="history" class="history" aria-labelledby="historyTitle" hidden>
+      <div class="history-head">
+        <h2 id="historyTitle">Recent reports</h2>
+        <button id="clearHistory" type="button" class="secondary small-btn">Clear</button>
+      </div>
+      <p class="muted small">Your last 4 reports, saved only in this browser on this device.</p>
+      <ul id="historyList" class="history-list"></ul>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -241,7 +335,9 @@
   </div>
 
   <script src="js/common.js"></script>
+  <script src="js/report.js"></script>
   <script src="js/app.js"></script>
   <script type="module" src="js/ar.js"></script>
+  <script src="js/chat.js"></script>
 </body>
 </html>

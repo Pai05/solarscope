@@ -45,6 +45,13 @@ def test_shipped_file_is_official_data_with_sources():
     for e in items:
         assert not e.get("demo"), e["id"]
         assert "test" not in e["company_name"].lower(), e["id"]  # the MPCZ page has a TEST row
+        if e.get("synthetic"):
+            # Project demo entries (Karnataka): unmistakably fake and impossible to contact by accident.
+            assert e["id"].startswith("demo-") and e["company_name"].endswith("(Demo)"), e["id"]
+            assert e["phone"] is None and e["website"] is None and e["address"] is None, e["id"]
+            assert e["email"].endswith("@example.com"), e["id"]
+            assert any("SYNTHETIC" in c for c in e["certifications"]), e["id"]
+            continue
         src = e["source"]
         host = urlparse(src["url"]).hostname
         assert src["url"].startswith("https://") and host.endswith((".gov.in", ".mpcz.in")), src["url"]
@@ -230,3 +237,13 @@ def test_malformed_entries_are_skipped(tmp_path, monkeypatch):
 def test_installers_page_served():
     r = client.get("/installers.html")
     assert r.status_code == 200 and "installer" in r.text.lower()
+
+
+def test_synthetic_karnataka_districts_listed():
+    for city in ("Bengaluru", "Mysuru", "Hassan", "Mandya"):
+        r = client.get("/api/installers", params={"state": "Karnataka", "city": city}).json()
+        assert r["count"] >= 4, city
+        assert all(e.get("synthetic") for e in r["installers"]), city
+    # Near Mandya, the nearest installers are the Mandya ones, not another state's.
+    near = client.get("/api/installers", params={"lat": 12.52, "lon": 76.9, "limit": 4}).json()["installers"]
+    assert all(e["state"] == "Karnataka" and e["distance_km"] < 30 for e in near)

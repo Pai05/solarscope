@@ -66,7 +66,8 @@
           <ol>
             <li><b>Best:</b> stand on the terrace. <b>Or</b> walk around the house outside.</li>
             <li>Move the phone slowly over the floor until a white ring appears.</li>
-            <li>Point the ring at each <b>corner</b> (where the wall meets the floor or ground) and tap, in order around the roof.</li>
+            <li>Stand where you can see the corners (each within 5 m; where the wall meets the floor). Hold the ring still on a corner for half a second and tap. Go in order around the roof. After the first corner the floor is locked, so the ring reaches far corners too.</li>
+            <li>Keep the camera looking at the floor 1-2 m ahead while you walk, not straight down, and walk slowly. If it says <b>tracking drifted</b>, Undo that corner and redo it.</li>
             <li>Tap <b>Close shape</b>. Then <b>Add obstruction</b> and tap around each water tank or stair room.</li>
             <li>Tap <b>Finish</b>. Daylight and slow movement give the best accuracy.</li>
           </ol>
@@ -103,6 +104,19 @@
         <p class="muted small">Used for site irradiance from NASA POWER.</p>
       </section>
 
+      <section class="step" id="s-budget" aria-labelledby="h-budget">
+        <h2 id="h-budget"><span>₹</span> Budget (optional)</h2>
+        <div class="row">
+          <label>My budget (₹) <input type="number" id="budget" min="1000" step="1000" inputmode="numeric" placeholder="e.g. 100000"></label>
+          <label>Budget covers <select id="budgetBasis">
+            <option value="net">Cost after subsidy</option>
+            <option value="gross">Full upfront cost</option>
+          </select></label>
+        </div>
+        <p class="muted small">Leave empty to fill the whole roof. With a budget we plan the biggest system you can afford.
+          Under PM Surya Ghar you usually pay the full cost first; the subsidy reaches your bank later.</p>
+      </section>
+
       <details class="step">
         <summary><h2><span>⚙</span> Layout &amp; cost settings</h2></summary>
         <div class="row">
@@ -117,6 +131,12 @@
           <label>Panel power (Wp) <input type="number" id="panelWp" step="5" min="10" max="1500"></label>
           <label>Tariff (₹/kWh) <input type="number" id="tariff" step="0.1" min="0" placeholder="default"></label>
         </div>
+        <label class="inline"><input type="checkbox" id="fillSmall" checked> Fill leftover space with small panels</label>
+        <div class="row">
+          <label>Small panel length (m) <input type="number" id="smallPanelW" step="0.01" min="0.2" max="4"></label>
+          <label>Small panel width (m) <input type="number" id="smallPanelH" step="0.01" min="0.2" max="4"></label>
+        </div>
+        <label>Small panel power (Wp) <input type="number" id="smallPanelWp" step="5" min="5" max="1500"></label>
         <label>Installed cost (₹/kWp) <input type="number" id="cost" step="1000" min="0" placeholder="default"></label>
       </details>
 
@@ -141,6 +161,8 @@
         <span><i class="sw setback"></i>Setback zone</span>
         <span><i class="sw obs"></i>Obstruction</span>
         <span><i class="sw panel"></i>Panel</span>
+        <span><i class="sw panel-small"></i>Small panel</span>
+        <span><i class="sw panel-spare"></i>Room for more (over budget)</span>
         <button id="savePlan" class="secondary small-btn">&#11015; Save plan image</button>
       </div>
       <p id="planInfo" class="muted small plan-info"></p>
@@ -150,6 +172,14 @@
       <span id="report-anchor"></span>
       <div class="report-head">
         <h2 id="reportTitle">Your solar report</h2>
+        <div class="report-actions">
+          <button id="downloadReport" class="primary" disabled>&#11015; Download report</button>
+          <button id="printReport" class="secondary" disabled>&#128424; Print / Save as PDF</button>
+        </div>
+      </div>
+      <div id="budgetNote" class="budget-note" role="status" hidden></div>
+      <div id="noFit" class="warn" role="alert" hidden>
+        <p><strong>The area is too small to fit a solar panel.</strong> <span id="noFitWhy"></span></p>
       </div>
       <div class="summary-hero">
         <div class="sum-item"><span class="sum-label">Panels that fit</span><span class="sum-value" id="hPanels">–</span></div>
@@ -169,6 +199,14 @@
         <div class="kpi" data-kind="pay"><span class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span id="kPay">–</span><small>years payback</small></div>
         <div class="kpi" data-kind="co2"><span class="kpi-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20c0-9 6-15 15-15 0 9-5 15-14 15"/><path d="M5 20c3-4 6-7 10-9"/></svg></span><span id="kCo2">–</span><small>t CO₂ avoided / yr</small></div>
       </div>
+      <div class="tables" id="panelMix" hidden>
+        <table>
+          <caption>Panels</caption>
+          <thead><tr><th>Type</th><th>Size (m)</th><th class="num">Power</th><th class="num">Count</th></tr></thead>
+          <tbody id="panelTypes"></tbody>
+        </table>
+      </div>
+      <p class="muted small" id="panelNote" hidden></p>
       <div class="tables">
         <table><caption>Roof</caption><tbody id="areas"></tbody></table>
         <table><caption>Cost</caption><tbody id="costs"></tbody></table>
@@ -187,6 +225,14 @@
         <p class="muted small">Installers closest to your location, with phone, WhatsApp, email and directions. Your results stay in this browser tab.</p>
         <button id="installerBtn" class="primary" disabled>&#128205; Find solar installers near me</button>
       </div>
+    </section>
+    <section id="history" class="history" aria-labelledby="historyTitle" hidden>
+      <div class="history-head">
+        <h2 id="historyTitle">Recent reports</h2>
+        <button id="clearHistory" type="button" class="secondary small-btn">Clear</button>
+      </div>
+      <p class="muted small">Your last 4 reports, saved only in this browser on this device.</p>
+      <ul id="historyList" class="history-list"></ul>
     </section>
   </main>
 
@@ -211,7 +257,9 @@
   </div>
 
   <script src="js/common.js"></script>
+  <script src="js/report.js"></script>
   <script src="js/plan.js"></script>
   <script type="module" src="js/ar.js"></script>
+  <script src="js/chat.js"></script>
 </body>
 </html>

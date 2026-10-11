@@ -76,12 +76,39 @@ def test_report_on_square_roof():
     assert rep["areas_m2"]["obstructions"] == pytest.approx(4.0)
     assert rep["areas_m2"]["usable_after_setback"] < rep["areas_m2"]["roof_free"]
     assert rep["panel_count"] > 0
-    assert rep["capacity_kw"] == pytest.approx(rep["panel_count"] * PANEL_DEFAULTS["panel_wp"] / 1000)
+    assert rep["panel_count"] == sum(t["count"] for t in rep["panel_types"])
+    assert rep["capacity_kw"] == pytest.approx(sum(t["count"] * t["wp"] for t in rep["panel_types"]) / 1000)
     assert rep["irradiance_source"] == "nasa_power"
     assert rep["assumptions"]["ghi_kwh_m2_day"]["source"] == "test irradiance"
-    # Panels must not overlap the tank.
-    for x, y, w, h in rep["panels"]:
+    # Panels (standard and small) must not overlap the tank or each other.
+    cover = np.zeros(mask.shape, int)
+    for x, y, w, h in rep["panels"] + rep["small_panels"]:
         assert not (mask[y:y + h, x:x + w] == 2).any()
+        cover[y:y + h, x:x + w] += 1
+    assert cover.max() == 1
+
+
+def test_small_panels_fill_gaps_on_slanted_roof():
+    # Trapezoid roof like a phone scan: the standard panels leave the slanted corners empty.
+    mask = np.zeros((80, 120), np.uint8)
+    for y in range(10, 70):
+        mask[y, 10:110 - (y - 10) // 2] = 1
+    base = {"width": 120, "height": 80, "mask_b64": b64(mask), "gsd_m": 0.1}
+    off = client.post("/report", json={**base, "fill_small_panels": False}).json()
+    on = client.post("/report", json=base).json()
+    assert [t["name"] for t in off["panel_types"]] == ["Standard"] and off["small_panels"] == []
+    std, small = on["panel_types"]
+    assert std["count"] == off["panel_count"]                 # standard layout unchanged
+    assert small["count"] > 0 and on["panel_count"] == std["count"] + small["count"]
+    assert on["capacity_kw"] > off["capacity_kw"]
+    assert on["min_panel_size_m"] == {"w": small["w_m"], "h": small["h_m"]}
+
+
+def test_small_panel_not_smaller_is_ignored():
+    mask = np.ones((60, 60), np.uint8)
+    body = {"width": 60, "height": 60, "mask_b64": b64(mask), "gsd_m": 0.1, "small_panel_w_m": 2.0, "small_panel_h_m": 1.2}
+    rep = client.post("/report", json=body).json()
+    assert len(rep["panel_types"]) == 1 and rep["small_panels"] == []
 
 
 def test_report_roof_point_selects_one_building():
@@ -138,3 +165,10 @@ def test_predict_rejects_non_image(monkeypatch):
     monkeypatch.setattr(type(app_module.segmenter), "available", property(lambda self: True))
     r = client.post("/predict", files={"file": ("a.txt", b"hello", "text/plain")})
     assert r.status_code == 400
+
+
+def test_pages_and_scripts_are_revalidated():
+    # Phones must not keep running cached old scripts after an update (e.g. the "start on Home" rule).
+    for path in ("/", "/scan.html", "/js/theme.js", "/css/styles.css"):
+        assert client.get(path).headers.get("cache-control") == "no-cache", path
+    assert "no-cache" not in (client.get("/config").headers.get("cache-control") or "")

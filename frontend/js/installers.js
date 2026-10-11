@@ -243,15 +243,23 @@ function card(e) {
       e.distance_km < 5 ? `Under 5 km${exact ? " away" : " (approx.)"}` : `≈ ${fmt(e.distance_km)} km${exact ? " away" : " (approx.)"}`)
     : null;
   const sizes = hasNum(e.min_kwp) && hasNum(e.max_kwp) ? `${fmt(e.min_kwp, 1)} – ${fmt(e.max_kwp, 1)} kWp` : null;
-  const src = e.source?.url && safeUrl(e.source.url)
-    ? el("p", { class: "muted small inst-source" }, "Source: ",
-      el("a", { href: safeUrl(e.source.url), ...ext }, e.source.name || "official list"),
-      e.source.retrieved ? `, checked ${e.source.retrieved}` : "")
+  const src = e.synthetic
+    ? el("p", { class: "muted small inst-source" }, `Source: ${e.source?.name || "synthetic demo data"}`)
+    : e.source?.url && safeUrl(e.source.url)
+      ? el("p", { class: "muted small inst-source" }, "Source: ",
+        el("a", { href: safeUrl(e.source.url), ...ext }, e.source.name || "official list"),
+        e.source.retrieved ? `, checked ${e.source.retrieved}` : "")
+      : null;
+  // Synthetic project data must never pass for a real company.
+  const demo = e.synthetic
+    ? el("p", { class: "demo-badge", title: "Made-up entry for the project demo: not a real company" },
+      "DEMO DATA · not a real company")
     : null;
 
   return el("li", { class: "inst-card" },
     el("article", { "aria-labelledby": `n-${e.id}` },
       el("div", { class: "inst-head" }, el("h3", { id: `n-${e.id}` }, name), dist),
+      demo,
       e.contact_person ? el("p", { class: "muted small" }, `Contact: ${e.contact_person}`) : null,
       el("div", { class: "inst-contact", role: "group", "aria-label": `Contact ${name}` },
         e.phone ? el("a", { class: "call", href: `tel:${e.phone.replace(/[^\d+]/g, "")}`, "aria-label": `Call ${name} on ${e.phone}` },
@@ -267,7 +275,7 @@ function card(e) {
       el("dl", {},
         ...field("Phone", e.phone && prettyPhone(e.phone)),
         ...field("Email", e.email),
-        ...field("Address", addr || "Not published in the official list"),
+        ...field("Address", addr || (e.synthetic ? "None (demo entry)" : "Not published in the official list")),
         ...field("Registered for", e.service_areas.join(", ")),
         ...field("Services", chips(e.services)),
         ...field("Experience", hasNum(e.years_experience) ? `${fmt(e.years_experience)} years` : null),

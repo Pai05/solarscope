@@ -128,7 +128,8 @@
       {"name": "Tumakuru", "lat": 13.34, "lon": 77.1},
       {"name": "Udupi", "lat": 13.34, "lon": 74.75},
       {"name": "Vijayapura", "lat": 16.83, "lon": 75.71},
-      {"name": "Hassan", "lat": 13.0, "lon": 76.1}
+      {"name": "Hassan", "lat": 13.0, "lon": 76.1},
+      {"name": "Mandya", "lat": 12.52, "lon": 76.9}
     ]},
     {"name": "Kerala", "type": "state", "cities": [
       {"name": "Thiruvananthapuram", "lat": 8.52, "lon": 76.94},

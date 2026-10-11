@@ -137,6 +137,16 @@ def test_panels_never_overlap_or_leave_usable_area():
     assert lay.count > 0
 
 
+@pytest.mark.parametrize("top", range(0, 50, 3))
+def test_layout_finds_narrow_strip_wherever_it_is(top):
+    # 1.1 m tall usable strip (panel short side 1.0 m) at any height in the image: fixed row offsets
+    # every quarter panel miss it unless its edge lines up, which once gave 0 panels on a 6 x 1.5 m roof.
+    usable = np.zeros((120, 300), bool)
+    usable[top:top + 11, 10:290] = True
+    lay = layout_panels(usable, 0.1, 1.7, 1.0)
+    assert lay.count == 16 and lay.landscape  # 28 m / 1.7 m
+
+
 def test_layout_too_small():
     assert layout_panels(np.ones((5, 5), bool), 0.1, 2.0, 1.1).count == 0
 

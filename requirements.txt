@@ -5,3 +5,4 @@ numpy>=1.26
 scipy>=1.11
 pillow>=10
 onnxruntime>=1.18
+anthropic>=1.0  # optional: AI answers in the help chat when ANTHROPIC_API_KEY is set

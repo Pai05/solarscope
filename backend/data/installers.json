@@ -1,5 +1,5 @@
 {
- "_note": "Real installers copied from official DISCOM / state empanelled-vendor lists (see each entry's source). Being listed does not mean SolarScope recommends them: check the vendor on pmsuryaghar.gov.in and ask for written quotes. Office locations are approximate (city centre).",
+ "_note": "Real installers copied from official DISCOM / state empanelled-vendor lists (see each entry's source). Karnataka entries marked DEMO (Bengaluru, Mysuru, Hassan, Mandya) are synthetic demo data for this project, not real companies. Being listed does not mean SolarScope recommends them: check the vendor on pmsuryaghar.gov.in and ask for written quotes. Office locations are approximate (city centre).",
  "installers": [
   {
    "id": "mpcz-001",
@@ -6203,6 +6203,571 @@
     "name": "Electricity Department, Puducherry - List of vendors registered under the PM Surya Ghar Portal",
     "url": "https://electricity.py.gov.in/list-vendors-registered-under-pm-surya-ghar-portal",
     "retrieved": "2026-10-10"
+   }
+  },
+  {
+   "id": "demo-ka-bengaluru-01",
+   "company_name": "Suryodaya Rooftop Solutions (Demo)",
+   "contact_person": null,
+   "phone": null,
+   "email": "demo-ka-bengaluru-01@example.com",
+   "website": null,
+   "address": null,
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "pincode": null,
+   "lat": 12.925,
+   "lon": 77.593,
+   "location_precision": "city",
+   "service_areas": [
+    "Jayanagar (Bengaluru district, BESCOM area)"
+   ],
+   "services": [
+    "Rooftop solar (residential)",
+    "On-grid systems",
+    "PM Surya Ghar subsidy paperwork"
+   ],
+   "years_experience": 8,
+   "certifications": [
+    "SYNTHETIC DEMO ENTRY - not a real company and not an empanelled vendor"
+   ],
+   "min_kwp": 1,
+   "max_kwp": 10,
+   "last_verified": "synthetic",
+   "synthetic": true,
+   "source": {
+    "name": "SolarScope synthetic demo data for the project (not a real vendor)",
+    "url": null,
+    "retrieved": "2026-10-11"
+   }
+  },
+  {
+   "id": "demo-ka-bengaluru-02",
+   "company_name": "Garden City Solar Works (Demo)",
+   "contact_person": null,
+   "phone": null,
+   "email": "demo-ka-bengaluru-02@example.com",
+   "website": null,
+   "address": null,
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "pincode": null,
+   "lat": 12.97,
+   "lon": 77.75,
+   "location_precision": "city",
+   "service_areas": [
+    "Whitefield (Bengaluru district, BESCOM area)"
+   ],
+   "services": [
+    "Rooftop solar (residential & commercial)",
+    "On-grid systems",
+    "Annual maintenance"
+   ],
+   "years_experience": 12,
+   "certifications": [
+    "SYNTHETIC DEMO ENTRY - not a real company and not an empanelled vendor"
+   ],
+   "min_kwp": 3,
+   "max_kwp": 100,
+   "last_verified": "synthetic",
+   "synthetic": true,
+   "source": {
+    "name": "SolarScope synthetic demo data for the project (not a real vendor)",
+    "url": null,
+    "retrieved": "2026-10-11"
+   }
+  },
+  {
+   "id": "demo-ka-bengaluru-03",
+   "company_name": "Brightline Energy Systems (Demo)",
+   "contact_person": null,
+   "phone": null,
+   "email": "demo-ka-bengaluru-03@example.com",
+   "website": null,
+   "address": null,
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "pincode": null,
+   "lat": 13.1,
+   "lon": 77.596,
+   "location_precision": "city",
+   "service_areas": [
+    "Yelahanka (Bengaluru district, BESCOM area)"
+   ],
+   "services": [
+    "Rooftop solar (residential)",
+    "Hybrid systems with battery"
+   ],
+   "years_experience": 5,
+   "certifications": [
+    "SYNTHETIC DEMO ENTRY - not a real company and not an empanelled vendor"
+   ],
+   "min_kwp": 1,
+   "max_kwp": 15,
+   "last_verified": "synthetic",
+   "synthetic": true,
+   "source": {
+    "name": "SolarScope synthetic demo data for the project (not a real vendor)",
+    "url": null,
+    "retrieved": "2026-10-11"
+   }
+  },
+  {
+   "id": "demo-ka-bengaluru-04",
+   "company_name": "Nandi Hills Power Tech (Demo)",
+   "contact_person": null,
+   "phone": null,
+   "email": "demo-ka-bengaluru-04@example.com",
+   "website": null,
+   "address": null,
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "pincode": null,
+   "lat": 12.991,
+   "lon": 77.554,
+   "location_precision": "city",
+   "service_areas": [
+    "Rajajinagar (Bengaluru district, BESCOM area)"
+   ],
+   "services": [
+    "Small rooftop systems (1-5 kWp)",
+    "Solar water pump advice"
+   ],
+   "years_experience": 3,
+   "certifications": [
+    "SYNTHETIC DEMO ENTRY - not a real company and not an empanelled vendor"
+   ],
+   "min_kwp": 1,
+   "max_kwp": 5,
+   "last_verified": "synthetic",
+   "synthetic": true,
+   "source": {
+    "name": "SolarScope synthetic demo data for the project (not a real vendor)",
+    "url": null,
+    "retrieved": "2026-10-11"
+   }
+  },
+  {
+   "id": "demo-ka-mysuru-01",
+   "company_name": "Chamundi Solar Services (Demo)",
+   "contact_person": null,
+   "phone": null,
+   "email": "demo-ka-mysuru-01@example.com",
+   "website": null,
+   "address": null,
+   "city": "Mysuru",
+   "state": "Karnataka",
+   "pincode": null,
+   "lat": 12.335,
+   "lon": 76.618,
+   "location_precision": "city",
+   "service_areas": [
+    "Vijayanagar, Mysuru (Mysuru district, CESC Mysore area)"
+   ],
+   "services": [
+    "Rooftop solar (residential)",
+    "On-grid systems",
+    "PM Surya Ghar subsidy paperwork"
+   ],
+   "years_experience": 9,
+   "certifications": [
+    "SYNTHETIC DEMO ENTRY - not a real company and not an empanelled vendor"
+   ],
+   "min_kwp": 1,
+   "max_kwp": 20,
+   "last_verified": "synthetic",
+   "synthetic": true,
+   "source": {
+    "name": "SolarScope synthetic demo data for the project (not a real vendor)",
+    "url": null,
+    "retrieved": "2026-10-11"
+   }
+  },
+  {
+   "id": "demo-ka-mysuru-02",
+   "company_name": "Mysuru Green Watts (Demo)",
+   "contact_person": null,
+   "phone": null,
+   "email": "demo-ka-mysuru-02@example.com",
+   "website": null,
+   "address": null,
+   "city": "Mysuru",
+   "state": "Karnataka",
+   "pincode": null,
+   "lat": 12.284,
+   "lon": 76.626,
+   "location_precision": "city",
+   "service_areas": [
+    "Kuvempunagar, Mysuru (Mysuru district, CESC Mysore area)"
+   ],
+   "services": [
+    "Rooftop solar (residential)",
+    "Panel cleaning & maintenance"
+   ],
+   "years_experience": 6,
+   "certifications": [
+    "SYNTHETIC DEMO ENTRY - not a real company and not an empanelled vendor"
+   ],
+   "min_kwp": 1,
+   "max_kwp": 10,
+   "last_verified": "synthetic",
+   "synthetic": true,
+   "source": {
+    "name": "SolarScope synthetic demo data for the project (not a real vendor)",
+    "url": null,
+    "retrieved": "2026-10-11"
+   }
+  },
+  {
+   "id": "demo-ka-mysuru-03",
+   "company_name": "Palace City Sun Energy (Demo)",
+   "contact_person": null,
+   "phone": null,
+   "email": "demo-ka-mysuru-03@example.com",
+   "website": null,
+   "address": null,
+   "city": "Mysuru",
+   "state": "Karnataka",
+   "pincode": null,
+   "lat": 12.35,
+   "lon": 76.61,
+   "location_precision": "city",
+   "service_areas": [
+    "Hebbal Industrial Area, Mysuru (Mysuru district, CESC Mysore area)"
+   ],
+   "services": [
+    "Commercial & industrial rooftops",
+    "On-grid systems"
+   ],
+   "years_experience": 11,
+   "certifications": [
+    "SYNTHETIC DEMO ENTRY - not a real company and not an empanelled vendor"
+   ],
+   "min_kwp": 5,
+   "max_kwp": 150,
+   "last_verified": "synthetic",
+   "synthetic": true,
+   "source": {
+    "name": "SolarScope synthetic demo data for the project (not a real vendor)",
+    "url": null,
+    "retrieved": "2026-10-11"
+   }
+  },
+  {
+   "id": "demo-ka-mysuru-04",
+   "company_name": "Kaveri Rooftop Power (Demo)",
+   "contact_person": null,
+   "phone": null,
+   "email": "demo-ka-mysuru-04@example.com",
+   "website": null,
+   "address": null,
+   "city": "Mysuru",
+   "state": "Karnataka",
+   "pincode": null,
+   "lat": 12.302,
+   "lon": 76.665,
+   "location_precision": "city",
+   "service_areas": [
+    "Nazarbad, Mysuru (Mysuru district, CESC Mysore area)"
+   ],
+   "services": [
+    "Rooftop solar (residential)",
+    "Hybrid systems with battery"
+   ],
+   "years_experience": 4,
+   "certifications": [
+    "SYNTHETIC DEMO ENTRY - not a real company and not an empanelled vendor"
+   ],
+   "min_kwp": 1,
+   "max_kwp": 8,
+   "last_verified": "synthetic",
+   "synthetic": true,
+   "source": {
+    "name": "SolarScope synthetic demo data for the project (not a real vendor)",
+    "url": null,
+    "retrieved": "2026-10-11"
+   }
+  },
+  {
+   "id": "demo-ka-hassan-01",
+   "company_name": "Hoysala Solar Systems (Demo)",
+   "contact_person": null,
+   "phone": null,
+   "email": "demo-ka-hassan-01@example.com",
+   "website": null,
+   "address": null,
+   "city": "Hassan",
+   "state": "Karnataka",
+   "pincode": null,
+   "lat": 13.007,
+   "lon": 76.096,
+   "location_precision": "city",
+   "service_areas": [
+    "Hassan town (Hassan district, CESC Mysore area)"
+   ],
+   "services": [
+    "Rooftop solar (residential)",
+    "On-grid systems",
+    "PM Surya Ghar subsidy paperwork"
+   ],
+   "years_experience": 7,
+   "certifications": [
+    "SYNTHETIC DEMO ENTRY - not a real company and not an empanelled vendor"
+   ],
+   "min_kwp": 1,
+   "max_kwp": 15,
+   "last_verified": "synthetic",
+   "synthetic": true,
+   "source": {
+    "name": "SolarScope synthetic demo data for the project (not a real vendor)",
+    "url": null,
+    "retrieved": "2026-10-11"
+   }
+  },
+  {
+   "id": "demo-ka-hassan-02",
+   "company_name": "Malnad Sun Power (Demo)",
+   "contact_person": null,
+   "phone": null,
+   "email": "demo-ka-hassan-02@example.com",
+   "website": null,
+   "address": null,
+   "city": "Hassan",
+   "state": "Karnataka",
+   "pincode": null,
+   "lat": 12.904,
+   "lon": 76.388,
+   "location_precision": "city",
+   "service_areas": [
+    "Channarayapatna (Hassan district, CESC Mysore area)"
+   ],
+   "services": [
+    "Rooftop solar (residential)",
+    "Farm & pump-house rooftops"
+   ],
+   "years_experience": 5,
+   "certifications": [
+    "SYNTHETIC DEMO ENTRY - not a real company and not an empanelled vendor"
+   ],
+   "min_kwp": 1,
+   "max_kwp": 10,
+   "last_verified": "synthetic",
+   "synthetic": true,
+   "source": {
+    "name": "SolarScope synthetic demo data for the project (not a real vendor)",
+    "url": null,
+    "retrieved": "2026-10-11"
+   }
+  },
+  {
+   "id": "demo-ka-hassan-03",
+   "company_name": "Yagachi Solar Installers (Demo)",
+   "contact_person": null,
+   "phone": null,
+   "email": "demo-ka-hassan-03@example.com",
+   "website": null,
+   "address": null,
+   "city": "Hassan",
+   "state": "Karnataka",
+   "pincode": null,
+   "lat": 13.314,
+   "lon": 76.257,
+   "location_precision": "city",
+   "service_areas": [
+    "Arsikere (Hassan district, CESC Mysore area)"
+   ],
+   "services": [
+    "Small rooftop systems (1-5 kWp)",
+    "Panel cleaning & maintenance"
+   ],
+   "years_experience": 4,
+   "certifications": [
+    "SYNTHETIC DEMO ENTRY - not a real company and not an empanelled vendor"
+   ],
+   "min_kwp": 1,
+   "max_kwp": 6,
+   "last_verified": "synthetic",
+   "synthetic": true,
+   "source": {
+    "name": "SolarScope synthetic demo data for the project (not a real vendor)",
+    "url": null,
+    "retrieved": "2026-10-11"
+   }
+  },
+  {
+   "id": "demo-ka-hassan-04",
+   "company_name": "Shettihalli Energy Works (Demo)",
+   "contact_person": null,
+   "phone": null,
+   "email": "demo-ka-hassan-04@example.com",
+   "website": null,
+   "address": null,
+   "city": "Hassan",
+   "state": "Karnataka",
+   "pincode": null,
+   "lat": 12.785,
+   "lon": 76.243,
+   "location_precision": "city",
+   "service_areas": [
+    "Holenarasipura (Hassan district, CESC Mysore area)"
+   ],
+   "services": [
+    "Rooftop solar (residential & commercial)",
+    "Hybrid systems with battery"
+   ],
+   "years_experience": 10,
+   "certifications": [
+    "SYNTHETIC DEMO ENTRY - not a real company and not an empanelled vendor"
+   ],
+   "min_kwp": 2,
+   "max_kwp": 50,
+   "last_verified": "synthetic",
+   "synthetic": true,
+   "source": {
+    "name": "SolarScope synthetic demo data for the project (not a real vendor)",
+    "url": null,
+    "retrieved": "2026-10-11"
+   }
+  },
+  {
+   "id": "demo-ka-mandya-01",
+   "company_name": "Sugar City Solar (Demo)",
+   "contact_person": null,
+   "phone": null,
+   "email": "demo-ka-mandya-01@example.com",
+   "website": null,
+   "address": null,
+   "city": "Mandya",
+   "state": "Karnataka",
+   "pincode": null,
+   "lat": 12.524,
+   "lon": 76.895,
+   "location_precision": "city",
+   "service_areas": [
+    "Mandya town (Mandya district, CESC Mysore area)"
+   ],
+   "services": [
+    "Rooftop solar (residential)",
+    "On-grid systems",
+    "PM Surya Ghar subsidy paperwork"
+   ],
+   "years_experience": 8,
+   "certifications": [
+    "SYNTHETIC DEMO ENTRY - not a real company and not an empanelled vendor"
+   ],
+   "min_kwp": 1,
+   "max_kwp": 20,
+   "last_verified": "synthetic",
+   "synthetic": true,
+   "source": {
+    "name": "SolarScope synthetic demo data for the project (not a real vendor)",
+    "url": null,
+    "retrieved": "2026-10-11"
+   }
+  },
+  {
+   "id": "demo-ka-mandya-02",
+   "company_name": "Mandya Surya Power (Demo)",
+   "contact_person": null,
+   "phone": null,
+   "email": "demo-ka-mandya-02@example.com",
+   "website": null,
+   "address": null,
+   "city": "Mandya",
+   "state": "Karnataka",
+   "pincode": null,
+   "lat": 12.584,
+   "lon": 77.044,
+   "location_precision": "city",
+   "service_areas": [
+    "Maddur (Mandya district, CESC Mysore area)"
+   ],
+   "services": [
+    "Rooftop solar (residential)",
+    "Farm & pump-house rooftops"
+   ],
+   "years_experience": 5,
+   "certifications": [
+    "SYNTHETIC DEMO ENTRY - not a real company and not an empanelled vendor"
+   ],
+   "min_kwp": 1,
+   "max_kwp": 10,
+   "last_verified": "synthetic",
+   "synthetic": true,
+   "source": {
+    "name": "SolarScope synthetic demo data for the project (not a real vendor)",
+    "url": null,
+    "retrieved": "2026-10-11"
+   }
+  },
+  {
+   "id": "demo-ka-mandya-03",
+   "company_name": "KRS Rooftop Energy (Demo)",
+   "contact_person": null,
+   "phone": null,
+   "email": "demo-ka-mandya-03@example.com",
+   "website": null,
+   "address": null,
+   "city": "Mandya",
+   "state": "Karnataka",
+   "pincode": null,
+   "lat": 12.414,
+   "lon": 76.704,
+   "location_precision": "city",
+   "service_areas": [
+    "Srirangapatna (Mandya district, CESC Mysore area)"
+   ],
+   "services": [
+    "Rooftop solar (residential)",
+    "Hybrid systems with battery"
+   ],
+   "years_experience": 6,
+   "certifications": [
+    "SYNTHETIC DEMO ENTRY - not a real company and not an empanelled vendor"
+   ],
+   "min_kwp": 1,
+   "max_kwp": 8,
+   "last_verified": "synthetic",
+   "synthetic": true,
+   "source": {
+    "name": "SolarScope synthetic demo data for the project (not a real vendor)",
+    "url": null,
+    "retrieved": "2026-10-11"
+   }
+  },
+  {
+   "id": "demo-ka-mandya-04",
+   "company_name": "Shimsha Solar Solutions (Demo)",
+   "contact_person": null,
+   "phone": null,
+   "email": "demo-ka-mandya-04@example.com",
+   "website": null,
+   "address": null,
+   "city": "Mandya",
+   "state": "Karnataka",
+   "pincode": null,
+   "lat": 12.385,
+   "lon": 77.061,
+   "location_precision": "city",
+   "service_areas": [
+    "Malavalli (Mandya district, CESC Mysore area)"
+   ],
+   "services": [
+    "Small rooftop systems (1-5 kWp)",
+    "Panel cleaning & maintenance"
+   ],
+   "years_experience": 3,
+   "certifications": [
+    "SYNTHETIC DEMO ENTRY - not a real company and not an empanelled vendor"
+   ],
+   "min_kwp": 1,
+   "max_kwp": 5,
+   "last_verified": "synthetic",
+   "synthetic": true,
+   "source": {
+    "name": "SolarScope synthetic demo data for the project (not a real vendor)",
+    "url": null,
+    "retrieved": "2026-10-11"
    }
   }
  ]

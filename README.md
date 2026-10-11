@@ -31,6 +31,26 @@ Built for Environmental Hacks (WeMakeDevs x AWS), track: Waste and Energy (Rooft
 5. **Economics** (`backend/solar_calc.py`): irradiance from NASA POWER for the site → yield → savings,
    tiered PM Surya Ghar subsidy with cap → payback → CO₂.
 
+## Photos: type the real roof size
+
+A photo has no fixed scale (and a phone photo is taken at an angle), so on the Image page the user types the roof's real
+**length and width** (step 2, Roof size). The marked roof's 4 corners are found and mapped onto a length x width
+rectangle with a perspective transform (`geometry.to_metric`), which removes both the camera angle and the near-far
+shrinking; panels are then laid out on that to-scale plan exactly like a phone scan, drawn back onto the photo, and shown
+on a to-scale plan in the report. After the first report every obstruction is listed with its drawn size, and typing its
+real size replaces the drawing. Roofs (and obstructions) need not be rectangles: choose **4 different sides** and type top / right / bottom / left as seen in the photo (`roof_sides_m`); four sides allow several shapes, so an optional top-left to bottom-right diagonal (`roof_diagonal_m`) makes it exact, otherwise the most regular (largest-area, corners on a circle) shape is used, which is the rectangle when opposite sides are equal. The old metres-per-pixel scale (drone / satellite images, calibration, AR wall
+measurement) is under "Drone or satellite image". API: `roof_length_m`, `roof_width_m`, `obstruction_sizes` on
+`POST /report`; the response then has a `plan` with the to-scale mask, the panels on the photo and the obstruction sizes.
+
+## Help chat
+
+Every page has a **Help** button (bottom right) that opens a chat about using SolarScope: the AR scan, obstructions,
+location, settings, panel sizes, the report, downloads, history and installers. Answers come from a built-in guide
+(`backend/help_kb.py`): offline, free and instant, tolerant of typos, with suggested follow-up questions. If the server
+has Claude API credentials (`ANTHROPIC_API_KEY`), questions are answered by Claude (`claude-opus-5-5`) grounded in the
+same guide, so free-form and follow-up questions work too; any API error falls back to the guide. `SOLARSCOPE_CHAT_AI=0`
+turns the AI off. API: `POST /api/chat {"message", "page", "history"}`, `GET /api/chat/starters?page=`.
+
 ## Find solar installers near me
 
 After the report is computed on either page, **📍 Find solar installers near me** (below the report) opens
@@ -227,7 +247,7 @@ with their source and a verified flag. Checked on 2026-10-08.
 | Installed cost | ₹50,000/kWp | MNRE PM Surya Ghar benchmark, general category states, [pv magazine India](https://www.pv-magazine-india.com/2024/04/17/mnre-releases-draft-guidelines-for-residential-rooftop-solar-subsidy-scheme/) | ✅ (benchmark, not a quote) |
 | Subsidy | ₹30,000/kW for 2 kW + ₹18,000 for the 3rd kW, cap ₹78,000 | [PM Surya Ghar Cabinet approval](https://www.pmindia.gov.in/?p=16395970) (₹30k / 60k / 78k for 1 / 2 / 3+ kW) | ✅ |
 | Grid emission factor | 0.675 kgCO₂/kWh | [CEA CO₂ Baseline Database v22.0](https://cea.nic.in/wp-content/uploads/baseline/2026/09/User_Guide__Version_22.0.pdf) (Aug 2026), Table 4, FY 2025-26 | ✅ |
-| Panel | 2.272 × 1.133 m, 540 Wp | Waaree 540 Wp mono PERC, retailer listings | ⚠️ confirm with datasheet |
+| Panel | 1.70 × 1.00 m, 350 Wp | Typical residential 60-cell module (1.65-1.70 × 1.0 m, 300-450 Wp); editable in Layout settings | ⚠️ confirm with datasheet |
 | Performance ratio | 0.75 | typical rooftop value | ⚠️ placeholder |
 
 Simplifications: flush/low-tilt mounting (no inter-row shading spacing), no degradation or tariff escalation,
