@@ -11,8 +11,10 @@ APP_DIR=/opt/solarscope
 APP_USER=solarscope
 CONF=/etc/solarscope.conf
 
-[ -f "$CONF" ] && . "$CONF"
-MODEL_S3_PREFIX="${MODEL_S3_PREFIX:-}"
+# A prefix passed on the command line wins over the saved one, so a mistyped first run can be corrected.
+SAVED_PREFIX=""
+[ -f "$CONF" ] && SAVED_PREFIX=$(unset MODEL_S3_PREFIX; . "$CONF"; echo "${MODEL_S3_PREFIX:-}")
+MODEL_S3_PREFIX="${MODEL_S3_PREFIX:-$SAVED_PREFIX}"
 [ -n "$MODEL_S3_PREFIX" ] && echo "MODEL_S3_PREFIX=$MODEL_S3_PREFIX" > "$CONF"
 
 echo "== packages"
