@@ -959,14 +959,14 @@ async function init() {
   }
 
   try {
-    const samples = await (await fetch("samples/samples.json")).json();
+    const samples = await (await fetch("/samples/samples.json")).json();
     const box = $("#samples");
     for (const s of samples) {
       const b = document.createElement("button");
       b.title = s.title;
-      b.innerHTML = `<img src="samples/${s.file}" alt="${s.title}">`;
+      b.innerHTML = `<img src="/samples/${s.file}" alt="${s.title}">`;
       b.addEventListener("click", async () => {
-        const blob = await (await fetch(`samples/${s.file}`)).blob();
+        const blob = await (await fetch(`/samples/${s.file}`)).blob();
         await loadImage(blob, { gsd: s.gsd_m, lat: s.lat, lon: s.lon });
       });
       box.appendChild(b);

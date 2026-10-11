@@ -390,7 +390,7 @@ function loadProject() {
   try { return JSON.parse(sessionStorage.getItem(PROJECT_KEY)); } catch (_) { return null; }
 }
 
-$("#installerBtn")?.addEventListener("click", () => { location.href = "/installers.html"; });
+$("#installerBtn")?.addEventListener("click", () => { location.href = "/solarscope/installers"; });
 
 // ---------- step progress (image & scan pages) ----------
 // Each <li data-step> in #steps is done or not; the first one not done is the current step. Location is read

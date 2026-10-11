@@ -42,7 +42,38 @@ def test_frontend_served():
     assert "SolarScope" in r.text
 
 
-@pytest.mark.parametrize("page", ["/", "/image.html", "/scan.html", "/installers.html"])
+@pytest.mark.parametrize("path,title", [
+    ("/solarscope", "SolarScope"), ("/solarscope/", "SolarScope"),
+    ("/solarscope/image", "Image"), ("/solarscope/scan", "scan"), ("/solarscope/installers", "nstallers"),
+])
+def test_clean_page_addresses(path, title):
+    r = client.get(path, follow_redirects=False)
+    assert r.status_code == 200 and title in r.text
+    assert r.headers.get("cache-control") == "no-cache"
+
+
+@pytest.mark.parametrize("old,new", [
+    ("/", "/solarscope"), ("/index.html", "/solarscope"), ("/image.html", "/solarscope/image"),
+    ("/scan.html", "/solarscope/scan"), ("/installers.html", "/solarscope/installers"),
+])
+def test_old_addresses_redirect(old, new):
+    r = client.get(old, follow_redirects=False)
+    assert r.status_code in (301, 302, 307, 308) and r.headers["location"] == new
+
+
+def test_unknown_page_is_404():
+    assert client.get("/solarscope/nope").status_code == 404
+
+
+def test_pages_link_only_to_clean_addresses():
+    for page in ("/solarscope", "/solarscope/image", "/solarscope/scan", "/solarscope/installers"):
+        html = client.get(page).text
+        assert not re.search(r'href="/[a-z]+\.html"', html), page
+        for href in re.findall(r'href="(/solarscope[^"#]*)"', html):
+            assert client.get(href, follow_redirects=False).status_code == 200, f"{page} -> {href}"
+
+
+@pytest.mark.parametrize("page", ["/solarscope", "/solarscope/image", "/solarscope/scan", "/solarscope/installers"])
 def test_page_assets_exist(page):
     """Every local script and stylesheet a page links to is served (catches broken paths after moves)."""
     html = client.get(page).text
@@ -169,6 +200,6 @@ def test_predict_rejects_non_image(monkeypatch):
 
 def test_pages_and_scripts_are_revalidated():
     # Phones must not keep running cached old scripts after an update (e.g. the "start on Home" rule).
-    for path in ("/", "/scan.html", "/js/theme.js", "/css/styles.css"):
+    for path in ("/solarscope", "/solarscope/scan", "/js/theme.js", "/css/styles.css"):
         assert client.get(path).headers.get("cache-control") == "no-cache", path
     assert "no-cache" not in (client.get("/config").headers.get("cache-control") or "")

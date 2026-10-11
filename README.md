@@ -14,8 +14,8 @@ Built for Environmental Hacks (WeMakeDevs x AWS), track: Waste and Energy (Rooft
 
 | Page | For | Flow |
 |---|---|---|
-| **Image** (`/image.html`) | Anyone with a top-down drone/aerial photo | Upload → AI detects roof + obstructions → brush fixes → scale (type, draw a known length, or measure a wall with AR) → panels → report |
-| **Phone scan** (`/scan.html`) | Anyone with an ARCore Android phone (or a tape) | Tap each roof corner with the camera (WebXR) → live area → tap around tanks/stair rooms → **digital roof plan drawn to scale** → panels placed on it → report. Without AR: type length × width and add obstructions, drag them into place |
+| **Image** (`/solarscope/image`) | Anyone with a top-down drone/aerial photo | Upload → AI detects roof + obstructions → brush fixes → scale (type, draw a known length, or measure a wall with AR) → panels → report |
+| **Phone scan** (`/solarscope/scan`) | Anyone with an ARCore Android phone (or a tape) | Tap each roof corner with the camera (WebXR) → live area → tap around tanks/stair rooms → **digital roof plan drawn to scale** → panels placed on it → report. Without AR: type length × width and add obstructions, drag them into place |
 
 ## How it works
 
@@ -54,7 +54,7 @@ turns the AI off. API: `POST /api/chat {"message", "page", "history"}`, `GET /ap
 ## Find solar installers near me
 
 After the report is computed on either page, **📍 Find solar installers near me** (below the report) opens
-`/installers.html`:
+`/solarscope/installers`:
 
 - **Project summary**: panels, kWp, estimated system cost and cost after subsidy.
 - **Nearest installers first**: uses the latitude/longitude from the report, or **Use my current location**

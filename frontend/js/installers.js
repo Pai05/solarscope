@@ -17,7 +17,7 @@ const round2 = (v) => Math.round(v * 100) / 100;
 
 function showSummary() {
   const back = $("#backLink");
-  if (project?.from === "/image.html" || project?.from === "/scan.html") back.href = project.from;
+  if (project?.from === "/solarscope/image" || project?.from === "/solarscope/scan") back.href = project.from;
   // Return to the report as it was (bfcache) when we came straight from it; otherwise open that page.
   back.addEventListener("click", (e) => {
     if (document.referrer && new URL(document.referrer).pathname === new URL(back.href).pathname) {

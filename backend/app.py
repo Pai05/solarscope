@@ -12,6 +12,7 @@ import numpy as np
 from fastapi import FastAPI, File, Form, HTTPException, Query, Request, UploadFile
 from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.gzip import GZipMiddleware
+from fastapi.responses import FileResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from PIL import Image, ImageOps, UnidentifiedImageError
 
@@ -20,6 +21,9 @@ from backend.model import MODEL_GSD, Segmenter
 from backend.schemas import MAX_SIDE, PANEL_DEFAULTS, ChatRequest, ReportRequest
 
 FRONTEND = Path(__file__).resolve().parent.parent / "frontend"
+# Page addresses: /solarscope (home), /solarscope/image, /solarscope/scan, /solarscope/installers.
+BASE = "/solarscope"
+PAGES = {"image": "image.html", "scan": "scan.html", "installers": "installers.html"}
 MAX_UPLOAD_BYTES = 15 * 1024 * 1024
 
 logging.basicConfig(level=logging.INFO)
@@ -33,7 +37,7 @@ async def revalidate_pages(request: Request, call_next):
     unchanged). Without this, phones keep running cached old scripts long after an update."""
     response = await call_next(request)
     path = request.url.path
-    if path == "/" or path.endswith((".html", ".js", ".css")):
+    if path == "/" or path == BASE or path.startswith(BASE + "/") or path.endswith((".html", ".js", ".css")):
         response.headers["Cache-Control"] = "no-cache"
     return response
 segmenter = Segmenter()
@@ -325,7 +329,6 @@ def list_locations() -> dict:
         raise HTTPException(503, "Location list is not available right now.")
 
 
-# Mounted last so API routes take precedence.
 @app.post("/api/chat")
 async def chat_endpoint(req: ChatRequest) -> dict:
     """Help assistant: answers questions about using SolarScope (see backend/chat.py)."""
@@ -338,4 +341,33 @@ def chat_starters(page: str | None = Query(None, max_length=20)) -> dict:
     return {"questions": help_kb.starter_questions(page), "ai": chat.ai_enabled()}
 
 
+@app.get("/", include_in_schema=False)
+@app.get("/index.html", include_in_schema=False)
+def root_redirect() -> RedirectResponse:
+    return RedirectResponse(BASE)
+
+
+@app.get(BASE, include_in_schema=False)
+@app.get(BASE + "/", include_in_schema=False)
+def home_page() -> FileResponse:
+    return FileResponse(FRONTEND / "index.html")
+
+
+@app.get(BASE + "/{page}", include_in_schema=False)
+def app_page(page: str) -> FileResponse:
+    if page not in PAGES:
+        raise HTTPException(status_code=404, detail="Not Found")
+    return FileResponse(FRONTEND / PAGES[page])
+
+
+def _old_page_redirect(page: str):
+    """Old links like /scan.html keep working."""
+    return lambda: RedirectResponse(f"{BASE}/{page}")
+
+
+for _page, _file in PAGES.items():
+    app.add_api_route("/" + _file, _old_page_redirect(_page), include_in_schema=False)
+
+
+# Mounted last so API routes take precedence.
 app.mount("/", StaticFiles(directory=FRONTEND, html=True), name="frontend")

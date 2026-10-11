@@ -7,8 +7,8 @@
   if (!/^https?:$/.test(location.protocol)) return;
   var AWAY_MS = 10 * 60 * 1000;
   var KEY = "solarscope.hiddenAt";
-  var home = location.pathname === "/" || /\/index\.html$/.test(location.pathname);
-  var goHome = function () { location.replace("/"); };  // replace: Back does not return to the left page
+  var home = /^\/(solarscope\/?)?$/.test(location.pathname);
+  var goHome = function () { location.replace("/solarscope"); };  // replace: Back does not return to the left page
   var get = function () { try { return Number(sessionStorage.getItem(KEY)) || 0; } catch (e) { return 0; } };
   var set = function (v) { try { if (v) sessionStorage.setItem(KEY, String(v)); else sessionStorage.removeItem(KEY); } catch (e) { /* blocked */ } };
   var awayTooLong = function () { var t = get(); return t > 0 && Date.now() - t > AWAY_MS; };
