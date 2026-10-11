@@ -38,7 +38,8 @@ fi
 echo "== app user and code"
 id -u "$APP_USER" >/dev/null 2>&1 || useradd --system --create-home --shell /usr/sbin/nologin "$APP_USER"
 if [ -d "$APP_DIR/.git" ]; then
-  git -C "$APP_DIR" pull --ff-only
+  # The checkout belongs to $APP_USER; without safe.directory, git run as root refuses it ("dubious ownership").
+  git -c safe.directory="$APP_DIR" -C "$APP_DIR" pull --ff-only
 else
   git clone "$REPO_URL" "$APP_DIR"
 fi
